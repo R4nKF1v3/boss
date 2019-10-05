@@ -7,3 +7,7 @@
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 1 )
 format = 1
+
+[node name="Props" type="Node2D" parent="."]
+
+[node name="Spawns" type="Node2D" parent="."]
