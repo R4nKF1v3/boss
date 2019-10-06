@@ -13,7 +13,7 @@ resource_name = "idle"
 [sub_resource type="Animation" id=2]
 resource_name = "move"
 
-[node name="Player" index="0" instance=ExtResource( 1 )]
+[node name="Player" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 
 [node name="StateMachine" parent="." index="0"]

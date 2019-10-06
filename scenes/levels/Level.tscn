@@ -11,3 +11,5 @@ format = 1
 [node name="Props" type="Node2D" parent="."]
 
 [node name="Spawns" type="Node2D" parent="."]
+
+[node name="Notes" type="Node2D" parent="."]
