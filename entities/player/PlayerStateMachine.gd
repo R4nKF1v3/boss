@@ -3,7 +3,8 @@ extends "res://entities/state_machine.gd"
 func _ready():
 	states_map = {
 		"idle": $Idle,
-		"move": $Move,
+		"walk": $Walk,
+		"run": $Run,
 	}
 	START_STATE = $Idle
 

@@ -1,7 +1,6 @@
 extends "res://entities/player/states/motion/Motion.gd"
 
-export(float) var MAX_WALK_SPEED = 200
-export(float) var MAX_RUN_SPEED = 400
+export(float) var SPEED
 
 func enter():
 	speed = 0.0
@@ -15,17 +14,18 @@ func handle_input(event):
 	return .handle_input(event)
 
 func update(delta):
-	var input_direction = get_input_direction()
-	if not input_direction:
-		emit_signal("finished", "idle")
+	var input_direction = check_state_conditions()
 	update_look_direction(input_direction)
 
-	speed = MAX_RUN_SPEED if Input.is_action_pressed("run") else MAX_WALK_SPEED
+	speed = SPEED
 	var collision_info = move(speed, input_direction)
 	if not collision_info:
 		return
-	if speed == MAX_RUN_SPEED and collision_info.collider.is_in_group("environment"):
-		return null
+#	if speed == MAX_RUN_SPEED and collision_info.collider.is_in_group("environment"):
+#		return null
+
+func check_state_conditions():
+	return null
 
 func move(speed, direction):
 	velocity = direction.normalized() * speed
