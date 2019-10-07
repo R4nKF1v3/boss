@@ -19,14 +19,63 @@ position = Vector2( 606.996, 672.44 )
 texture = ExtResource( 2 )
 
 [node name="Light2D" type="Light2D" parent="Props" index="1"]
-position = Vector2( 551.354, 747.169 )
+position = Vector2( 404.189, 864.902 )
 scale = Vector2( 0.388022, 0.388022 )
 texture = ExtResource( 3 )
 color = Color( 0.498039, 0.729412, 1, 1 )
 shadow_enabled = true
 
 [node name="Light2D2" type="Light2D" parent="Props" index="2"]
-position = Vector2( 607.059, 393.752 )
+position = Vector2( 396.822, 381.138 )
+scale = Vector2( 0.388022, 0.388022 )
+texture = ExtResource( 3 )
+color = Color( 0.498039, 0.729412, 1, 1 )
+shadow_enabled = true
+
+[node name="Light2D8" type="Light2D" parent="Props" index="3"]
+position = Vector2( 628.637, 170.959 )
+scale = Vector2( 0.388022, 0.388022 )
+texture = ExtResource( 3 )
+color = Color( 0.498039, 0.729412, 1, 1 )
+shadow_enabled = true
+
+[node name="Light2D9" type="Light2D" parent="Props" index="4"]
+position = Vector2( 511.184, -150.491 )
+scale = Vector2( 0.388022, 0.388022 )
+texture = ExtResource( 3 )
+color = Color( 0.498039, 0.729412, 1, 1 )
+shadow_enabled = true
+
+[node name="Light2D3" type="Light2D" parent="Props" index="5"]
+position = Vector2( 414.754, 113.637 )
+scale = Vector2( 0.388022, 0.388022 )
+texture = ExtResource( 3 )
+color = Color( 0.498039, 0.729412, 1, 1 )
+shadow_enabled = true
+
+[node name="Light2D4" type="Light2D" parent="Props" index="6"]
+position = Vector2( 718.234, 13.1601 )
+scale = Vector2( 0.388022, 0.388022 )
+texture = ExtResource( 3 )
+color = Color( 0.498039, 0.729412, 1, 1 )
+shadow_enabled = true
+
+[node name="Light2D5" type="Light2D" parent="Props" index="7"]
+position = Vector2( 964.687, 712.768 )
+scale = Vector2( 0.388022, 0.388022 )
+texture = ExtResource( 3 )
+color = Color( 0.498039, 0.729412, 1, 1 )
+shadow_enabled = true
+
+[node name="Light2D6" type="Light2D" parent="Props" index="8"]
+position = Vector2( 845.436, 980.421 )
+scale = Vector2( 0.388022, 0.388022 )
+texture = ExtResource( 3 )
+color = Color( 0.498039, 0.729412, 1, 1 )
+shadow_enabled = true
+
+[node name="Light2D7" type="Light2D" parent="Props" index="9"]
+position = Vector2( 807.593, 669.271 )
 scale = Vector2( 0.388022, 0.388022 )
 texture = ExtResource( 3 )
 color = Color( 0.498039, 0.729412, 1, 1 )
