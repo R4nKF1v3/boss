@@ -4,8 +4,9 @@ var speed = 0.0
 var velocity = Vector2()
 
 func handle_input(event):
-	if event.is_action_pressed("simulate_damage"):
-		emit_signal("finished", "stagger")
+#	if event.is_action_pressed("simulate_damage"):
+#		emit_signal("finished", "stagger")
+	pass
 
 func get_input_direction():
 	var input_direction = Vector2()
