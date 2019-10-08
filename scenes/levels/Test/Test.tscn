@@ -8,7 +8,7 @@
 [ext_resource path="res://resources/placeholders/spawns/PlayerSpawn.tscn" type="PackedScene" id=6]
 
 [sub_resource type="CanvasItemMaterial" id=1]
-blend_mode = 1
+light_mode = 2
 
 [sub_resource type="CanvasItemMaterial" id=2]
 light_mode = 2
@@ -50,6 +50,13 @@ material = SubResource( 2 )
 position = Vector2( 467.716, 301.189 )
 scale = Vector2( 0.358338, 0.358338 )
 texture = ExtResource( 3 )
+
+[node name="Light2D" type="Light2D" parent="Props" index="5"]
+visible = false
+position = Vector2( 722.127, 633.835 )
+scale = Vector2( 0.294645, 0.291467 )
+texture = ExtResource( 3 )
+shadow_enabled = true
 
 [node name="PlayerContainer" parent="Spawns" index="0" instance=ExtResource( 4 )]
 position = Vector2( 513.267, 256.634 )

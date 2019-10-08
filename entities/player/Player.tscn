@@ -41,7 +41,6 @@ shape = SubResource( 4 )
 [node name="FOV" type="Light2D" parent="." index="3"]
 rotation = 1.5708
 texture = ExtResource( 7 )
-energy = 4.0
 mode = 2
 range_item_cull_mask = 3
 shadow_enabled = true

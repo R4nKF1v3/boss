@@ -14,7 +14,7 @@ func _physics_process(delta):
 		_update_target(player.look_direction * (POINTER_LIMIT * 0.7))
 		weight = 0.05
 	else:
-		weight = 0.03
+		weight = 0.04
 	position = player.position
 	camera_offset.position = lerp(camera_offset.position, target, weight)
 

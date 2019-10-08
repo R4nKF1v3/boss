@@ -33,7 +33,6 @@ tile_set = ExtResource( 1 )
 format = 1
 
 [node name="Props" type="Node2D" parent="."]
-use_parent_material = true
 
 [node name="Spawns" type="Node2D" parent="."]
 
