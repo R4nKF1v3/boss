@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://entities/Actor.tscn" type="PackedScene" id=1]
 [ext_resource path="res://entities/player/PlayerController.gd" type="Script" id=2]
@@ -6,16 +6,15 @@
 [ext_resource path="res://entities/player/states/motion/Idle.gd" type="Script" id=4]
 [ext_resource path="res://entities/player/states/motion/Walk.gd" type="Script" id=5]
 [ext_resource path="res://entities/player/states/motion/Run.gd" type="Script" id=6]
-[ext_resource path="res://entities/player/CameraPointer.gd" type="Script" id=7]
-[ext_resource path="res://entities/player/Trunk.gd" type="Script" id=8]
-[ext_resource path="res://entities/player/player_torso.png" type="Texture" id=9]
-[ext_resource path="res://entities/player/fov-01.png" type="Texture" id=10]
-
-[sub_resource type="Animation" id=1]
-resource_name = "idle"
+[ext_resource path="res://entities/player/fov-01.png" type="Texture" id=7]
+[ext_resource path="res://entities/player/player_torso.png" type="Texture" id=8]
 
 [sub_resource type="Animation" id=2]
-resource_name = "walk"
+
+[sub_resource type="Animation" id=3]
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 12.2896, 22.1299 )
 
 [node name="Player" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
@@ -32,32 +31,22 @@ script = ExtResource( 5 )
 [node name="Run" type="Node" parent="StateMachine" index="2"]
 script = ExtResource( 6 )
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2"]
-anims/idle = SubResource( 1 )
-anims/walk = SubResource( 2 )
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1"]
+anims/idle = SubResource( 2 )
+anims/walk = SubResource( 3 )
 
-[node name="CameraPointer" type="Position2D" parent="." index="3"]
-script = ExtResource( 7 )
+[node name="CollisionShape2D" parent="." index="2"]
+shape = SubResource( 4 )
 
-[node name="Camera2D" type="Camera2D" parent="CameraPointer" index="0"]
-current = true
-drag_margin_left = 0.0
-drag_margin_top = 0.0
-drag_margin_right = 0.0
-drag_margin_bottom = 0.0
-
-[node name="Trunk" type="Node2D" parent="." index="4"]
-script = ExtResource( 8 )
-
-[node name="Trunk" type="Sprite" parent="Trunk" index="0"]
+[node name="FOV" type="Light2D" parent="." index="3"]
 rotation = 1.5708
-scale = Vector2( 0.199, 0.199 )
-texture = ExtResource( 9 )
-
-[node name="FOV" type="Light2D" parent="Trunk" index="1"]
-rotation = 1.5708
-texture = ExtResource( 10 )
-color = Color( 0.960784, 0.960784, 0.886275, 1 )
-energy = 0.25
+texture = ExtResource( 7 )
+energy = 4.0
+mode = 2
 range_item_cull_mask = 3
 shadow_enabled = true
+
+[node name="Trunk" type="Sprite" parent="." index="4"]
+rotation = 1.5708
+scale = Vector2( 0.199, 0.199 )
+texture = ExtResource( 8 )

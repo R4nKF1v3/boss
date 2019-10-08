@@ -8,7 +8,6 @@ func enter():
 
 	var input_direction = get_input_direction()
 	update_look_direction(input_direction)
-	owner.get_node("AnimationPlayer").play("walk")
 
 func handle_input(event):
 	return .handle_input(event)

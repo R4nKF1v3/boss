@@ -6,6 +6,7 @@
 [node name="PlayerSpawn" instance=ExtResource( 1 )]
 
 [node name="Sprite" parent="." index="0"]
+use_parent_material = true
 scale = Vector2( 0.125, 0.125 )
 texture = ExtResource( 2 )
 

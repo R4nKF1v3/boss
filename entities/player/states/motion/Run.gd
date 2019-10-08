@@ -1,16 +1,15 @@
 extends "res://entities/player/states/motion/Move.gd"
 
-onready var camera_pointer = owner.get_node("CameraPointer")
-
 func _ready():
 	SPEED = 400
 
 func enter():
-	camera_pointer.input_enabled = false
+	owner.camera_pointer.input_enabled = false
 	.enter()
+	owner.get_node("AnimationPlayer").play("run")
 
 func exit():
-	camera_pointer.input_enabled = true
+	owner.camera_pointer.input_enabled = true
 	.exit()
 
 func check_state_conditions():

@@ -1,8 +1,11 @@
 extends KinematicBody2D
 
-signal direction_changed(new_direction)
+var look_direction = Vector2(1, 0)
 
-var look_direction = Vector2(1, 0) setget set_look_direction
+onready var camera_pointer = get_parent().get_node("CameraPointer")
+
+func _physics_process(delta):
+	look_at(camera_pointer.camera_offset.global_position)
 
 func take_damage(attacker, amount, effect=null):
 	"""
@@ -20,7 +23,3 @@ func set_dead(value):
 	set_process_input(not value)
 	set_physics_process(not value)
 	$CollisionPolygon2D.disabled = value
-
-func set_look_direction(value):
-	look_direction = value
-	emit_signal("direction_changed", value)
