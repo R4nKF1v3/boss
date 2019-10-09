@@ -1,7 +1,7 @@
 extends "res://entities/player/states/motion/Move.gd"
 
-func _ready():
-	SPEED = 400
+#func _ready():
+#	SPEED = 400
 
 func enter():
 	owner.camera_pointer.input_enabled = false

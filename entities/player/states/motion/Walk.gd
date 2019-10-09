@@ -1,7 +1,7 @@
 extends "res://entities/player/states/motion/Move.gd"
 
-func _ready():
-	SPEED = 200
+#func _ready():
+#	SPEED = 200
 
 func enter():
 	.enter()

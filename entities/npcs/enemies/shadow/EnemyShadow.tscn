@@ -1,26 +1,53 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://entities/npcs/NPC.tscn" type="PackedScene" id=1]
 [ext_resource path="res://entities/npcs/enemies/shadow/EnemyShadow.gd" type="Script" id=2]
-[ext_resource path="res://entities/npcs/enemies/shadow/shadow.png" type="Texture" id=3]
+[ext_resource path="res://entities/npcs/enemies/shadow/ShadowStateMachine.gd" type="Script" id=3]
+[ext_resource path="res://entities/npcs/enemies/shadow/states/Idle.gd" type="Script" id=4]
+[ext_resource path="res://entities/npcs/enemies/shadow/states/Wander.gd" type="Script" id=5]
+[ext_resource path="res://entities/npcs/enemies/shadow/states/Chase.gd" type="Script" id=6]
+[ext_resource path="res://entities/npcs/enemies/shadow/shadow.png" type="Texture" id=7]
 
-[sub_resource type="CanvasItemMaterial" id=2]
-light_mode = 2
+[sub_resource type="CanvasItemMaterial" id=1]
 
-[sub_resource type="CircleShape2D" id=1]
+[sub_resource type="CircleShape2D" id=2]
 radius = 24.0619
+
+[sub_resource type="Animation" id=3]
+resource_name = "chase"
+
+[sub_resource type="Animation" id=4]
+resource_name = "idle"
+
+[sub_resource type="Animation" id=5]
+resource_name = "wander"
 
 [node name="EnemyShadow" instance=ExtResource( 1 )]
 light_mask = 3
-material = SubResource( 2 )
+material = SubResource( 1 )
 collision_mask = 3
 script = ExtResource( 2 )
 
 [node name="StateMachine" parent="." index="0"]
-script = null
+script = ExtResource( 3 )
+
+[node name="Idle" type="Node" parent="StateMachine" index="0"]
+script = ExtResource( 4 )
+
+[node name="BoredomTimer" type="Timer" parent="StateMachine/Idle" index="0"]
+wait_time = 5.0
+one_shot = true
+
+[node name="Wander" type="Node" parent="StateMachine" index="1"]
+script = ExtResource( 5 )
+SPEED = 100.0
+
+[node name="Chase" type="Node" parent="StateMachine" index="2"]
+script = ExtResource( 6 )
+SPEED = 100.0
 
 [node name="CollisionShape2D" parent="." index="1"]
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="Body" type="Sprite" parent="." index="2"]
 light_mask = 2
@@ -28,10 +55,16 @@ use_parent_material = true
 position = Vector2( 0.0960748, 0.200747 )
 rotation = 1.5708
 scale = Vector2( 0.0470483, 0.0470483 )
-texture = ExtResource( 3 )
+texture = ExtResource( 7 )
 
-[node name="DetectionArea" type="Area2D" parent="." index="3"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="3"]
+anims/chase = SubResource( 3 )
+anims/idle = SubResource( 4 )
+anims/wander = SubResource( 5 )
+
+[node name="DetectionArea" type="Area2D" parent="." index="4"]
 collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea" index="0"]
+[connection signal="timeout" from="StateMachine/Idle/BoredomTimer" to="StateMachine/Idle" method="_on_Timer_timeout"]
