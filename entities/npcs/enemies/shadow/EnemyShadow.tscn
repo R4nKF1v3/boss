@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://entities/npcs/NPC.tscn" type="PackedScene" id=1]
 [ext_resource path="res://entities/npcs/enemies/shadow/EnemyShadow.gd" type="Script" id=2]
@@ -7,7 +7,7 @@
 [ext_resource path="res://entities/npcs/enemies/shadow/states/Wander.gd" type="Script" id=5]
 [ext_resource path="res://entities/npcs/enemies/shadow/states/Chase.gd" type="Script" id=6]
 [ext_resource path="res://entities/npcs/enemies/shadow/shadow.png" type="Texture" id=7]
-[ext_resource path="res://entities/npcs/enemies/shadow/fxs/Smoke/0000.png" type="Texture" id=8]
+[ext_resource path="res://entities/npcs/enemies/shadow/fxs/SmokeAnim.tres" type="Texture" id=8]
 
 [sub_resource type="CanvasItemMaterial" id=1]
 
@@ -16,30 +16,128 @@ radius = 24.0619
 
 [sub_resource type="Animation" id=3]
 resource_name = "chase"
+length = 0.5
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Emmisives/Footsteps/Right:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Emmisives/Footsteps/Left:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.25, 0.35 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
 
 [sub_resource type="Animation" id=4]
 resource_name = "idle"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Emmisives/Footsteps/Right:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Emmisives/Footsteps/Left:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
 
 [sub_resource type="Animation" id=5]
 resource_name = "wander"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Emmisives/Footsteps/Right:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Emmisives/Footsteps/Left:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
 
-[sub_resource type="Gradient" id=7]
-offsets = PoolRealArray( 0.0104167, 0.479167, 0.854167, 1 )
+[sub_resource type="Curve" id=9]
+min_value = -200.0
+max_value = 200.0
+_data = [ Vector2( 0, -84.48 ), 0.0, 28.2724, 0, 0, Vector2( 1, 1 ), 3.27355, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=10]
+curve = SubResource( 9 )
+
+[sub_resource type="ParticlesMaterial" id=11]
+emission_shape = 1
+emission_sphere_radius = 1.0
+flag_disable_z = true
+spread = 180.0
+flatness = 1.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 20.0
+angular_velocity = 0.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel_curve = SubResource( 10 )
+
+[sub_resource type="Gradient" id=6]
+offsets = PoolRealArray( 0.0104167, 0.162963, 0.854167, 1 )
 colors = PoolColorArray( 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0.791667, 1, 1, 1, 0 )
 
-[sub_resource type="GradientTexture" id=8]
-gradient = SubResource( 7 )
+[sub_resource type="GradientTexture" id=7]
+gradient = SubResource( 6 )
 
-[sub_resource type="ParticlesMaterial" id=6]
+[sub_resource type="ParticlesMaterial" id=8]
 flag_disable_z = true
 spread = 0.0
 gravity = Vector3( 0, 0, 0 )
+angular_velocity = 2.33287e-38
 angular_velocity_random = 1.0
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
-color_ramp = SubResource( 8 )
+color_ramp = SubResource( 7 )
 
-[node name="EnemyShadow" index="0" instance=ExtResource( 1 )]
+[node name="EnemyShadow" instance=ExtResource( 1 )]
 light_mask = 3
 material = SubResource( 1 )
 collision_mask = 3
@@ -88,11 +186,30 @@ collision_mask = 2
 [node name="Emmisives" type="Node2D" parent="." index="5"]
 use_parent_material = true
 
-[node name="Particles2D" type="Particles2D" parent="Emmisives" index="0"]
+[node name="Footsteps" type="Node2D" parent="Emmisives" index="0"]
+
+[node name="Right" type="Particles2D" parent="Emmisives/Footsteps" index="0"]
+position = Vector2( 0, -6 )
+emitting = false
+lifetime = 0.2
+explosiveness = 1.0
+local_coords = false
+process_material = SubResource( 11 )
+
+[node name="Left" type="Particles2D" parent="Emmisives/Footsteps" index="1"]
+position = Vector2( 0, 6 )
+emitting = false
+lifetime = 0.2
+explosiveness = 1.0
+local_coords = false
+process_material = SubResource( 11 )
+
+[node name="Smoke" type="Particles2D" parent="Emmisives" index="1"]
+visible = false
 light_mask = 3
 use_parent_material = true
 lifetime = 4.0
 local_coords = false
-process_material = SubResource( 6 )
+process_material = SubResource( 8 )
 texture = ExtResource( 8 )
 [connection signal="timeout" from="StateMachine/Idle/BoredomTimer" to="StateMachine/Idle" method="_on_Timer_timeout"]

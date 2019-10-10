@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 export (float) var DETECTION_RANGE = 400
 export (float) var FOV = 90
-export (float) var HEARING_RANGE = 300
+export (float) var HEARING_RANGE = 600
 
 var navigation2D : Navigation2D
 var target

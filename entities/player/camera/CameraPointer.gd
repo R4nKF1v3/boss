@@ -7,14 +7,14 @@ onready var camera_offset = $CameraOffset
 
 var target : Vector2 = Vector2.ZERO
 var input_enabled = true setget set_input_enabled
-var weight = 0.04
+var weight = 0.05
 
 func _physics_process(delta):
 	if not input_enabled:
 		_update_target(player.look_direction * (POINTER_LIMIT * 0.7))
-		weight = 0.05
+		weight = 0.06
 	else:
-		weight = 0.04
+		weight = 0.05
 	position = player.position
 	camera_offset.position = lerp(camera_offset.position, target, weight)
 

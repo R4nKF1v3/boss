@@ -19,11 +19,7 @@ func _change_state(state_name):
 
 func _on_noise_emmited(location):
 	if owner.global_position.distance_to(location) < owner.HEARING_RANGE:
-		if current_state == $Idle:
-			$Wander.objective_path = owner.navigation2D.get_simple_path(owner.global_position, location)
-			_change_state("wander")
-		elif current_state == $Wander:
-			$Wander.objective_path = owner.navigation2D.get_simple_path(owner.global_position, location)
-		elif current_state == $Chase:
-			if not owner.can_see_player():
-				$Chase.objective_path = owner.navigation2D.get_simple_path(owner.global_position, location)
+		if current_state in [$Idle, $Wander]:
+			_change_state("chase")
+		if not owner.can_see_player():
+			$Chase.objective_path = owner.navigation2D.get_simple_path(owner.global_position, location)
