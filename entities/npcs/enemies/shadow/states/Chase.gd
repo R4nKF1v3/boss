@@ -7,9 +7,8 @@ func enter():
 
 func update(delta):
 	if owner.can_see_player():
-		objective_path = owner.navigation2D.get_simple_path(owner.global_position, owner.target.global_position)
-		owner.emit_signal("new_path", objective_path)
-	if not objective_path.empty():
+		set_objective_path(owner.navigation2D.get_simple_path(owner.global_position, owner.target.global_position))
+	if not objective_path.size() == 0:
 		travel_to_objective(delta)
-	elif objective_path.empty():
+	else:
 		emit_signal("finished", "idle")

@@ -18,6 +18,10 @@ _global_script_class_icons={
 config/name="boss"
 config/icon="res://icon.png"
 
+[autoload]
+
+signals="*res://globals/signals.gd"
+
 [display]
 
 window/size/resizable=false

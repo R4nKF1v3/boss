@@ -2,7 +2,7 @@ extends "res://entities/state.gd"
 
 export (float) var SPEED
 
-var objective_path : = []
+var objective_path = [] setget set_objective_path
 
 func travel_to_objective(delta):	
 	var distance = SPEED * delta
@@ -25,6 +25,8 @@ func travel_to_objective(delta):
 		distance -= distance_to_next
 		objective_path.remove(0)
 	
-	
+func set_objective_path(value):
+	objective_path = value
+	owner.emit_signal("new_path", value)
 
 

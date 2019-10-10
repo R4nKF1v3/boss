@@ -36,6 +36,9 @@ SPEED = 200.0
 script = ExtResource( 6 )
 SPEED = 400.0
 
+[node name="Timer" type="Timer" parent="StateMachine/Run" index="0"]
+wait_time = 0.2
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1"]
 anims/idle = SubResource( 1 )
 anims/run = SubResource( 2 )
@@ -55,3 +58,4 @@ shadow_enabled = true
 rotation = 1.5708
 scale = Vector2( 0.199, 0.199 )
 texture = ExtResource( 8 )
+[connection signal="timeout" from="StateMachine/Run/Timer" to="StateMachine/Run" method="_on_Timer_timeout"]

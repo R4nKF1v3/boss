@@ -40,11 +40,11 @@ one_shot = true
 
 [node name="Wander" type="Node" parent="StateMachine" index="1"]
 script = ExtResource( 5 )
-SPEED = 100.0
+SPEED = 50.0
 
 [node name="Chase" type="Node" parent="StateMachine" index="2"]
 script = ExtResource( 6 )
-SPEED = 100.0
+SPEED = 200.0
 
 [node name="CollisionShape2D" parent="." index="1"]
 shape = SubResource( 2 )
