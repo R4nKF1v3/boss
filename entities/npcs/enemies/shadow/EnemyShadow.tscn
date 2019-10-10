@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://entities/npcs/NPC.tscn" type="PackedScene" id=1]
 [ext_resource path="res://entities/npcs/enemies/shadow/EnemyShadow.gd" type="Script" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://entities/npcs/enemies/shadow/states/Wander.gd" type="Script" id=5]
 [ext_resource path="res://entities/npcs/enemies/shadow/states/Chase.gd" type="Script" id=6]
 [ext_resource path="res://entities/npcs/enemies/shadow/shadow.png" type="Texture" id=7]
+[ext_resource path="res://entities/npcs/enemies/shadow/fxs/Smoke/0000.png" type="Texture" id=8]
 
 [sub_resource type="CanvasItemMaterial" id=1]
 
@@ -22,7 +23,23 @@ resource_name = "idle"
 [sub_resource type="Animation" id=5]
 resource_name = "wander"
 
-[node name="EnemyShadow" instance=ExtResource( 1 )]
+[sub_resource type="Gradient" id=7]
+offsets = PoolRealArray( 0.0104167, 0.479167, 0.854167, 1 )
+colors = PoolColorArray( 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0.791667, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=8]
+gradient = SubResource( 7 )
+
+[sub_resource type="ParticlesMaterial" id=6]
+flag_disable_z = true
+spread = 0.0
+gravity = Vector3( 0, 0, 0 )
+angular_velocity_random = 1.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+color_ramp = SubResource( 8 )
+
+[node name="EnemyShadow" index="0" instance=ExtResource( 1 )]
 light_mask = 3
 material = SubResource( 1 )
 collision_mask = 3
@@ -67,4 +84,15 @@ collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea" index="0"]
+
+[node name="Emmisives" type="Node2D" parent="." index="5"]
+use_parent_material = true
+
+[node name="Particles2D" type="Particles2D" parent="Emmisives" index="0"]
+light_mask = 3
+use_parent_material = true
+lifetime = 4.0
+local_coords = false
+process_material = SubResource( 6 )
+texture = ExtResource( 8 )
 [connection signal="timeout" from="StateMachine/Idle/BoredomTimer" to="StateMachine/Idle" method="_on_Timer_timeout"]

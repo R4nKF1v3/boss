@@ -1,4 +1,4 @@
-extends "res://entities/npcs/enemies/shadow/states/Motion.gd"
+extends "res://entities/state.gd"
 
 onready var timer = $BoredomTimer
 
