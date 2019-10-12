@@ -4,6 +4,7 @@ onready var timer = $BoredomTimer
 
 # Initialize the state. E.g. change the animation
 func enter():
+	owner.player_last_pos = null
 	print("Now Idle")
 	timer.start(randi() % 10 + 8)
 	owner.get_node("AnimationPlayer").play("idle")
@@ -12,12 +13,15 @@ func enter():
 func exit():
 	if not timer.is_stopped():
 		timer.stop()
+	.exit()
 
 func update(delta):
 	if owner.can_see_player():
 		owner.look_at(owner.target.global_position)
-		if can_reach_player():
+		if owner.can_reach_player():
 			emit_signal("finished", "chase")
+		else:
+			emit_signal("finished", "searching")
 
 func _on_Timer_timeout():
 	emit_signal("finished", "wander")

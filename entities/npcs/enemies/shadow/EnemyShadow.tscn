@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://entities/npcs/NPC.tscn" type="PackedScene" id=1]
 [ext_resource path="res://entities/npcs/enemies/shadow/EnemyShadow.gd" type="Script" id=2]
@@ -6,8 +6,9 @@
 [ext_resource path="res://entities/npcs/enemies/shadow/states/Idle.gd" type="Script" id=4]
 [ext_resource path="res://entities/npcs/enemies/shadow/states/Wander.gd" type="Script" id=5]
 [ext_resource path="res://entities/npcs/enemies/shadow/states/Chase.gd" type="Script" id=6]
-[ext_resource path="res://entities/npcs/enemies/shadow/shadow.png" type="Texture" id=7]
-[ext_resource path="res://entities/npcs/enemies/shadow/fxs/SmokeAnim.tres" type="Texture" id=8]
+[ext_resource path="res://entities/npcs/enemies/shadow/states/Searching.gd" type="Script" id=7]
+[ext_resource path="res://entities/npcs/enemies/shadow/shadow.png" type="Texture" id=8]
+[ext_resource path="res://entities/npcs/enemies/shadow/fxs/SmokeAnim.tres" type="Texture" id=9]
 
 [sub_resource type="CanvasItemMaterial" id=1]
 
@@ -46,6 +47,33 @@ tracks/1/keys = {
 [sub_resource type="Animation" id=4]
 resource_name = "idle"
 loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Emmisives/Footsteps/Right:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Emmisives/Footsteps/Left:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=12]
+resource_name = "searching"
 tracks/0/type = "value"
 tracks/0/path = NodePath("Emmisives/Footsteps/Right:emitting")
 tracks/0/interp = 1
@@ -163,6 +191,13 @@ SPEED = 200.0
 [node name="UpdatePath" type="Timer" parent="StateMachine/Chase" index="0"]
 wait_time = 0.05
 
+[node name="Searching" type="Node" parent="StateMachine" index="3"]
+script = ExtResource( 7 )
+SPEED = 60.0
+
+[node name="SearchTime" type="Timer" parent="StateMachine/Searching" index="0"]
+wait_time = 10.0
+
 [node name="CollisionShape2D" parent="." index="1"]
 shape = SubResource( 2 )
 
@@ -172,11 +207,12 @@ use_parent_material = true
 position = Vector2( 0.0960748, 0.200747 )
 rotation = 1.5708
 scale = Vector2( 0.0470483, 0.0470483 )
-texture = ExtResource( 7 )
+texture = ExtResource( 8 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="3"]
 anims/chase = SubResource( 3 )
 anims/idle = SubResource( 4 )
+anims/searching = SubResource( 12 )
 anims/wander = SubResource( 5 )
 
 [node name="DetectionArea" type="Area2D" parent="." index="4"]
@@ -213,6 +249,7 @@ use_parent_material = true
 lifetime = 4.0
 local_coords = false
 process_material = SubResource( 11 )
-texture = ExtResource( 8 )
+texture = ExtResource( 9 )
 [connection signal="timeout" from="StateMachine/Idle/BoredomTimer" to="StateMachine/Idle" method="_on_Timer_timeout"]
 [connection signal="timeout" from="StateMachine/Chase/UpdatePath" to="StateMachine/Chase" method="_on_UpdatePath_timeout"]
+[connection signal="timeout" from="StateMachine/Searching/SearchTime" to="StateMachine/Searching" method="_on_SearchTime_timeout"]

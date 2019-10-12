@@ -19,12 +19,12 @@ func update(delta):
 			owner.look_at(owner.target.global_position)
 	elif can_see_player:
 		owner.look_at(owner.target.global_position)
-		if can_reach_player():
+		if owner.can_reach_player():
 			self.objective_path = owner.navigation.get_simple_path(owner.global_position, owner.target.global_position)
 		else:
-			emit_signal("finished", "idle")
+			emit_signal("finished", "searching")
 	else:
-		emit_signal("finished", "idle")
+		emit_signal("finished", "searching")
 
 func _on_UpdatePath_timeout():
 	if owner.can_see_player():

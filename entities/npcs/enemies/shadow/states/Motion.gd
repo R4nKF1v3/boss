@@ -4,6 +4,9 @@ export (float) var SPEED
 
 var objective_path = [] setget set_objective_path
 
+func exit():
+	objective_path = []
+
 func travel_to_objective(delta):	
 	var distance = SPEED * delta
 	var start_point = owner.global_position
@@ -26,10 +29,9 @@ func travel_to_objective(delta):
 		distance -= distance_to_next
 		objective_path.remove(0)
 
-func can_reach_player():
-	return owner.navigation.is_valid_node(owner.target.global_position)
-
 func set_objective_path(value):
+	if value.size() == 0:
+		return
 	if value[0] == owner.global_position:
 		return
 	value[0] = owner.global_position

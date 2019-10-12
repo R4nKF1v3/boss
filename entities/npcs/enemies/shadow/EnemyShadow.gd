@@ -6,6 +6,7 @@ export (float) var HEARING_RANGE = 600
 
 var navigation : TileMap
 var target
+var player_last_pos
 
 signal new_path(path)
 
@@ -28,8 +29,14 @@ func can_see_player() -> bool:
 			var sw = target.global_position + Vector2(-target_extents.x, target_extents.y)
 			for pos in [target.global_position, nw, se, ne, sw]:
 				var result = space_state.intersect_ray(global_position, pos, [self], collision_mask)
-				return result and result.collider == target
+				var response = result and result.collider == target
+				if response:
+					player_last_pos = target.global_position
+					return true
 	return false
+
+func can_reach_player():
+	return target and navigation.is_valid_node(target.global_position)
 
 func on_body_entered(body):
 	print("Body entered")
