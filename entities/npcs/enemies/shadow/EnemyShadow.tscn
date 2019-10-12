@@ -136,7 +136,7 @@ orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 color_ramp = SubResource( 10 )
 
-[node name="EnemyShadow" index="0" instance=ExtResource( 1 )]
+[node name="EnemyShadow" instance=ExtResource( 1 )]
 light_mask = 3
 material = SubResource( 1 )
 collision_mask = 3
@@ -161,7 +161,7 @@ script = ExtResource( 6 )
 SPEED = 200.0
 
 [node name="UpdatePath" type="Timer" parent="StateMachine/Chase" index="0"]
-wait_time = 0.1
+wait_time = 0.05
 
 [node name="CollisionShape2D" parent="." index="1"]
 shape = SubResource( 2 )

@@ -26,6 +26,7 @@ func travel_to_objective(delta):
 		objective_path.remove(0)
 	
 func set_objective_path(value):
+	value[0] = owner.global_position
 	objective_path = value
 	owner.emit_signal("new_path", value)
 
