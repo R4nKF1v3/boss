@@ -4,7 +4,7 @@ export (float) var DETECTION_RANGE = 400
 export (float) var FOV = 90
 export (float) var HEARING_RANGE = 600
 
-var navigation2D : Navigation2D
+var navigation : TileMap
 var target
 
 signal new_path(path)

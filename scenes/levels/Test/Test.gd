@@ -1,4 +1,4 @@
 extends Node2D
 
 func _ready():
-	$Spawns/EnemyShadow.navigation2D = $Navigation2D
+	$InsideProps/Spawns/EnemyShadow.navigation = $Pathtiles
