@@ -108,6 +108,9 @@ func is_outside_map_bounds(point):
 func calculate_point_index(point):
 	return point.x + map_size.x * point.y
 
+func is_valid_node(point):
+	return astar_node.has_point(calculate_point_index(world_to_map(point)))
+
 
 func get_simple_path(world_start, world_end):
 	self.path_start_position = world_to_map(world_start)

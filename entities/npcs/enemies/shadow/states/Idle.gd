@@ -1,4 +1,4 @@
-extends "res://entities/state.gd"
+extends "res://entities/npcs/enemies/shadow/states/Motion.gd"
 
 onready var timer = $BoredomTimer
 
@@ -15,7 +15,9 @@ func exit():
 
 func update(delta):
 	if owner.can_see_player():
-		emit_signal("finished", "chase")
+		owner.look_at(owner.target.global_position)
+		if can_reach_player():
+			emit_signal("finished", "chase")
 
 func _on_Timer_timeout():
 	emit_signal("finished", "wander")
