@@ -26,4 +26,4 @@ func check_state_conditions():
 
 func _on_Timer_timeout():
 	signals.emit_signal("noise_emitted", owner.global_position)
-	#signals.emit_signal("camera_shake", 0.5, 10, 10)
+	signals.emit_signal("camera_shake", 0.2, 3, 16, 1)
