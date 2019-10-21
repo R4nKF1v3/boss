@@ -1,19 +1,12 @@
 extends "res://entities/player/states/motion/Move.gd"
 
-onready var timer = $Timer
-
 func enter():
-	owner.camera_pointer.input_enabled = false
-	if timer.paused:
-		timer.paused = false
-	else:
-		timer.start()
+	owner.camera_follow = false
 	owner.get_node("AnimationPlayer").play("run")
 	.enter()
 
 func exit():
-	owner.camera_pointer.input_enabled = true
-	timer.paused = true
+	owner.camera_follow = true
 	.exit()
 
 func check_state_conditions():
@@ -23,7 +16,3 @@ func check_state_conditions():
 	if not Input.is_action_pressed("run"):
 		emit_signal("finished", "walk")
 	return input_direction
-
-func _on_Timer_timeout():
-	signals.emit_signal("noise_emitted", owner.global_position)
-	signals.emit_signal("camera_shake", 0.2, 3, 16, 1)

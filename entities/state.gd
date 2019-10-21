@@ -5,6 +5,8 @@ and makes sure every State object had all of these methods.
 """
 extends Node
 
+onready var parent = owner
+
 # warning-ignore:unused_signal
 signal finished(next_state_name)
 

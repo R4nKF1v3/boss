@@ -10,11 +10,32 @@
 [ext_resource path="res://entities/player/player_torso.png" type="Texture" id=8]
 
 [sub_resource type="Animation" id=1]
+loop = true
 
 [sub_resource type="Animation" id=2]
 resource_name = "run"
+length = 0.8
+loop = true
+tracks/0/type = "method"
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.2, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [ 600 ],
+"method": "_execute_step"
+}, {
+"args": [ 600 ],
+"method": "_execute_step"
+} ]
+}
 
 [sub_resource type="Animation" id=3]
+loop = true
 
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 12.2896, 22.1299 )
@@ -30,14 +51,11 @@ script = ExtResource( 4 )
 
 [node name="Walk" type="Node" parent="StateMachine" index="1"]
 script = ExtResource( 5 )
-SPEED = 200.0
+SPEED = 80.0
 
 [node name="Run" type="Node" parent="StateMachine" index="2"]
 script = ExtResource( 6 )
-SPEED = 400.0
-
-[node name="Timer" type="Timer" parent="StateMachine/Run" index="0"]
-wait_time = 0.2
+SPEED = 225.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1"]
 anims/idle = SubResource( 1 )
@@ -50,12 +68,11 @@ shape = SubResource( 4 )
 [node name="FOV" type="Light2D" parent="." index="3"]
 rotation = 1.5708
 texture = ExtResource( 7 )
-mode = 2
-range_item_cull_mask = 3
+mode = 3
+range_item_cull_mask = 2
 shadow_enabled = true
 
 [node name="Trunk" type="Sprite" parent="." index="4"]
 rotation = 1.5708
 scale = Vector2( 0.199, 0.199 )
 texture = ExtResource( 8 )
-[connection signal="timeout" from="StateMachine/Run/Timer" to="StateMachine/Run" method="_on_Timer_timeout"]

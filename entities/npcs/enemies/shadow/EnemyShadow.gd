@@ -1,10 +1,9 @@
-extends KinematicBody2D
+extends NPC
 
-export (float) var DETECTION_RANGE = 400
+export (float) var DETECTION_RANGE = 800
 export (float) var FOV = 90
-export (float) var HEARING_RANGE = 600
 
-var navigation : TileMap
+onready var navigation : TileMap = owner.get_node("Pathtiles")
 var target
 var player_last_pos
 
