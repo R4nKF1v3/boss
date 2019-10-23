@@ -1,7 +1,26 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://entities/player/camera/CameraPointer.gd" type="Script" id=1]
 [ext_resource path="res://entities/player/camera/ScreenShake.tscn" type="PackedScene" id=2]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+
+void fragment() {
+	vec4 finalColor = textureLod(SCREEN_TEXTURE, SCREEN_UV, 0.0);
+
+	if (AT_LIGHT_PASS){
+		COLOR = finalColor;
+	} else {
+		float value = dot(finalColor.rgb, vec3(0.2125, 0.7154, 0.0721));
+		//value = dot(finalColor.rgb, vec3(0.1, 0.1, 0.1));
+		COLOR = vec4(value, value, value, 1.0);
+	}
+	
+}"
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = SubResource( 1 )
 
 [node name="CameraPointer" type="Position2D"]
 script = ExtResource( 1 )
@@ -19,3 +38,19 @@ drag_margin_right = 0.0
 drag_margin_bottom = 0.0
 
 [node name="ScreenShake" parent="CameraOffset/Camera2D" instance=ExtResource( 2 )]
+
+[node name="Control" type="Control" parent="CameraOffset/Camera2D"]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="CameraOffset/Camera2D/Control"]
+material = SubResource( 2 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -1044.0
+margin_top = -620.0
+margin_right = 1004.0
+margin_bottom = 580.0

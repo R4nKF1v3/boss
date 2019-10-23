@@ -6,7 +6,7 @@
 [ext_resource path="res://entities/player/states/motion/Idle.gd" type="Script" id=4]
 [ext_resource path="res://entities/player/states/motion/Walk.gd" type="Script" id=5]
 [ext_resource path="res://entities/player/states/motion/Run.gd" type="Script" id=6]
-[ext_resource path="res://entities/player/fov-01.png" type="Texture" id=7]
+[ext_resource path="res://entities/player/sprites/fov-01.png" type="Texture" id=7]
 [ext_resource path="res://entities/player/player_torso.png" type="Texture" id=8]
 
 [sub_resource type="Animation" id=1]
@@ -66,10 +66,9 @@ anims/walk = SubResource( 3 )
 shape = SubResource( 4 )
 
 [node name="FOV" type="Light2D" parent="." index="3"]
-rotation = 1.5708
 texture = ExtResource( 7 )
-mode = 3
-range_item_cull_mask = 2
+mode = 2
+range_item_cull_mask = 3
 shadow_enabled = true
 
 [node name="Trunk" type="Sprite" parent="." index="4"]

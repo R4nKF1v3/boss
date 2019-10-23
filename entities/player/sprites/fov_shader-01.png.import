@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/fov-01.png-4874e963391bc70f4c293ff770e3b3b6.stex"
+path="res://.import/fov_shader-01.png-04805b804f0369eba79e13d176041236.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://entities/player/fov-01.png"
-dest_files=[ "res://.import/fov-01.png-4874e963391bc70f4c293ff770e3b3b6.stex" ]
+source_file="res://entities/player/sprites/fov_shader-01.png"
+dest_files=[ "res://.import/fov_shader-01.png-04805b804f0369eba79e13d176041236.stex" ]
 
 [params]
 

@@ -1,0 +1,19 @@
+[gd_scene format=2]
+
+[node name="Door" type="Node2D"]
+
+[node name="Hinge" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hinge"]
+
+[node name="Doorway" type="RigidBody2D" parent="."]
+gravity_scale = 0.0
+
+[node name="Sprite" type="Sprite" parent="Doorway"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Doorway"]
+
+[node name="PinJoint2D" type="PinJoint2D" parent="."]
+node_a = NodePath("../Hinge")
+node_b = NodePath("../Doorway")
+disable_collision = false
