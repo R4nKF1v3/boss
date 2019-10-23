@@ -6,6 +6,8 @@ export (float) var FOV = 90
 onready var navigation : TileMap = owner.get_node("Pathtiles")
 var target
 var player_last_pos
+var look_at = Vector2(1,0)
+var curr_vel = Vector2()
 
 signal new_path(path)
 
@@ -15,6 +17,21 @@ func _ready():
 	$DetectionArea/CollisionShape2D.shape = shape
 	$DetectionArea.connect("body_entered", self, "on_body_entered")
 	$DetectionArea.connect("body_exited", self, "on_body_exited")
+
+func _integrate_forces(state):
+	state.linear_velocity = curr_vel
+	var target = (look_at - global_position).normalized()
+	state.angular_velocity = (lerp_angle(rotation, target.angle(), 0.1) - rotation) * 200
+
+
+func lerp_angle(from, to, weight):
+    return from + short_angle_dist(from, to) * weight
+
+func short_angle_dist(from, to):
+    var max_angle = PI * 2
+    var difference = fmod(to - from, max_angle)
+    return fmod(2 * difference, max_angle) - difference
+	
 
 func can_see_player() -> bool:
 	if target:

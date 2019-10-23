@@ -1,17 +1,19 @@
-extends KinematicBody2D
+extends RigidBody2D
 
 var look_direction : = Vector2(1, 0)
+var current_velocity : = Vector2()
 var camera_follow = true
-const rotation_speed = 0.1
 
 onready var camera_pointer = get_parent().get_node("CameraPointer")
 
-func _physics_process(delta):
+func _integrate_forces(state):
+	state.linear_velocity = current_velocity
+	
 	if camera_follow:
 		var camera_target = (camera_pointer.camera_offset.global_position - global_position).normalized()
-		rotation = lerp_angle(rotation, camera_target.angle(), 0.1)
+		state.angular_velocity = (lerp_angle(rotation, camera_target.angle(), 0.1) - rotation) * 200
 	else:
-		rotation = lerp_angle(rotation, look_direction.angle(), 0.1)
+		state.angular_velocity = (lerp_angle(rotation, look_direction.angle(), 0.1) - rotation) * 200
 
 func lerp_angle(from, to, weight):
     return from + short_angle_dist(from, to) * weight

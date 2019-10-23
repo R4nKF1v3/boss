@@ -21,4 +21,4 @@ func find_valid_path():
 	while objective_path.size() <= 1:
 		randomize()
 		var objective = Vector2(owner.global_position.x + (rand_range(-300, 300)), owner.global_position.y + (rand_range(-300, 300)))
-		set_objective_path(owner.navigation.get_simple_path(owner.global_position, objective))
+		self.objective_path = owner.navigation.get_simple_path(owner.global_position, objective)

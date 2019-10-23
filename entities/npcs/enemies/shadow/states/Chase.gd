@@ -16,9 +16,9 @@ func update(delta):
 	if not objective_path.size() == 0:
 		travel_to_objective(delta)
 		if can_see_player:
-			owner.look_at(owner.target.global_position)
+			owner.look_at = owner.target.global_position
 	elif can_see_player:
-		owner.look_at(owner.target.global_position)
+		owner.look_at = owner.target.global_position
 		if owner.can_reach_player():
 			self.objective_path = owner.navigation.get_simple_path(owner.global_position, owner.target.global_position)
 		else:

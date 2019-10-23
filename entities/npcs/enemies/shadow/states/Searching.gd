@@ -16,9 +16,11 @@ func exit():
 
 func update(delta):
 	if owner.can_see_player():
-		owner.look_at(owner.target.global_position)
+		owner.look_at = owner.target.global_position
 		if owner.can_reach_player():
 			emit_signal("finished", "chase")
+		else:
+			owner.curr_vel = Vector2()
 	else:
 		search_cycle(delta)
 

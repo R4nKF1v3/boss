@@ -13,19 +13,19 @@ func travel_to_objective(delta):
 	for i in range(objective_path.size()):
 		var distance_to_next = parent.global_position.distance_to(objective_path[0])
 		if distance <= distance_to_next and distance >= 0.0:
-			parent.look_at(objective_path[0])
+			parent.look_at = objective_path[0]
 			var direction_to_node = (objective_path[0] - parent.global_position).normalized()
 			var v = direction_to_node * SPEED
-			parent.move_and_slide(v)
+			parent.curr_vel = v
 			break
 		if distance < 0.0:
-			parent.look_at(objective_path[0])
+			parent.look_at = objective_path[0]
 			break
 		
-		parent.look_at(objective_path[0])
+		parent.look_at = objective_path[0]
 		var direction_to_node = (objective_path[0] - parent.global_position).normalized()
 		var v = direction_to_node * SPEED
-		parent.move_and_slide(v)
+		parent.curr_vel = v
 		distance -= distance_to_next
 		objective_path.remove(0)
 
