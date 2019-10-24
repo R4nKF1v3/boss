@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://resources/props/doors/Door.tscn" type="PackedScene" id=1]
 [ext_resource path="res://resources/props/doors/wooden_door/wooden_door.png" type="Texture" id=2]
@@ -6,10 +6,8 @@
 [sub_resource type="CircleShape2D" id=1]
 radius = 5.1046
 
-[sub_resource type="OccluderPolygon2D" id=5]
+[sub_resource type="OccluderPolygon2D" id=2]
 polygon = PoolVector2Array( 1.64759, -4.48247, 4.0893, -1.14119, 3.96079, 2.45712, 1.39057, 5.28437, -2.59328, 5.15586, -4.90648, 2.2001, -5.1635, -1.52672, -2.59328, -4.48247 )
-
-[sub_resource type="PhysicsMaterial" id=2]
 
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 27.4261, 4.69978 )
@@ -27,12 +25,11 @@ position = Vector2( -0.991638, 0.4224 )
 shape = SubResource( 1 )
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Hinge" index="1"]
-occluder = SubResource( 5 )
+occluder = SubResource( 2 )
 
 [node name="Doorway" parent="." index="1"]
 position = Vector2( -2.09788, 0 )
-mass = 12.57
-physics_material_override = SubResource( 2 )
+mass = 50.0
 
 [node name="Sprite" parent="Doorway" index="0"]
 position = Vector2( 3.86346, 0 )

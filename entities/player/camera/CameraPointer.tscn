@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://entities/player/camera/CameraPointer.gd" type="Script" id=1]
 [ext_resource path="res://entities/player/camera/ScreenShake.tscn" type="PackedScene" id=2]
+[ext_resource path="res://resources/sounds/ambience/41192__andrew1280__ambient-tower.wav" type="AudioStream" id=3]
 
 [sub_resource type="Shader" id=1]
 code = "shader_type canvas_item;
@@ -39,12 +40,18 @@ drag_margin_bottom = 0.0
 
 [node name="ScreenShake" parent="CameraOffset/Camera2D" instance=ExtResource( 2 )]
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="CameraOffset/Camera2D"]
+stream = ExtResource( 3 )
+volume_db = -8.387
+autoplay = true
+
 [node name="Control" type="Control" parent="CameraOffset/Camera2D"]
 visible = false
 margin_right = 40.0
 margin_bottom = 40.0
 
 [node name="ColorRect" type="ColorRect" parent="CameraOffset/Camera2D/Control"]
+visible = false
 material = SubResource( 2 )
 anchor_left = 0.5
 anchor_top = 0.5

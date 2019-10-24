@@ -37,10 +37,13 @@ tracks/0/keys = {
 [sub_resource type="Animation" id=3]
 loop = true
 
-[sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 8.98946, 22.0989 )
+[sub_resource type="CapsuleShape2D" id=4]
+radius = 19.3009
+height = 9.71522
 
 [node name="Player" index="0" instance=ExtResource( 1 )]
+continuous_cd = 1
+can_sleep = false
 script = ExtResource( 2 )
 
 [node name="StateMachine" parent="." index="0"]
@@ -51,7 +54,7 @@ script = ExtResource( 4 )
 
 [node name="Walk" type="Node" parent="StateMachine" index="1"]
 script = ExtResource( 5 )
-SPEED = 80.0
+SPEED = 60.0
 
 [node name="Run" type="Node" parent="StateMachine" index="2"]
 script = ExtResource( 6 )
@@ -75,3 +78,5 @@ shadow_enabled = true
 rotation = 1.5708
 scale = Vector2( 0.199, 0.199 )
 texture = ExtResource( 8 )
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." index="5"]
