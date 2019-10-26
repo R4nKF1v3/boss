@@ -109,55 +109,26 @@ func calculate_point_index(point):
 	return point.x + map_size.x * point.y
 
 func is_valid_node(point):
-	return astar_node.has_point(calculate_point_index(world_to_map(point)))
+	return astar_node.has_point(calculate_point_index(world_to_map(to_local(point))))
 
 
 func get_simple_path(world_start, world_end):
-	self.path_start_position = world_to_map(world_start)
-	self.path_end_position = world_to_map(world_end)
+	self.path_start_position = world_to_map(to_local(world_start))
+	self.path_end_position = world_to_map(to_local(world_end))
 	_recalculate_path()
 	var path_world = []
 	for point in _point_path:
-		var point_world = map_to_world(Vector2(point.x, point.y)) + _half_cell_size
+		var point_world = to_global(map_to_world(Vector2(point.x, point.y)) + _half_cell_size)
 		path_world.append(point_world)
 	return path_world
 
 
 func _recalculate_path():
-	#clear_previous_path_drawing()
 	var start_point_index = calculate_point_index(path_start_position)
 	var end_point_index = calculate_point_index(path_end_position)
 	# This method gives us an array of points. Note you need the start and end
 	# points' indices as input
 	_point_path = astar_node.get_point_path(start_point_index, end_point_index)
-	# Redraw the lines and circles from the start to the end point
-	#update()
-
-
-func clear_previous_path_drawing():
-	if not _point_path:
-		return
-	var point_start = _point_path[0]
-	var point_end = _point_path[len(_point_path) - 1]
-	set_cell(point_start.x, point_start.y, -1)
-	set_cell(point_end.x, point_end.y, -1)
-
-
-func _draw():
-	if not _point_path:
-		return
-	var point_start = _point_path[0]
-	var point_end = _point_path[len(_point_path) - 1]
-
-	set_cell(point_start.x, point_start.y, 1)
-	set_cell(point_end.x, point_end.y, 2)
-
-	var last_point = map_to_world(Vector2(point_start.x, point_start.y)) + _half_cell_size
-	for index in range(1, len(_point_path)):
-		var current_point = map_to_world(Vector2(_point_path[index].x, _point_path[index].y)) + _half_cell_size
-		draw_line(last_point, current_point, DRAW_COLOR, BASE_LINE_WIDTH, true)
-		draw_circle(current_point, BASE_LINE_WIDTH * 2.0, DRAW_COLOR)
-		last_point = current_point
 
 
 # Setters for the start and end path values.
