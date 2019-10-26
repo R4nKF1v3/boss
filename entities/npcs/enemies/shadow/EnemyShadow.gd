@@ -3,7 +3,7 @@ extends NPC
 export (float) var DETECTION_RANGE = 800
 export (float) var FOV = 90
 
-onready var navigation : TileMap = owner.get_node("Pathtiles")
+onready var navigation : TileMap = owner.get_node("VisibleLayer/Pathtiles")
 var target
 var player_last_pos
 var look_at = Vector2(1,0)

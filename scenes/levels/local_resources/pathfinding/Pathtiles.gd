@@ -3,7 +3,7 @@ extends TileMap
 # You can only create an AStar node from code, not from the Scene tab
 onready var astar_node = AStar.new()
 # The Tilemap node doesn't have clear bounds so we're defining the map's limits here
-export(Vector2) var map_size = Vector2(300, 300)
+export(Vector2) var map_size = Vector2(500, 500)
 
 # The path start and end variables use setter methods
 # You can find them at the bottom of the script

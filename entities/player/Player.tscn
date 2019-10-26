@@ -41,7 +41,7 @@ loop = true
 radius = 19.3009
 height = 9.71522
 
-[node name="Player" index="0" instance=ExtResource( 1 )]
+[node name="Player" instance=ExtResource( 1 )]
 continuous_cd = 1
 can_sleep = false
 script = ExtResource( 2 )
@@ -70,8 +70,7 @@ shape = SubResource( 4 )
 
 [node name="FOV" type="Light2D" parent="." index="3"]
 texture = ExtResource( 7 )
-mode = 2
-range_item_cull_mask = 3
+mode = 3
 shadow_enabled = true
 
 [node name="Trunk" type="Sprite" parent="." index="4"]

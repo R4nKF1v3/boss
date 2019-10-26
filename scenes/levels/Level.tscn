@@ -1,36 +1,47 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://resources/tilesets/pathfinding/pathtile.tres" type="TileSet" id=1]
 [ext_resource path="res://scenes/levels/local_resources/pathfinding/Pathtiles.gd" type="Script" id=2]
-[ext_resource path="res://scenes/levels/Spawns.gd" type="Script" id=3]
-[ext_resource path="res://resources/tilesets/walls/walltile.tres" type="TileSet" id=4]
+[ext_resource path="res://scenes/levels/local_resources/tools/ground_updater.gd" type="Script" id=3]
+[ext_resource path="res://scenes/levels/Spawns.gd" type="Script" id=4]
+[ext_resource path="res://resources/tilesets/walls/walltile.tres" type="TileSet" id=5]
 
 [node name="Level" type="Node2D"]
 
-[node name="Pathtiles" type="TileMap" parent="."]
+[node name="HiddenLayer" type="Node2D" parent="."]
+
+[node name="Groundtiles" type="TileMap" parent="HiddenLayer"]
+light_mask = 2
+format = 1
+
+[node name="VisibleLayer" type="Node2D" parent="."]
+
+[node name="Pathtiles" type="TileMap" parent="VisibleLayer"]
 tile_set = ExtResource( 1 )
 format = 1
 script = ExtResource( 2 )
 
-[node name="Ground" type="Node2D" parent="."]
+[node name="Ground" type="Node2D" parent="VisibleLayer"]
 
-[node name="Groundtiles" type="TileMap" parent="Ground"]
+[node name="Groundtiles" type="TileMap" parent="VisibleLayer/Ground"]
 use_parent_material = true
 format = 1
-
-[node name="Props" type="Node2D" parent="Ground"]
-
-[node name="Spawns" type="Node2D" parent="Ground"]
 script = ExtResource( 3 )
 
-[node name="Walltiles" type="TileMap" parent="."]
-tile_set = ExtResource( 4 )
+[node name="Props" type="Node2D" parent="VisibleLayer/Ground"]
+
+[node name="Spawns" type="Node2D" parent="VisibleLayer/Ground"]
+script = ExtResource( 4 )
+
+[node name="Walltiles" type="TileMap" parent="VisibleLayer"]
+light_mask = 2
+tile_set = ExtResource( 5 )
 format = 1
 
-[node name="OutsideProps" type="Node2D" parent="."]
+[node name="OutsideProps" type="Node2D" parent="VisibleLayer"]
 
-[node name="Props" type="Node2D" parent="OutsideProps"]
+[node name="Props" type="Node2D" parent="VisibleLayer/OutsideProps"]
 
-[node name="Spawns" type="Node2D" parent="OutsideProps"]
+[node name="Spawns" type="Node2D" parent="VisibleLayer/OutsideProps"]
 
-[node name="Notes" type="Node2D" parent="."]
+[node name="Notes" type="Node2D" parent="VisibleLayer"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://entities/npcs/NPC.tscn" type="PackedScene" id=1]
 [ext_resource path="res://entities/npcs/enemies/shadow/EnemyShadow.gd" type="Script" id=2]
@@ -10,30 +10,25 @@
 [ext_resource path="res://entities/npcs/enemies/shadow/shadow.png" type="Texture" id=8]
 [ext_resource path="res://entities/npcs/enemies/shadow/fxs/SmokeAnim.tres" type="Texture" id=9]
 
-[sub_resource type="CanvasItemMaterial" id=1]
-light_mode = 2
-
-[sub_resource type="CircleShape2D" id=2]
+[sub_resource type="CircleShape2D" id=1]
 radius = 24.0619
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=2]
 resource_name = "chase"
 length = 0.5
 loop = true
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=3]
 resource_name = "idle"
 loop = true
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=4]
 resource_name = "searching"
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=5]
 loop = true
 
 [node name="EnemyShadow" instance=ExtResource( 1 )]
-light_mask = 2
-material = SubResource( 1 )
 collision_mask = 3
 script = ExtResource( 2 )
 
@@ -69,10 +64,9 @@ SPEED = 60.0
 wait_time = 10.0
 
 [node name="CollisionShape2D" parent="." index="1"]
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="Body" type="Sprite" parent="." index="2"]
-light_mask = 2
 use_parent_material = true
 position = Vector2( 0.0960748, 0.200747 )
 rotation = 1.5708
@@ -80,15 +74,13 @@ scale = Vector2( 0.0470483, 0.0470483 )
 texture = ExtResource( 8 )
 
 [node name="Smoke" type="Sprite" parent="." index="3"]
-light_mask = 2
-use_parent_material = true
 texture = ExtResource( 9 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="4"]
-anims/chase = SubResource( 3 )
-anims/idle = SubResource( 4 )
-anims/searching = SubResource( 5 )
-anims/wander = SubResource( 6 )
+anims/chase = SubResource( 2 )
+anims/idle = SubResource( 3 )
+anims/searching = SubResource( 4 )
+anims/wander = SubResource( 5 )
 
 [node name="DetectionArea" type="Area2D" parent="." index="5"]
 collision_layer = 2
