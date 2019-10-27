@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="CanvasItemMaterial" id=1]
+blend_mode = 1
+light_mode = 2
+
+[node name="Light" type="Node2D"]
+
+[node name="HiddenEffect" type="Sprite" parent="."]
+light_mask = 2
+
+[node name="VisibleEffect" type="Sprite" parent="."]
+material = SubResource( 1 )
+z_index = 1
+
+[node name="Emmiter" type="Sprite" parent="."]
+light_mask = 2
+scale = Vector2( 0.998823, 1 )

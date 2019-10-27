@@ -1,11 +1,10 @@
 [gd_resource type="TileSet" load_steps=2 format=2]
 
-[sub_resource type="StreamTexture" id=1]
-load_path = "res://.import/tilesheet_complete.png-5ee6293762c53633bd96055060125514.stex"
+[ext_resource path="res://resources/tilesets/kenney-ground/tilesheet_complete.png" type="Texture" id=1]
 
 [resource]
-0/name = "tilesheet_complete.png 0"
-0/texture = SubResource( 1 )
+0/name = "wood_1 0"
+0/texture = ExtResource( 1 )
 0/tex_offset = Vector2( 0, 0 )
 0/modulate = Color( 1, 1, 1, 1 )
 0/region = Rect2( 896, 64, 384, 64 )
@@ -23,8 +22,8 @@ load_path = "res://.import/tilesheet_complete.png-5ee6293762c53633bd960550601255
 0/navigation_offset = Vector2( 0, 0 )
 0/shapes = [  ]
 0/z_index = 0
-1/name = "tilesheet_complete.png 1"
-1/texture = SubResource( 1 )
+1/name = "wood_2 1"
+1/texture = ExtResource( 1 )
 1/tex_offset = Vector2( 0, 0 )
 1/modulate = Color( 1, 1, 1, 1 )
 1/region = Rect2( 896, 128, 384, 64 )
@@ -42,8 +41,8 @@ load_path = "res://.import/tilesheet_complete.png-5ee6293762c53633bd960550601255
 1/navigation_offset = Vector2( 0, 0 )
 1/shapes = [  ]
 1/z_index = 0
-2/name = "tilesheet_complete.png 2"
-2/texture = SubResource( 1 )
+2/name = "wood_3 2"
+2/texture = ExtResource( 1 )
 2/tex_offset = Vector2( 0, 0 )
 2/modulate = Color( 1, 1, 1, 1 )
 2/region = Rect2( 896, 192, 384, 64 )

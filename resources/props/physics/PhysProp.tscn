@@ -1,0 +1,8 @@
+[gd_scene format=2]
+
+[node name="PhysProp" type="RigidBody2D"]
+
+[node name="Hidden" type="Sprite" parent="."]
+light_mask = 2
+
+[node name="Visible" type="Sprite" parent="."]
