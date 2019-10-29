@@ -8,6 +8,7 @@
 blend_mode = 2
 
 [sub_resource type="CanvasItemMaterial" id=2]
+blend_mode = 2
 
 [sub_resource type="Shader" id=3]
 code = "shader_type canvas_item;
@@ -66,9 +67,6 @@ shader_param/OCTAVES = 4
 
 [node name="Main" type="Node"]
 
-[node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color( 0.792157, 0.792157, 0.792157, 1 )
-
 [node name="Background" type="ParallaxBackground" parent="."]
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="Background"]
@@ -84,14 +82,10 @@ texture = ExtResource( 1 )
 [node name="StartLevel" parent="LevelContainer" instance=ExtResource( 2 )]
 editor/display_folded = true
 
-[node name="StartLevel2" parent="LevelContainer" instance=ExtResource( 2 )]
-editor/display_folded = true
-position = Vector2( 6783.36, 767.971 )
-
 [node name="PlayerContainer" type="Node" parent="."]
 
 [node name="PlayerContainer" parent="PlayerContainer" instance=ExtResource( 3 )]
-position = Vector2( 198.695, 553.939 )
+position = Vector2( 305.932, 286.397 )
 
 [node name="Foreground" type="ParallaxBackground" parent="."]
 layer = 1
@@ -100,8 +94,8 @@ layer = 1
 motion_scale = Vector2( 0, 0 )
 motion_mirroring = Vector2( 3800, 3800 )
 
-[node name="Sprite" type="Sprite" parent="Foreground/ParallaxLayer"]
-modulate = Color( 0, 0, 0, 0.435294 )
+[node name="ScreenModulate" type="Sprite" parent="Foreground/ParallaxLayer"]
+modulate = Color( 1, 1, 1, 0.564706 )
 light_mask = 2
 material = SubResource( 2 )
 texture = ExtResource( 1 )

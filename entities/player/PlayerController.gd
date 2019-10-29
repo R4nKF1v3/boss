@@ -9,11 +9,16 @@ onready var camera_pointer = get_parent().get_node("CameraPointer")
 func _integrate_forces(state):
 	state.linear_velocity = current_velocity
 	
+	var target : Vector2
+	var weight : float
 	if camera_follow:
-		var camera_target = (camera_pointer.camera_offset.global_position - global_position).normalized()
-		state.angular_velocity = (lerp_angle(rotation, camera_target.angle(), 0.1) - rotation) * 200
+		target = camera_pointer.camera_offset.global_position - global_position
+		weight = 3
 	else:
-		state.angular_velocity = (lerp_angle(rotation, look_direction.angle(), 0.1) - rotation) * 200
+		target = look_direction
+		weight = 4
+	
+	state.angular_velocity = lerp_angle(rotation, target.angle(), weight) - rotation
 
 func lerp_angle(from, to, weight):
     return from + short_angle_dist(from, to) * weight

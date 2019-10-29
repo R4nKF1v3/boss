@@ -30,7 +30,7 @@ occluder = SubResource( 2 )
 
 [node name="Doorway" parent="." index="1"]
 position = Vector2( -1.62222, 0 )
-mass = 50.0
+mass = 100.0
 
 [node name="Sprite" parent="Doorway" index="0"]
 light_mask = 2

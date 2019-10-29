@@ -13,19 +13,16 @@
 [sub_resource type="CircleShape2D" id=1]
 radius = 24.0619
 
-[sub_resource type="Animation" id=2]
-resource_name = "chase"
+[sub_resource type="Animation" id=3]
 length = 0.5
 loop = true
 
-[sub_resource type="Animation" id=3]
-resource_name = "idle"
+[sub_resource type="Animation" id=4]
 loop = true
 
-[sub_resource type="Animation" id=4]
-resource_name = "searching"
-
 [sub_resource type="Animation" id=5]
+
+[sub_resource type="Animation" id=6]
 loop = true
 
 [node name="EnemyShadow" instance=ExtResource( 1 )]
@@ -76,13 +73,16 @@ texture = ExtResource( 8 )
 [node name="Smoke" type="Sprite" parent="." index="3"]
 texture = ExtResource( 9 )
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="4"]
-anims/chase = SubResource( 2 )
-anims/idle = SubResource( 3 )
-anims/searching = SubResource( 4 )
-anims/wander = SubResource( 5 )
+[node name="Smoke2" type="Sprite" parent="." index="4"]
+texture = ExtResource( 9 )
 
-[node name="DetectionArea" type="Area2D" parent="." index="5"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="5"]
+anims/chase = SubResource( 3 )
+anims/idle = SubResource( 4 )
+anims/searching = SubResource( 5 )
+anims/wander = SubResource( 6 )
+
+[node name="DetectionArea" type="Area2D" parent="." index="6"]
 collision_layer = 2
 collision_mask = 2
 

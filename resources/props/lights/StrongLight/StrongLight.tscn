@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://resources/props/lights/Light.tscn" type="PackedScene" id=1]
+[ext_resource path="res://resources/backgrounds/white.png" type="Texture" id=2]
+[ext_resource path="res://resources/props/lights/testlight/light.png" type="Texture" id=3]
+
+[node name="StrongLight" instance=ExtResource( 1 )]
+
+[node name="Emmisive" parent="." index="0"]
+modulate = Color( 1, 1, 1, 0.14902 )
+position = Vector2( 0.000139236, -0.919117 )
+scale = Vector2( 0.199218, 0.185626 )
+texture = ExtResource( 2 )
+
+[node name="Effect" parent="." index="1"]
+modulate = Color( 1, 1, 1, 0.509804 )
+scale = Vector2( 0.215086, 0.203526 )
+texture = ExtResource( 3 )
+
+[node name="Emmiter" parent="." index="2"]
+modulate = Color( 1, 1, 1, 0.658824 )
+position = Vector2( 0.885513, -0.454418 )
+scale = Vector2( 0.3433, 0.0175261 )
+texture = ExtResource( 3 )

@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://resources/props/lights/Light.tscn" type="PackedScene" id=1]
+[ext_resource path="res://resources/props/lights/testlight/light.png" type="Texture" id=2]
+
+[node name="LampLight01" instance=ExtResource( 1 )]
+
+[node name="Emmisive" parent="." index="0"]
+modulate = Color( 1, 1, 1, 0.690196 )
+texture = ExtResource( 2 )
+
+[node name="Emmiter" parent="." index="2"]
+position = Vector2( 0.680191, -0.527625 )
+scale = Vector2( 0.694599, 0.0172091 )
+texture = ExtResource( 2 )

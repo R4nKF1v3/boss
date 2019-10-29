@@ -6,12 +6,12 @@ light_mode = 2
 
 [node name="Light" type="Node2D"]
 
-[node name="HiddenEffect" type="Sprite" parent="."]
-light_mask = 2
-
-[node name="VisibleEffect" type="Sprite" parent="."]
+[node name="Emmisive" type="Sprite" parent="."]
 material = SubResource( 1 )
 z_index = 1
+
+[node name="Effect" type="Sprite" parent="."]
+light_mask = 2
 
 [node name="Emmiter" type="Sprite" parent="."]
 light_mask = 2
