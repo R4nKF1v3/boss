@@ -1,0 +1,66 @@
+[gd_scene load_steps=10 format=2]
+
+[sub_resource type="CanvasItemMaterial" id=1]
+blend_mode = 1
+
+[sub_resource type="Gradient" id=9]
+offsets = PoolRealArray( 0, 0.130178, 0.426035, 0.710059, 0.846154, 1 )
+colors = PoolColorArray( 1, 0.817352, 0.332031, 0.707176, 0.902344, 0.296853, 0.0599213, 1, 0.914063, 0.159225, 0.0357056, 1, 0.953125, 0.193836, 0.0186157, 0.801137, 1, 0.11026, 0.0429688, 0.580118, 0.164063, 0.0681374, 0.0608826, 0.232039 )
+
+[sub_resource type="GradientTexture" id=10]
+gradient = SubResource( 9 )
+
+[sub_resource type="Curve" id=4]
+min_value = -1.0
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.150391 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=5]
+curve = SubResource( 4 )
+
+[sub_resource type="Curve" id=6]
+_data = [ Vector2( 0, 0.897461 ), 0.0, -1.58708, 0, 0, Vector2( 1, 0.5 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=7]
+curve = SubResource( 6 )
+
+[sub_resource type="ParticlesMaterial" id=11]
+emission_shape = 1
+emission_sphere_radius = 1.15
+flag_disable_z = true
+spread = 180.0
+gravity = Vector3( 0, -30, 0 )
+orbit_velocity = 0.42
+orbit_velocity_random = 1.0
+orbit_velocity_curve = SubResource( 5 )
+scale = 0.93
+scale_random = 0.3
+scale_curve = SubResource( 7 )
+color_ramp = SubResource( 10 )
+
+[sub_resource type="Environment" id=12]
+background_mode = 4
+ambient_light_energy = 0.0
+glow_enabled = true
+glow_levels/1 = true
+glow_levels/3 = false
+glow_levels/5 = false
+glow_intensity = 0.5
+glow_strength = 0.67
+glow_bloom = 0.09
+glow_blend_mode = 0
+
+[node name="torch" type="Node2D"]
+position = Vector2( 213.483, 153.449 )
+scale = Vector2( 10.4117, 14.791 )
+
+[node name="Particles2D" type="Particles2D" parent="."]
+material = SubResource( 1 )
+position = Vector2( -0.00987434, 0.0167704 )
+scale = Vector2( 0.950056, 0.704951 )
+amount = 150
+lifetime = 0.5
+speed_scale = 0.58
+process_material = SubResource( 11 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 12 )

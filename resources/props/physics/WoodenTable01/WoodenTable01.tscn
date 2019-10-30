@@ -1,5 +1,26 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://resources/props/physics/PhysProp.tscn" type="PackedScene" id=1]
+[ext_resource path="res://resources/assets/furniture/Preset1_Table-bar1_bg.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 84.6839, 41.2032 )
 
 [node name="WoodenTable01" instance=ExtResource( 1 )]
+editor/display_folded = true
+position = Vector2( 119.51, 67.529 )
+mass = 1.#INF
+gravity_scale = 0.0
+
+[node name="Hidden" parent="." index="0"]
+position = Vector2( -0.512711, -0.768593 )
+scale = Vector2( 0.688549, 0.688549 )
+
+[node name="Visible" parent="." index="1"]
+position = Vector2( 0.155945, 0.354401 )
+scale = Vector2( 0.423419, 0.41455 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="2"]
+position = Vector2( -0.907288, -1.30792 )
+shape = SubResource( 1 )

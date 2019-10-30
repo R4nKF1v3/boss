@@ -6,7 +6,7 @@
 [ext_resource path="res://entities/npcs/enemies/shadow/EnemyShadow.tscn" type="PackedScene" id=4]
 [ext_resource path="res://resources/props/lights/LampLight01/LampLight01.tscn" type="PackedScene" id=5]
 
-[sub_resource type="CanvasItemMaterial" id=3]
+[sub_resource type="CanvasItemMaterial" id=1]
 blend_mode = 1
 light_mode = 2
 
@@ -70,7 +70,7 @@ position = Vector2( 4366.94, 181.73 )
 scale = Vector2( 0.580482, 0.399853 )
 
 [node name="Emmisive" parent="VisibleLayer/OutsideProps/Props/StrongLight2" index="0"]
-material = SubResource( 3 )
+material = SubResource( 1 )
 position = Vector2( -22.9674, -5.31592 )
 scale = Vector2( 0.186567, 0.176432 )
 
@@ -83,7 +83,7 @@ position = Vector2( 4366.72, 654.321 )
 scale = Vector2( 0.580482, 0.399853 )
 
 [node name="Emmisive" parent="VisibleLayer/OutsideProps/Props/StrongLight6" index="0"]
-material = SubResource( 3 )
+material = SubResource( 1 )
 position = Vector2( -21.2012, -2.0021 )
 scale = Vector2( 0.187459, 0.174758 )
 
