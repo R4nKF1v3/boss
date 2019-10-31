@@ -11,10 +11,12 @@
 [node name="Level" type="Node2D"]
 
 [node name="HiddenLayer" type="Node2D" parent="."]
+light_mask = 2
 
 [node name="Groundtiles" type="TileMap" parent="HiddenLayer"]
 light_mask = 2
 tile_set = ExtResource( 1 )
+cell_size = Vector2( 32, 32 )
 format = 1
 
 [node name="VisibleLayer" type="Node2D" parent="."]
@@ -29,6 +31,7 @@ script = ExtResource( 3 )
 [node name="Groundtiles" type="TileMap" parent="VisibleLayer/Ground"]
 use_parent_material = true
 tile_set = ExtResource( 4 )
+cell_size = Vector2( 32, 32 )
 format = 1
 script = ExtResource( 5 )
 

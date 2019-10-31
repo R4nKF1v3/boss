@@ -8,6 +8,7 @@
 
 [node name="Emmisive" parent="." index="0"]
 modulate = Color( 1, 1, 1, 0.14902 )
+self_modulate = Color( 0.533333, 0.533333, 0.533333, 1 )
 position = Vector2( 0.000139236, -0.919117 )
 scale = Vector2( 0.199218, 0.185626 )
 texture = ExtResource( 2 )

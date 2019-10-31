@@ -7,10 +7,7 @@
 extents = Vector2( 84.6839, 41.2032 )
 
 [node name="WoodenTable01" instance=ExtResource( 1 )]
-editor/display_folded = true
 position = Vector2( 119.51, 67.529 )
-mass = 1.#INF
-gravity_scale = 0.0
 
 [node name="Hidden" parent="." index="0"]
 position = Vector2( -0.512711, -0.768593 )
