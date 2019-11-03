@@ -1,13 +1,15 @@
-extends NPC
+extends VisibleEnemy
 
 export (float) var DETECTION_RANGE = 800
 export (float) var FOV = 90
+export (float) var MELEE_DAMAGE = 3
 
 onready var navigation : TileMap = owner.get_node("VisibleLayer/Pathtiles")
 var target
 var player_last_pos
 var look_at = Vector2(1,0)
 var curr_vel = Vector2()
+var damage_receiver
 
 signal new_path(path)
 
@@ -15,13 +17,18 @@ func _ready():
 	var shape = CircleShape2D.new()
 	shape.radius = DETECTION_RANGE
 	$DetectionArea/CollisionShape2D.shape = shape
-	$DetectionArea.connect("body_entered", self, "on_body_entered")
-	$DetectionArea.connect("body_exited", self, "on_body_exited")
+	$DetectionArea.connect("body_entered", self, "on_detection_body_entered")
+	$DetectionArea.connect("body_exited", self, "on_detection_body_exited")
+	$DamageArea.connect("body_entered", self, "on_damage_body_entered")
+	$DamageArea.connect("body_exited", self, "on_damage_body_exited")
 
 func _integrate_forces(state):
 	state.linear_velocity = curr_vel
 	var target = (look_at - global_position).normalized()
 	state.angular_velocity = (lerp_angle(rotation, target.angle(), 0.1) - rotation) * 200
+	
+	if damage_receiver:
+		damage_receiver.take_damage(MELEE_DAMAGE, "hp")
 
 
 func lerp_angle(from, to, weight):
@@ -61,13 +68,19 @@ func can_see_player() -> bool:
 func can_reach_player():
 	return target and navigation.is_valid_node(target.global_position)
 
-func on_body_entered(body):
-	print("Body entered")
-	print(body.name)
-	if body.name == "Player":
+func on_detection_body_entered(body):
+	if body is Player:
 		target = body
 
-func on_body_exited(body):
+func on_detection_body_exited(body):
 	if target and target == body:
 		target = null
+
+func on_damage_body_entered(body):
+	if body is Player:
+		damage_receiver = body
+
+func on_damage_body_exited(body):
+	if damage_receiver and damage_receiver == body:
+		damage_receiver = null
 

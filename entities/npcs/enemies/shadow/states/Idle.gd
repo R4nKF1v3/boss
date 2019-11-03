@@ -25,4 +25,5 @@ func update(delta):
 			emit_signal("finished", "searching")
 
 func _on_Timer_timeout():
-	emit_signal("finished", "wander")
+	if owner.navigation.is_valid_node(owner.global_position):
+		emit_signal("finished", "wander")

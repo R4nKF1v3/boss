@@ -1,8 +1,13 @@
 extends RigidBody2D
 
+class_name Player
+
+const FOV = 40
+
 var look_direction : = Vector2(1, 0)
 var current_velocity : = Vector2()
 var camera_follow = true
+var enemies_in_proximity := []
 
 onready var camera_pointer = get_parent().get_node("CameraPointer")
 
@@ -19,6 +24,8 @@ func _integrate_forces(state):
 		weight = 4
 	
 	state.angular_velocity = lerp_angle(rotation, target.angle(), weight) - rotation
+	
+	enemy_visible_check()
 
 func lerp_angle(from, to, weight):
     return from + short_angle_dist(from, to) * weight
@@ -27,18 +34,11 @@ func short_angle_dist(from, to):
     var max_angle = PI * 2
     var difference = fmod(to - from, max_angle)
     return fmod(2 * difference, max_angle) - difference
-	
 
-func take_damage(attacker, amount, effect=null):
-	"""
-	No utilizado por el momento
-	"""
-	"""
-	if self.is_a_parent_of(attacker):
-		return
-	$States/Stagger.knockback_direction = (attacker.global_position - global_position).normalized()
-	$Health.take_damage(amount, effect)
-	"""
+
+func take_damage(amount, type):
+	PlayerStatus.take_damage(amount, type)
+
 
 func set_dead(value):
 	"""
@@ -51,3 +51,37 @@ func set_dead(value):
 func _execute_step(volume_range):
 	signals.emit_signal("noise_emitted", global_position, volume_range)
 	#signals.emit_signal("camera_shake", 0.2, 2, 8, 1)
+
+
+func enemy_visible_check():
+	if enemies_in_proximity:
+		for enemy in enemies_in_proximity:
+			var direction = (enemy.global_position - global_position)
+			if abs(rad2deg(Vector2(1,0).rotated(rotation).angle_to(direction))) < FOV:
+				var mask = $VisibilityRaycast.collision_mask
+				var space_state = get_world_2d().direct_space_state
+				var target_extents = enemy.get_node("CollisionShape2D").shape.extents
+				var nw = enemy.global_position - target_extents
+				var se = enemy.global_position + target_extents
+				var ne = enemy.global_position + Vector2(target_extents.x, -target_extents.y)
+				var sw = enemy.global_position + Vector2(-target_extents.x, target_extents.y)
+				for pos in [enemy.global_position, nw, se, ne, sw]:
+					var result = space_state.intersect_ray(global_position, pos, [self], mask)
+					var response = result and result.collider == enemy
+					if response:
+						PlayerStatus.take_damage(3, "insanity")
+						return
+
+
+func body_entered_visible_area(body):
+	if body is VisibleEnemy:
+		enemies_in_proximity.push_front(body)
+
+func body_exited_visible_area(body):
+	if body is VisibleEnemy && enemies_in_proximity.has(body):
+		enemies_in_proximity.remove(enemies_in_proximity.find(body))
+
+
+
+
+

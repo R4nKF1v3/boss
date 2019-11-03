@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://entities/npcs/NPC.tscn" type="PackedScene" id=1]
 [ext_resource path="res://entities/npcs/enemies/shadow/EnemyShadow.gd" type="Script" id=2]
@@ -10,20 +10,23 @@
 [ext_resource path="res://entities/npcs/enemies/shadow/shadow.png" type="Texture" id=8]
 [ext_resource path="res://entities/npcs/enemies/shadow/fxs/SmokeAnim.tres" type="Texture" id=9]
 
-[sub_resource type="CircleShape2D" id=1]
-radius = 24.0619
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 13.2639, 22.5506 )
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=2]
 length = 0.5
 loop = true
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=3]
 loop = true
+
+[sub_resource type="Animation" id=4]
 
 [sub_resource type="Animation" id=5]
-
-[sub_resource type="Animation" id=6]
 loop = true
+
+[sub_resource type="CircleShape2D" id=6]
+radius = 53.4721
 
 [node name="EnemyShadow" instance=ExtResource( 1 )]
 collision_mask = 3
@@ -61,7 +64,7 @@ SPEED = 60.0
 wait_time = 10.0
 
 [node name="CollisionShape2D" parent="." index="1"]
-shape = SubResource( 1 )
+shape = SubResource( 7 )
 
 [node name="Body" type="Sprite" parent="." index="2"]
 use_parent_material = true
@@ -77,16 +80,23 @@ texture = ExtResource( 9 )
 texture = ExtResource( 9 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="5"]
-anims/chase = SubResource( 3 )
-anims/idle = SubResource( 4 )
-anims/searching = SubResource( 5 )
-anims/wander = SubResource( 6 )
+anims/chase = SubResource( 2 )
+anims/idle = SubResource( 3 )
+anims/searching = SubResource( 4 )
+anims/wander = SubResource( 5 )
 
 [node name="DetectionArea" type="Area2D" parent="." index="6"]
+visible = false
 collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea" index="0"]
+
+[node name="DamageArea" type="Area2D" parent="." index="7"]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea" index="0"]
+shape = SubResource( 6 )
 [connection signal="timeout" from="StateMachine/Idle/BoredomTimer" to="StateMachine/Idle" method="_on_Timer_timeout"]
 [connection signal="timeout" from="StateMachine/Chase/UpdatePath" to="StateMachine/Chase" method="_on_UpdatePath_timeout"]
 [connection signal="timeout" from="StateMachine/Searching/SearchTime" to="StateMachine/Searching" method="_on_SearchTime_timeout"]

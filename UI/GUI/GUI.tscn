@@ -1,0 +1,49 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://UI/GUI/GUI.gd" type="Script" id=1]
+[ext_resource path="res://UI/GUI/Bars.gd" type="Script" id=2]
+[ext_resource path="res://UI/GUI/sprites/heart/heart_d.tres" type="Texture" id=3]
+[ext_resource path="res://UI/GUI/sprites/heart/heart.tres" type="Texture" id=4]
+[ext_resource path="res://UI/GUI/sprites/insan/brain.png" type="Texture" id=5]
+[ext_resource path="res://UI/GUI/sprites/insan/brain_insane.png" type="Texture" id=6]
+
+[node name="GUI" type="Control"]
+light_mask = 2
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 1 )
+
+[node name="Ded" type="Label" parent="."]
+visible = false
+light_mask = 2
+margin_left = 422.776
+margin_top = 248.835
+margin_right = 462.776
+margin_bottom = 262.835
+rect_scale = Vector2( 5, 5 )
+
+[node name="Bars" type="HBoxContainer" parent="."]
+margin_left = 20.8924
+margin_top = 14.1962
+margin_right = 226.893
+margin_bottom = 79.1962
+script = ExtResource( 2 )
+
+[node name="LifeBar" type="TextureProgress" parent="Bars"]
+light_mask = 2
+margin_right = 64.0
+margin_bottom = 65.0
+value = 50.0
+texture_under = ExtResource( 3 )
+texture_progress = ExtResource( 4 )
+fill_mode = 3
+
+[node name="InsanityBar" type="TextureProgress" parent="Bars"]
+light_mask = 2
+margin_left = 68.0
+margin_right = 121.0
+margin_bottom = 65.0
+value = 50.0
+texture_under = ExtResource( 5 )
+texture_progress = ExtResource( 6 )
+fill_mode = 3

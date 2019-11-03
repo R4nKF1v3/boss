@@ -5,13 +5,6 @@ onready var astar_node = AStar.new()
 # The Tilemap node doesn't have clear bounds so we're defining the map's limits here
 export(Vector2) var map_size = Vector2(500, 500)
 
-# The path start and end variables use setter methods
-# You can find them at the bottom of the script
-var path_start_position = Vector2() setget _set_path_start_position
-var path_end_position = Vector2() setget _set_path_end_position
-
-var _point_path = []
-
 const BASE_LINE_WIDTH = 3.0
 const DRAW_COLOR = Color('#fff')
 
@@ -113,46 +106,20 @@ func is_valid_node(point):
 
 
 func get_simple_path(world_start, world_end):
-	self.path_start_position = world_to_map(to_local(world_start))
-	self.path_end_position = world_to_map(to_local(world_end))
-	_recalculate_path()
+	var path_start_position = world_to_map(to_local(world_start))
+	var path_end_position = world_to_map(to_local(world_end))
+	if not path_start_position in walkable_cells || not path_end_position in walkable_cells:
+		return []
+	if is_outside_map_bounds(path_start_position) || is_outside_map_bounds(path_end_position):
+		return []
+		
+	var start_point_index = calculate_point_index(path_start_position)
+	var end_point_index = calculate_point_index(path_end_position)
+	var _point_path = astar_node.get_point_path(start_point_index, end_point_index)
+	
 	var path_world = []
 	for point in _point_path:
 		var point_world = to_global(map_to_world(Vector2(point.x, point.y)) + _half_cell_size)
 		path_world.append(point_world)
 	return path_world
 
-
-func _recalculate_path():
-	var start_point_index = calculate_point_index(path_start_position)
-	var end_point_index = calculate_point_index(path_end_position)
-	# This method gives us an array of points. Note you need the start and end
-	# points' indices as input
-	_point_path = astar_node.get_point_path(start_point_index, end_point_index)
-
-
-# Setters for the start and end path values.
-func _set_path_start_position(value):
-	if not value in walkable_cells:
-		return
-	if is_outside_map_bounds(value):
-		return
-
-	#set_cell(path_start_position.x, path_start_position.y, -1)
-	#set_cell(value.x, value.y, 1)
-	path_start_position = value
-	if path_end_position and path_end_position != path_start_position:
-		_recalculate_path()
-
-
-func _set_path_end_position(value):
-	if not value in walkable_cells:
-		return
-	if is_outside_map_bounds(value):
-		return
-
-	#set_cell(path_start_position.x, path_start_position.y, -1)
-	#set_cell(value.x, value.y, 2)
-	path_end_position = value
-	if path_start_position != value:
-		_recalculate_path()

@@ -7,6 +7,7 @@ func handle_input(event):
 #		emit_signal("finished", "stagger")
 	pass
 
+
 func get_input_direction():
 	var input_direction = Vector2()
 	input_direction.x = int(Input.is_action_pressed("move_right")) - int(Input.is_action_pressed("move_left"))

@@ -13,9 +13,21 @@ _global_script_classes=[ {
 "class": "NPC",
 "language": "GDScript",
 "path": "res://entities/npcs/NPC.gd"
+}, {
+"base": "RigidBody2D",
+"class": "Player",
+"language": "GDScript",
+"path": "res://entities/player/PlayerController.gd"
+}, {
+"base": "NPC",
+"class": "VisibleEnemy",
+"language": "GDScript",
+"path": "res://entities/npcs/enemies/VisibleEnemy.gd"
 } ]
 _global_script_class_icons={
-"NPC": ""
+"NPC": "",
+"Player": "",
+"VisibleEnemy": ""
 }
 
 [application]
@@ -27,10 +39,14 @@ config/icon="res://icon.png"
 [autoload]
 
 signals="*res://globals/signals.gd"
+PlayerStatus="*res://entities/player/player_status.gd"
 
 [display]
 
 window/size/resizable=false
+window/size/fullscreen=true
+mouse_cursor/custom_image="res://resources/cursors/cursor-idle.png"
+mouse_cursor/custom_image_hotspot=Vector2( 12, 12 )
 
 [input]
 
