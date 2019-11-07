@@ -1,4 +1,4 @@
 extends InteractuableEvent
 
 func get_interaction_area():
-	return $StaticProp/InteractionArea
+	return $PhysProp/InteractionArea

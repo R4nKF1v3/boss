@@ -1,6 +1,6 @@
 extends Position2D
 
-const INTERACTION_RANGE = 80
+export (float) var INTERACTION_RANGE = 50
 const hotspot = Vector2(12, 12)
 
 onready var player : Player = owner.get_node("Player")
@@ -19,34 +19,39 @@ func _input(event):
 	if can_interact_with_element():
 		hovering_elements[0].handle_event(event)
 
-func _physics_process(delta):
+func _process(delta):
+	# Update position
+	global_position = get_global_mouse_position()
+	
 	# Cursor rendering
 	var texture
 	
 	if can_interact_with_element():
-		texture = hovering_elements[0].get_mouse_texture()
+		texture = hovering_elements[0].mouse_texture
 	else:
 		texture = default_texture
 	
 	if texture_loaded != texture:
 		Input.set_custom_mouse_cursor(texture, 0, hotspot)
 		texture_loaded = texture
-	
-	# Update position
-	global_position = get_global_mouse_position()
 
 func can_interact_with_element() -> bool:
 	if hovering_elements.size() > 0:
-		print("There's an element behind the mouse")
-		var space_state = get_world_2d().direct_space_state
 		var target = hovering_elements[0].get_global_position()
-		raycast.set_position_and_target(player.global_position, target)
+		raycast.global_position = player.global_position
+		raycast.cast_to = raycast.to_local(target)
+		
+		var elements_copy = hovering_elements.duplicate()
+		elements_copy.remove(0)
+		raycast.clear_exceptions()
+		for element in elements_copy:
+			raycast.add_exception(element.get_interaction_area())
+		
 		raycast.force_raycast_update()
 		if raycast.is_colliding():
+			var collider = raycast.get_collider()
 			var result = raycast.get_collision_point()
-			print(result)
-			if player.global_position.distance_to(result) <= INTERACTION_RANGE:
-				return true
+			return player.global_position.distance_to(result) <= INTERACTION_RANGE
 	return false
 
 func on_area_entered(area):
@@ -59,6 +64,7 @@ func on_area_exited(area):
 		hovering_elements.remove(hovering_elements.find(area.owner))
 		if hovering_elements.size() > 0:
 			hovering_elements.sort_custom(HoveringElementsSorter, "sort")
+		
 
 
 

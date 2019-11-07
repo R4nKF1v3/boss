@@ -4,12 +4,14 @@ class_name Player
 
 const FOV = 40
 
+onready var camera_pointer = get_parent().get_node("CameraPointer")
+onready var raycast : RayCast2D = $DetectionRay
+
 var look_direction : = Vector2(1, 0)
 var current_velocity : = Vector2()
 var camera_follow = true
 var enemies_in_proximity := []
 
-onready var camera_pointer = get_parent().get_node("CameraPointer")
 
 func _integrate_forces(state):
 	state.linear_velocity = current_velocity
@@ -66,10 +68,13 @@ func enemy_visible_check():
 				var ne = enemy.global_position + Vector2(target_extents.x, -target_extents.y)
 				var sw = enemy.global_position + Vector2(-target_extents.x, target_extents.y)
 				for pos in [enemy.global_position, nw, se, ne, sw]:
-					var result = space_state.intersect_ray(global_position, pos, [self], mask)
-					var response = result and result.collider == enemy
+					raycast.global_position = global_position
+					raycast.cast_to = raycast.to_local(pos)
+					raycast.force_raycast_update()
+					var result = raycast.get_collider()
+					var response = result and result == enemy
 					if response:
-						PlayerStatus.take_damage(3, "insanity")
+						enemy.deal_insanity_damage()
 						return
 
 

@@ -3,8 +3,11 @@ extends VisibleEnemy
 export (float) var DETECTION_RANGE = 800
 export (float) var FOV = 90
 export (float) var MELEE_DAMAGE = 3
+export (float) var INSANITY_DAMAGE = 3
 
 onready var navigation : TileMap = owner.get_node("VisibleLayer/Pathtiles")
+onready var raycast : RayCast2D = $DetectionRay
+
 var target
 var player_last_pos
 var look_at = Vector2(1,0)
@@ -58,8 +61,11 @@ func can_see_player() -> bool:
 			#		player_last_pos = target.global_position
 			#		return true
 			
-			var result = space_state.intersect_ray(global_position, target.global_position, [self], collision_mask)
-			var response = result and result.collider == target
+			raycast.global_position = global_position
+			raycast.cast_to = raycast.to_local(target.global_position)
+			raycast.force_raycast_update()
+			var result = raycast.get_collider()
+			var response = result and result == target
 			if response:
 				player_last_pos = target.global_position
 				return true
@@ -67,6 +73,9 @@ func can_see_player() -> bool:
 
 func can_reach_player():
 	return target and navigation.is_valid_node(target.global_position)
+
+func deal_insanity_damage():
+	PlayerStatus.take_damage(INSANITY_DAMAGE, "insanity")
 
 func on_detection_body_entered(body):
 	if body is Player:
