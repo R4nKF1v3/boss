@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Node2D",
+"class": "InteractuableEvent",
+"language": "GDScript",
+"path": "res://resources/props/events/Interactuable.gd"
+}, {
 "base": "RigidBody2D",
 "class": "NPC",
 "language": "GDScript",
@@ -25,6 +30,7 @@ _global_script_classes=[ {
 "path": "res://entities/npcs/enemies/VisibleEnemy.gd"
 } ]
 _global_script_class_icons={
+"InteractuableEvent": "",
 "NPC": "",
 "Player": "",
 "VisibleEnemy": ""
@@ -44,8 +50,6 @@ PlayerStatus="*res://entities/player/player_status.gd"
 [display]
 
 window/size/resizable=false
-window/size/fullscreen=true
-mouse_cursor/custom_image="res://resources/cursors/cursor-idle.png"
 mouse_cursor/custom_image_hotspot=Vector2( 12, 12 )
 
 [input]
@@ -79,6 +83,17 @@ run={
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777237,"unicode":0,"echo":false,"script":null)
  ]
 }
+interact={
+"deadzone": 0.5,
+"events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":1,"pressed":false,"doubleclick":false,"script":null)
+ ]
+}
+
+[layer_names]
+
+2d_physics/layer_1="world"
+2d_physics/layer_2="transparent"
+2d_physics/layer_3="entities"
 
 [physics]
 

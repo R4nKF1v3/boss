@@ -47,3 +47,9 @@ value = 50.0
 texture_under = ExtResource( 5 )
 texture_progress = ExtResource( 6 )
 fill_mode = 3
+
+[node name="FPS" type="Label" parent="."]
+light_mask = 2
+margin_right = 40.0
+margin_bottom = 14.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
