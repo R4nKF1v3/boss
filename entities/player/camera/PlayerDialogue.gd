@@ -20,7 +20,7 @@ func _on_timer_timeout():
 	if text == curr_dialogue:
 		curr_dialogue = null
 		index = 0
-		$Timer.start(5)
+		$Timer.start(2)
 	else:
 		$Timer.start(0.05)
 
