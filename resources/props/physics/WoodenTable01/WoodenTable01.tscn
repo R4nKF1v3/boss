@@ -9,8 +9,13 @@ extents = Vector2( 84.6839, 41.2032 )
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 84, 41 )
 
-[node name="WoodenTable01" instance=ExtResource( 1 )]
+[node name="WoodenTable01" index="0" instance=ExtResource( 1 )]
 position = Vector2( 119.51, 67.529 )
+
+[node name="PhysProp" parent="." index="0"]
+mass = 150.0
+linear_damp = 5.0
+angular_damp = 5.0
 
 [node name="Hidden" parent="PhysProp" index="0"]
 scale = Vector2( 0.425786, 0.419774 )

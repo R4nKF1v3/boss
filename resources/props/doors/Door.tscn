@@ -27,8 +27,9 @@ light_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Door/Doorway"]
 
 [node name="InteractionArea" type="Area2D" parent="Door/Doorway"]
+collision_layer = 8
+collision_mask = 8
 
 [node name="PinJoint2D" type="PinJoint2D" parent="Door"]
 node_a = NodePath("../Hinge")
 node_b = NodePath("../Doorway")
-disable_collision = false

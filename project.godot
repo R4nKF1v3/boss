@@ -9,13 +9,28 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Event",
+"class": "CanvasEvent",
+"language": "GDScript",
+"path": "res://resources/props/interactuable properties/events/Canvas.gd"
+}, {
+"base": "Event",
+"class": "DialogueEvent",
+"language": "GDScript",
+"path": "res://resources/props/interactuable properties/events/Dialogue.gd"
+}, {
 "base": "Node",
 "class": "Event",
 "language": "GDScript",
 "path": "res://resources/props/interactuable properties/events/Event.gd"
 }, {
+"base": "Event",
+"class": "FlickeringEvent",
+"language": "GDScript",
+"path": "res://resources/props/interactuable properties/events/Flickering.gd"
+}, {
 "base": "Node2D",
-"class": "InteractuableEvent",
+"class": "InteractuableElement",
 "language": "GDScript",
 "path": "res://resources/props/interactuable properties/Interactuable.gd"
 }, {
@@ -40,8 +55,11 @@ _global_script_classes=[ {
 "path": "res://entities/npcs/enemies/VisibleEnemy.gd"
 } ]
 _global_script_class_icons={
+"CanvasEvent": "",
+"DialogueEvent": "",
 "Event": "",
-"InteractuableEvent": "",
+"FlickeringEvent": "",
+"InteractuableElement": "",
 "NPC": "",
 "Player": "",
 "ToggleEvent": "",
@@ -57,7 +75,9 @@ config/icon="res://icon.png"
 [autoload]
 
 signals="*res://globals/signals.gd"
-PlayerStatus="*res://entities/player/player_status.gd"
+PlayerStatus="*res://globals/player_status.gd"
+World_Properties="*res://globals/world_properties.gd"
+WorldEvents="*res://globals/WorldEvents.gd"
 
 [display]
 

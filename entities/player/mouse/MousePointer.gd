@@ -1,6 +1,6 @@
 extends Position2D
 
-export (float) var INTERACTION_RANGE = 50
+export (float) var INTERACTION_RANGE = 80
 const hotspot = Vector2(12, 12)
 
 onready var player : Player = owner.get_node("Player")
@@ -37,21 +37,23 @@ func _process(delta):
 
 func can_interact_with_element() -> bool:
 	if hovering_elements.size() > 0:
-		var target = hovering_elements[0].get_global_position()
-		raycast.global_position = player.global_position
-		raycast.cast_to = raycast.to_local(target)
-		
 		var elements_copy = hovering_elements.duplicate()
 		elements_copy.remove(0)
 		raycast.clear_exceptions()
 		for element in elements_copy:
 			raycast.add_exception(element.get_interaction_area())
 		
-		raycast.force_raycast_update()
-		if raycast.is_colliding():
+		var center = (hovering_elements[0].get_global_position() - player.global_position).normalized()
+		var left = Vector2(center.x, center.y).rotated(0.5)
+		var right = Vector2(center.x, center.y).rotated(-0.5)
+		raycast.global_position = player.global_position
+		
+		for target in [center, left, right]:
+			raycast.cast_to = target * INTERACTION_RANGE
+			raycast.force_raycast_update()
 			var collider = raycast.get_collider()
-			var result = raycast.get_collision_point()
-			return player.global_position.distance_to(result) <= INTERACTION_RANGE
+			if collider:
+				return true
 	return false
 
 func on_area_entered(area):
