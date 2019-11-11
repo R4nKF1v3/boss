@@ -5,6 +5,7 @@ var event_types = {
 	"Flickering": FlickeringEvent,
 	"Canvas": CanvasEvent,
 	"Dialogue": DialogueEvent,
+	"TogInteractuable": TogInteractuable,
 }
 
 signal change_canvas_color(color)

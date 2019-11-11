@@ -3,6 +3,7 @@ extends Sprite
 var target
 
 func _ready():
+	modulate = World_Properties.canvas_default
 	WorldEvents.connect("change_canvas_color", self, "_on_change_canvas_color_event")
 	set_process(false)
 

@@ -5,3 +5,6 @@ func get_interaction_area():
 
 func get_global_position() -> Vector2:
 	return $Door/Doorway.global_position
+
+func toggle():
+	pass

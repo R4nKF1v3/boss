@@ -45,6 +45,11 @@ _global_script_classes=[ {
 "path": "res://entities/player/PlayerController.gd"
 }, {
 "base": "Event",
+"class": "TogInteractuable",
+"language": "GDScript",
+"path": "res://resources/props/interactuable properties/events/TogInteractuable.gd"
+}, {
+"base": "Event",
 "class": "ToggleEvent",
 "language": "GDScript",
 "path": "res://resources/props/interactuable properties/events/Toggle.gd"
@@ -62,6 +67,7 @@ _global_script_class_icons={
 "InteractuableElement": "",
 "NPC": "",
 "Player": "",
+"TogInteractuable": "",
 "ToggleEvent": "",
 "VisibleEnemy": ""
 }

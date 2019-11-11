@@ -13,8 +13,10 @@ static func handle(emmiter: InteractuableElement):
 			event.timings = calculate_timings(emmiter.flickering_event_timings)
 			event.duration = emmiter.flickering_event_duration
 			event.toggle_after_finish = emmiter.flickering_event_toggle_after_finish
-			for node in event_group:
-				node.handle_world_event(WorldEvents.event_types.Flickering, event)
+			for path in event_group:
+				var node = emmiter.get_node(path)
+				if node && node.has_method("handle_world_event"):
+					node.handle_world_event(WorldEvents.event_types.Flickering, event)
 
 static func calculate_timings(timings_list) -> Array:
 	if timings_list:

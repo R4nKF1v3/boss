@@ -24,19 +24,24 @@ tile_data = PoolIntArray( 65651, 2, 0, 65652, 2, 0, 65653, 2, 0, 65654, 2, 0, 65
 [node name="WoodenTable01" parent="VisibleLayer/Ground/Props" index="0" instance=ExtResource( 2 )]
 position = Vector2( 450.355, 686.681 )
 is_interactuable = true
-dialogue_event_one_shot = true
+delete_on_interaction = true
+tog_interactuable_event_nodes = [ NodePath("../WoodenDoor") ]
+canvas_event_color = Color( 1, 0.690196, 0.690196, 0.701961 )
 dialogue_event_is_sucessive = true
 dialogue_event_text = [ "Esto es un texto de prueba", "Esta prueba salio bien!", "O eso creo" ]
 
 [node name="LampLight01" parent="VisibleLayer/Ground/Props/WoodenTable01/PhysProp" index="4" instance=ExtResource( 3 )]
 position = Vector2( 1.10803, 19.9445 )
 is_interactuable = true
+delete_on_interaction = true
 mouse_texture = ExtResource( 4 )
+canvas_event_color = Color( 0.729412, 0.992157, 1, 0.701961 )
 
 [node name="WoodenDoor" parent="VisibleLayer/Ground/Props" index="1" instance=ExtResource( 5 )]
 position = Vector2( 959.677, 437.373 )
 rotation = -1.5708
 is_interactuable = true
+delete_on_tog_interactuable_event = true
 
 [node name="EnemyShadow" parent="VisibleLayer/Ground/Spawns" index="0" instance=ExtResource( 6 )]
 position = Vector2( 4350.07, 181.005 )

@@ -6,5 +6,7 @@ static func handle(emmiter: InteractuableElement):
 		var event_group = emmiter.toggle_event_nodes
 		if event_group.size() > 0:
 			var event = WorldEvents.event_types.Toggle.new()
-			for node in event_group:
-				node.handle_world_event(WorldEvents.event_types.Toggle, event)
+			for path in event_group:
+				var node = emmiter.get_node(path)
+				if node && node.has_method("handle_world_event"):
+					node.handle_world_event(WorldEvents.event_types.Toggle, event)

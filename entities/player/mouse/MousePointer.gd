@@ -37,6 +37,12 @@ func _process(delta):
 
 func can_interact_with_element() -> bool:
 	if hovering_elements.size() > 0:
+		
+		while !is_instance_valid(hovering_elements[0]):
+			hovering_elements.pop_front()
+			if hovering_elements.size() == 0:
+				return false
+		
 		var elements_copy = hovering_elements.duplicate()
 		elements_copy.remove(0)
 		raycast.clear_exceptions()

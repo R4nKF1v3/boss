@@ -3,11 +3,17 @@ class_name InteractuableElement
 
 # Interaction tooltips
 export (bool) var is_interactuable = false
+export (bool) var delete_on_interaction = false
+export (bool) var delete_on_tog_interactuable_event = false
 export (Texture) var mouse_texture : Texture = preload("res://resources/cursors/cursor-selecting.png")
 
 # Toggle event
 export (bool) var toggle_event_one_shot = false
 export (Array, NodePath) var toggle_event_nodes = []
+
+# Toggle Interactuable event
+export (bool) var tog_interactuable_event_one_shot = false
+export (Array, NodePath) var tog_interactuable_event_nodes = []
 
 # Flickering event
 export (bool) var flickering_event_one_shot = false
@@ -42,6 +48,8 @@ func handle_event(event: InputEvent):
 		for eventType in WorldEvents.event_types.values():
 			eventType.handle(self)
 		
+		if delete_on_interaction:
+			self.queue_free()
 		was_emmited = true
 		
 
@@ -58,6 +66,12 @@ func handle_world_event(eventType, event):
 	match eventType:
 		WorldEvents.event_types.Toggle:
 			toggle()
+		
+		WorldEvents.event_types.TogInteractuable:
+			if delete_on_tog_interactuable_event:
+				self.queue_free()
+			else:
+				is_interactuable = !is_interactuable
 			
 		WorldEvents.event_types.Flickering:
 			if timer_index % 2 == 1:
