@@ -68,7 +68,8 @@ func handle_world_event(eventType, event):
 		WorldEvents.event_types.Toggle:
 			if trigger_on_toggle_event:
 				trigger_events()
-			toggle()
+			else:
+				toggle()
 		
 		WorldEvents.event_types.TogInteractuable:
 			togInteract()

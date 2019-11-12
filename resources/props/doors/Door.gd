@@ -5,7 +5,6 @@ export (bool) var door_is_locked = false
 func _ready():
 	if door_is_locked:
 		lock_door()
-	._ready()
 
 func get_interaction_area():
 	return $Door/Doorway/InteractionArea
