@@ -3,49 +3,50 @@
 [ext_resource path="res://resources/props/doors/Door.tscn" type="PackedScene" id=1]
 [ext_resource path="res://resources/props/doors/wooden_door/wooden_door.png" type="Texture" id=2]
 
-[sub_resource type="CircleShape2D" id=1]
-radius = 5.1046
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 4.64787, 4.0879 )
 
-[sub_resource type="OccluderPolygon2D" id=2]
-polygon = PoolVector2Array( 1.64759, -4.48247, 4.0893, -1.14119, 3.96079, 2.45712, 1.39057, 5.28437, -2.59328, 5.15586, -4.90648, 2.2001, -5.1635, -1.52672, -2.59328, -4.48247 )
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 3.88927
+height = 77.9966
 
 [sub_resource type="CapsuleShape2D" id=3]
-radius = 4.04611
-height = 97.2247
+radius = 3.889
+height = 77.9979
 
 [sub_resource type="OccluderPolygon2D" id=4]
-polygon = PoolVector2Array( -73.4623, -4.09016, 31.8539, -4.22545, 31.5869, 4.0407, -73.7001, 3.99595 )
+polygon = PoolVector2Array( 89.7617, 0.0132523, 89.7617, 1.30142, 2.71802, 0.197277, 2.71802, -0.722847 )
 
 [node name="WoodenDoor" instance=ExtResource( 1 )]
 
-[node name="Hinge" parent="." index="0"]
-position = Vector2( 32.6588, -0.25034 )
+[node name="Hinge" parent="Door" index="0"]
+position = Vector2( -35, 0 )
 
-[node name="CollisionShape2D" parent="Hinge" index="0"]
-position = Vector2( -0.991638, 0.4224 )
+[node name="CollisionShape2D" parent="Door/Hinge" index="2"]
 shape = SubResource( 1 )
 
-[node name="LightOccluder2D" type="LightOccluder2D" parent="Hinge" index="1"]
-occluder = SubResource( 2 )
+[node name="Doorway" parent="Door" index="1"]
+position = Vector2( -35, 0 )
+mass = 15.0
+linear_damp = 1.0
 
-[node name="Doorway" parent="." index="1"]
-position = Vector2( -1.62222, 0 )
-mass = 100.0
-
-[node name="Sprite" parent="Doorway" index="0"]
-light_mask = 2
-position = Vector2( -20.9893, 0 )
-scale = Vector2( 1.65592, 1 )
+[node name="Hidden" parent="Door/Doorway" index="0"]
+position = Vector2( 46.6933, 0 )
+scale = Vector2( 1.33228, 1 )
 texture = ExtResource( 2 )
 
-[node name="CollisionShape2D" parent="Doorway" index="1"]
-position = Vector2( -21.2878, 0.191445 )
+[node name="CollisionShape2D" parent="Door/Doorway" index="2"]
+position = Vector2( 46.659, 0.0265694 )
+rotation = 1.5708
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door/Doorway/InteractionArea" index="0"]
+position = Vector2( 46.6586, 0.0270004 )
 rotation = 1.5708
 shape = SubResource( 3 )
 
-[node name="LightOccluder2D" type="LightOccluder2D" parent="Doorway" index="2"]
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Door/Doorway" index="4"]
 occluder = SubResource( 4 )
 
-[node name="PinJoint2D" parent="." index="2"]
-position = Vector2( 29.8588, 0.174824 )
-disable_collision = true
+[node name="PinJoint2D" parent="Door" index="2"]
+position = Vector2( -27.301, 0 )

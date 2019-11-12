@@ -10,7 +10,7 @@
 [ext_resource path="res://entities/npcs/enemies/shadow/shadow.png" type="Texture" id=8]
 [ext_resource path="res://entities/npcs/enemies/shadow/fxs/SmokeAnim.tres" type="Texture" id=9]
 
-[sub_resource type="RectangleShape2D" id=7]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 13.2639, 22.5506 )
 
 [sub_resource type="Animation" id=2]
@@ -64,7 +64,7 @@ SPEED = 60.0
 wait_time = 10.0
 
 [node name="CollisionShape2D" parent="." index="1"]
-shape = SubResource( 7 )
+shape = SubResource( 1 )
 
 [node name="Body" type="Sprite" parent="." index="2"]
 use_parent_material = true
@@ -86,17 +86,18 @@ anims/searching = SubResource( 4 )
 anims/wander = SubResource( 5 )
 
 [node name="DetectionArea" type="Area2D" parent="." index="6"]
-visible = false
 collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea" index="0"]
 
 [node name="DamageArea" type="Area2D" parent="." index="7"]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea" index="0"]
 shape = SubResource( 6 )
+
+[node name="DetectionRay" type="RayCast2D" parent="." index="8"]
+collision_mask = 3
 [connection signal="timeout" from="StateMachine/Idle/BoredomTimer" to="StateMachine/Idle" method="_on_Timer_timeout"]
 [connection signal="timeout" from="StateMachine/Chase/UpdatePath" to="StateMachine/Chase" method="_on_UpdatePath_timeout"]
 [connection signal="timeout" from="StateMachine/Searching/SearchTime" to="StateMachine/Searching" method="_on_SearchTime_timeout"]
