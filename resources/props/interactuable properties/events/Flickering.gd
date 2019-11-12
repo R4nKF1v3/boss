@@ -5,7 +5,7 @@ var timings
 var duration
 var toggle_after_finish
 
-static func handle(emmiter: InteractuableElement):
+static func handle(emmiter):
 	if !(emmiter.flickering_event_one_shot && emmiter.was_emmited):
 		var event_group = emmiter.flickering_event_nodes
 		if event_group.size() > 0:
@@ -26,4 +26,4 @@ static func calculate_timings(timings_list) -> Array:
 			ret_list.push_front(time/2)
 		return ret_list
 	else:
-		return [0.1, 0.1]
+		return []

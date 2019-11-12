@@ -1,7 +1,7 @@
 extends Event
 class_name TogInteractuable
 
-static func handle(emmiter: InteractuableElement):
+static func handle(emmiter):
 	if !(emmiter.tog_interactuable_event_one_shot && emmiter.was_emmited):
 		var event_group = emmiter.tog_interactuable_event_nodes
 		if event_group.size() > 0:

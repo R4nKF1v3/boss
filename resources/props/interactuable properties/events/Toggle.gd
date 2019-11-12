@@ -1,7 +1,7 @@
 extends Event
 class_name ToggleEvent
 
-static func handle(emmiter: InteractuableElement):
+static func handle(emmiter):
 	if !(emmiter.toggle_event_one_shot && emmiter.was_emmited):
 		var event_group = emmiter.toggle_event_nodes
 		if event_group.size() > 0:

@@ -5,13 +5,18 @@ export (Texture) var on_toggle_visible_texture
 export (bool) var on_toggle_mode_switch_static = false
 export (bool) var on_toggle_collision_switch = false
 
-onready var hidden = $TextureProp/Hidden
-onready var vis = $TextureProp/Visible
+onready var hidden = $PhysProp/Hidden
+onready var vis = $PhysProp/Visible
 onready var prop = $PhysProp
 
-onready var hidden_base_tx = hidden.texture
-onready var vis_base_tx = vis.texture
-onready var prop_coll = [prop.collision_layer, prop.collision_mask]
+var hidden_base_tx
+var vis_base_tx
+var prop_coll
+
+func _ready():
+	hidden_base_tx = hidden.texture
+	vis_base_tx = vis.texture
+	prop_coll = [prop.collision_layer, prop.collision_mask]
 
 func get_interaction_area():
 	return $PhysProp/InteractionArea

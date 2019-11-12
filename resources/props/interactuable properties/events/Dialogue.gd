@@ -3,7 +3,7 @@ class_name DialogueEvent
 
 var dialogue_text
 
-static func handle(emmiter : InteractuableElement):
+static func handle(emmiter):
 	var dialogue = emmiter.dialogue_event_text
 	if !((emmiter.dialogue_event_one_shot && !(emmiter.dialogue_event_is_sucessive && dialogue.size() > 0)) && emmiter.was_emmited):
 		if dialogue.size() > 0:

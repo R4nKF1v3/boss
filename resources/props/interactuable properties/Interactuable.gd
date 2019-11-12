@@ -5,6 +5,7 @@ class_name InteractuableElement
 export (bool) var is_interactuable = false
 export (bool) var delete_on_interaction = false
 export (bool) var delete_on_tog_interactuable_event = false
+export (bool) var trigger_on_toggle_event = false
 export (Texture) var mouse_texture : Texture = preload("res://resources/cursors/cursor-selecting.png")
 
 # Toggle event
@@ -36,8 +37,6 @@ var timer_list = []
 var timer_index = 0
 var toggle_after_finish = false
 
-func _ready():
-	pass
 
 func handle_event(event: InputEvent):
 	if can_handle_event(event):
@@ -45,13 +44,15 @@ func handle_event(event: InputEvent):
 		print(name)
 		get_tree().set_input_as_handled()
 		
-		for eventType in WorldEvents.event_types.values():
-			eventType.handle(self)
-		
-		if delete_on_interaction:
-			self.queue_free()
-		was_emmited = true
-		
+		trigger_events()
+
+func trigger_events():
+	for eventType in WorldEvents.event_types.values():
+		eventType.handle(self)
+	
+	if delete_on_interaction:
+		self.queue_free()
+	was_emmited = true
 
 func can_handle_event(event: InputEvent):
 	return event.is_action_pressed("interact")
@@ -65,52 +66,18 @@ func get_interaction_area():
 func handle_world_event(eventType, event):
 	match eventType:
 		WorldEvents.event_types.Toggle:
+			if trigger_on_toggle_event:
+				trigger_events()
 			toggle()
 		
 		WorldEvents.event_types.TogInteractuable:
-			if delete_on_tog_interactuable_event:
-				self.queue_free()
-			else:
-				is_interactuable = !is_interactuable
+			togInteract()
 			
 		WorldEvents.event_types.Flickering:
-			if timer_index % 2 == 1:
-				toggle()
-			reset_timers()
-			
-			timer_list = event.timings
-			toggle_after_finish = event.toggle_after_finish
-			
-			var duration_timer = Timer.new()
-			duration_timer.name = "DurationTimer"
-			duration_timer.one_shot = true
-			duration_timer.connect("timeout", self, "_on_event_duration_timer_timeout")
-			
-			var timer = Timer.new()
-			timer.name = "Timer"
-			timer.one_shot = true
-			timer.connect("timeout", self, "_on_event_timer_timeout")
-			
-			add_child(duration_timer)
-			add_child(timer)
-			
-			duration_timer.start(event.duration)
-			timer.start(timer_list[timer_index])
-			update_timer_index()
-
-func _on_event_timer_timeout():
-	toggle()
-	var timer = get_node("Timer")
-	timer.start(timer_list[timer_index])
-	update_timer_index()
-
-func _on_event_duration_timer_timeout():
-	reset_timers()
-	if toggle_after_finish:
-		toggle()
+			flicker(event)
 
 func update_timer_index():
-	timer_index = timer_index + 1 if timer_index + 1 <= timer_list.size() else 0
+	timer_index = timer_index + 1 if timer_index + 1 <= timer_list.size() - 1 else 0
 
 func reset_timers():
 	if has_node("DurationTimer"):
@@ -123,6 +90,49 @@ func reset_timers():
 		n.queue_free()
 	
 	timer_index = 0
+
+func togInteract():
+	if delete_on_tog_interactuable_event:
+		self.queue_free()
+	else:
+		is_interactuable = !is_interactuable
+
+func flicker(event):
+	reset_timers()
+	
+	timer_list = event.timings
+	toggle_after_finish = event.toggle_after_finish
+	
+	var duration_timer = Timer.new()
+	duration_timer.name = "DurationTimer"
+	duration_timer.one_shot = true
+	duration_timer.connect("timeout", self, "_on_event_duration_timer_timeout")
+	
+	var timer = Timer.new()
+	timer.name = "Timer"
+	timer.one_shot = true
+	timer.connect("timeout", self, "_on_event_timer_timeout")
+	
+	add_child(duration_timer)
+	add_child(timer)
+	
+	duration_timer.start(event.duration)
+	if timer_list.size() > 0:
+		timer.start(timer_list[timer_index])
+		update_timer_index()
+
+func _on_event_timer_timeout():
+	toggle()
+	var timer = get_node("Timer")
+	timer.start(timer_list[timer_index])
+	update_timer_index()
+
+func _on_event_duration_timer_timeout():
+	if timer_index % 2 == 0 && timer_list.size() > 0:
+		toggle()
+	reset_timers()
+	if toggle_after_finish:
+		toggle()
 
 func toggle():
 	pass
