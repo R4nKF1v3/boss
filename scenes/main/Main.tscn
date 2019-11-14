@@ -36,12 +36,11 @@ texture = ExtResource( 3 )
 [node name="LevelContainer" type="Node" parent="."]
 
 [node name="StartLevel" parent="LevelContainer" instance=ExtResource( 4 )]
-editor/display_folded = true
 
 [node name="PlayerContainer" type="Node" parent="."]
 
 [node name="PlayerContainer" parent="PlayerContainer" instance=ExtResource( 5 )]
-position = Vector2( 3556.47, 421.209 )
+position = Vector2( 217.908, 530.532 )
 
 [node name="Foreground" type="ParallaxBackground" parent="."]
 layer = 1

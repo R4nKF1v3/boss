@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://entities/npcs/NPC.tscn" type="PackedScene" id=1]
 [ext_resource path="res://entities/npcs/enemies/shadow/EnemyShadow.gd" type="Script" id=2]
@@ -28,7 +28,9 @@ loop = true
 [sub_resource type="CircleShape2D" id=6]
 radius = 53.4721
 
-[node name="EnemyShadow" instance=ExtResource( 1 )]
+[sub_resource type="AudioStreamSample" id=7]
+
+[node name="EnemyShadow" index="0" instance=ExtResource( 1 )]
 collision_mask = 3
 script = ExtResource( 2 )
 
@@ -36,7 +38,6 @@ script = ExtResource( 2 )
 script = ExtResource( 3 )
 
 [node name="Idle" type="Node" parent="StateMachine" index="0"]
-editor/display_folded = true
 script = ExtResource( 4 )
 
 [node name="BoredomTimer" type="Timer" parent="StateMachine/Idle" index="0"]
@@ -48,7 +49,6 @@ script = ExtResource( 5 )
 SPEED = 50.0
 
 [node name="Chase" type="Node" parent="StateMachine" index="2"]
-editor/display_folded = true
 script = ExtResource( 6 )
 SPEED = 150.0
 
@@ -56,7 +56,6 @@ SPEED = 150.0
 wait_time = 0.05
 
 [node name="Searching" type="Node" parent="StateMachine" index="3"]
-editor/display_folded = true
 script = ExtResource( 7 )
 SPEED = 60.0
 
@@ -98,6 +97,9 @@ shape = SubResource( 6 )
 
 [node name="DetectionRay" type="RayCast2D" parent="." index="8"]
 collision_mask = 3
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." index="9"]
+stream = SubResource( 7 )
 [connection signal="timeout" from="StateMachine/Idle/BoredomTimer" to="StateMachine/Idle" method="_on_Timer_timeout"]
 [connection signal="timeout" from="StateMachine/Chase/UpdatePath" to="StateMachine/Chase" method="_on_UpdatePath_timeout"]
 [connection signal="timeout" from="StateMachine/Searching/SearchTime" to="StateMachine/Searching" method="_on_SearchTime_timeout"]

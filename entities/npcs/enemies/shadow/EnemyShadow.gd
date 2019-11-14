@@ -35,12 +35,12 @@ func _integrate_forces(state):
 
 
 func lerp_angle(from, to, weight):
-    return from + short_angle_dist(from, to) * weight
+	return from + short_angle_dist(from, to) * weight
 
 func short_angle_dist(from, to):
-    var max_angle = PI * 2
-    var difference = fmod(to - from, max_angle)
-    return fmod(2 * difference, max_angle) - difference
+	var max_angle = PI * 2
+	var difference = fmod(to - from, max_angle)
+	return fmod(2 * difference, max_angle) - difference
 	
 
 func can_see_player() -> bool:

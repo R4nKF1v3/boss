@@ -29,25 +29,21 @@ func toggle():
 const SHADOW_RESOLUTION = 720
 
 export (Color) var light_colour# setget update_colour
-export (Color) var hidden_colour
 export (float) var light_size# setget update_size
 
 onready var raycast = $Light/RayCast2D
 
 onready var vis = $Light/Visible
-onready var hidden = $Light/Hidden
 
 var ray_lengths
 
 func update_colour(value):
 	light_colour = value
 	vis.update()
-	hidden.update()
 
 func update_size(value):
 	light_size = value
 	vis.update()
-	hidden.update()
 
 func update_ray_lengths():
 	for i in range(0, SHADOW_RESOLUTION):
@@ -62,7 +58,6 @@ func update_ray_lengths():
 		else:
 			ray_lengths[i] = light_size
 	vis.update()
-	hidden.update()
 
 func make_point(direction, amount):
 	var result = Vector2(0.0, 0.0)
@@ -89,22 +84,10 @@ func _draw():
 		colors.append(light_colour.linear_interpolate(Color(light_colour.r, light_colour.g, light_colour.b, 0.0), power_a))
 		colors.append(light_colour.linear_interpolate(Color(light_colour.r, light_colour.g, light_colour.b, 0.0), power_b))
 	draw_polygon(points, colors)
-	
-	var hidden_colors = PoolColorArray()
-	for i in range(0, SHADOW_RESOLUTION):
-		var index_plus = i + 1
-		if index_plus == SHADOW_RESOLUTION: index_plus = 0
-		var power_a = ray_lengths[i]/light_size
-		var power_b = ray_lengths[index_plus]/light_size
-		hidden_colors.append(hidden_colour)
-		hidden_colors.append(hidden_colour.linear_interpolate(Color(hidden_colour.r, hidden_colour.g, hidden_colour.b, 0.0), power_a))
-		hidden_colors.append(hidden_colour.linear_interpolate(Color(hidden_colour.r, hidden_colour.g, hidden_colour.b, 0.0), power_b))
-	draw_polygon(points, hidden_colors)
 
 func _ready():
 	update_ray_lengths()
 	vis.update()
-	hidden.update()
 
 func _enter_tree():
 	ray_lengths = []
