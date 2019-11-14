@@ -41,7 +41,7 @@ editor/display_folded = true
 [node name="PlayerContainer" type="Node" parent="."]
 
 [node name="PlayerContainer" parent="PlayerContainer" instance=ExtResource( 5 )]
-position = Vector2( 214.52, 491.852 )
+position = Vector2( 3556.47, 421.209 )
 
 [node name="Foreground" type="ParallaxBackground" parent="."]
 layer = 1

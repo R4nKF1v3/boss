@@ -8,11 +8,16 @@
 [ext_resource path="res://resources/props/triggers/TriggerArea.tscn" type="PackedScene" id=6]
 [ext_resource path="res://entities/npcs/enemies/shadow/EnemyShadow.tscn" type="PackedScene" id=7]
 [ext_resource path="res://resources/props/lights/StrongLight/StrongLight.tscn" type="PackedScene" id=8]
-[ext_resource path="res://resources/props/interactuable properties/Interactuable.gd" type="Script" id=9]
-[ext_resource path="res://resources/torch/torch.tscn" type="PackedScene" id=10]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 10, 62.8459 )
+
+[sub_resource type="CanvasItemMaterial" id=3]
+
+[sub_resource type="CanvasItemMaterial" id=2]
+next_pass = SubResource( 3 )
+blend_mode = 1
+light_mode = 1
 
 [node name="StartLevel" index="0" instance=ExtResource( 1 )]
 
@@ -33,13 +38,18 @@ tog_interactuable_event_nodes = [ NodePath("../WoodenDoor") ]
 flickering_event_nodes = [ NodePath("PhysProp/LampLight01"), NodePath("../WoodenDoor") ]
 flickering_event_timings = [ 0.1, 1.0, 0.08 ]
 flickering_event_duration = 5.0
+canvas_event_color = Color( 1, 1, 1, 0.921569 )
 
 [node name="LampLight01" parent="VisibleLayer/Ground/Props/WoodenTable01/PhysProp" index="4" instance=ExtResource( 3 )]
 position = Vector2( 1.10803, 19.9445 )
+z_index = 0
 is_interactuable = true
 delete_on_interaction = true
 mouse_texture = ExtResource( 4 )
 canvas_event_color = Color( 0.729412, 0.992157, 1, 0.701961 )
+light_colour = Color( 1, 1, 1, 0.94902 )
+hidden_colour = Color( 0, 0, 0, 1 )
+light_size = 64.0
 
 [node name="WoodenDoor" parent="VisibleLayer/Ground/Props" index="1" instance=ExtResource( 5 )]
 position = Vector2( 991.876, 414.964 )
@@ -58,11 +68,40 @@ canvas_event_color = Color( 1, 1, 1, 0.188235 )
 shape = SubResource( 1 )
 
 [node name="LampLight01" parent="VisibleLayer/Ground/Props" index="3" instance=ExtResource( 3 )]
+material = SubResource( 2 )
 position = Vector2( 836.151, 642.537 )
+z_index = 0
 flickering_event_nodes = [ NodePath(".") ]
 flickering_event_timings = [ 1.0, 2.0 ]
 flickering_event_duration = 10.0
 dialogue_event_text = [ "Yo soy la Lámpara", "Te hablo a vos" ]
+light_colour = Color( 1, 1, 1, 0.482353 )
+hidden_colour = Color( 0, 0, 0, 1 )
+light_size = 400.0
+
+[node name="LampLight02" parent="VisibleLayer/Ground/Props" index="4" instance=ExtResource( 3 )]
+material = SubResource( 2 )
+position = Vector2( 360.465, 509.399 )
+light_colour = Color( 1, 1, 1, 0.482353 )
+hidden_colour = Color( 0, 0, 0, 1 )
+
+[node name="LampLight04" parent="VisibleLayer/Ground/Props" index="5" instance=ExtResource( 3 )]
+material = SubResource( 2 )
+position = Vector2( 820.219, 416.585 )
+light_colour = Color( 1, 1, 1, 0.635294 )
+hidden_colour = Color( 0, 0, 0, 1 )
+
+[node name="LampLight05" parent="VisibleLayer/Ground/Props" index="6" instance=ExtResource( 3 )]
+material = SubResource( 2 )
+position = Vector2( 761.94, 243.907 )
+light_colour = Color( 1, 1, 1, 0.635294 )
+hidden_colour = Color( 0, 0, 0, 1 )
+
+[node name="LampLight03" parent="VisibleLayer/Ground/Props" index="7" instance=ExtResource( 3 )]
+material = SubResource( 2 )
+position = Vector2( 356.148, 302.186 )
+light_colour = Color( 1, 1, 1, 0.635294 )
+hidden_colour = Color( 0, 0, 0, 1 )
 
 [node name="EnemyShadow" parent="VisibleLayer/Ground/Spawns" index="0" instance=ExtResource( 7 )]
 position = Vector2( 4350.07, 181.005 )
@@ -77,76 +116,30 @@ position = Vector2( 460.708, 256.788 )
 tile_data = PoolIntArray( 57, 0, 1, 58, 0, 196610, 59, 0, 196610, 60, 0, 196610, 61, 0, 196610, 62, 0, 196610, 63, 0, 196610, 64, 0, 2, 65, 0, 196610, 66, 0, 196610, 67, 0, 196610, 68, 0, 196610, 69, 0, 196610, 70, 0, 196610, 71, 0, 2, 72, 0, 196610, 73, 0, 196610, 74, 0, 196610, 75, 0, 196610, 76, 0, 196610, 77, 0, 196610, 78, 0, 3, 65537, 0, 1, 65538, 0, 196610, 65539, 0, 196610, 65540, 0, 196610, 65541, 0, 196610, 65542, 0, 196610, 65543, 0, 196610, 65544, 0, 2, 65545, 0, 196610, 65546, 0, 196610, 65547, 0, 196610, 65548, 0, 196610, 65549, 0, 196610, 65550, 0, 3, 65593, 0, 131072, 65600, 0, 131072, 65607, 0, 131072, 65614, 0, 131072, 131073, 0, 131072, 131080, 0, 131072, 131086, 0, 131072, 131129, 0, 131072, 131136, 0, 131072, 131143, 0, 131072, 131150, 0, 131072, 196609, 0, 131072, 196616, 0, 131072, 196622, 0, 131072, 196665, 0, 131072, 196672, 0, 131072, 196679, 0, 131072, 196686, 0, 131072, 262145, 0, 131072, 262152, 0, 131072, 262158, 0, 131078, 262159, 0, 327683, 262160, 0, 327683, 262161, 0, 327683, 262162, 0, 327683, 262163, 0, 327683, 262164, 0, 327683, 262165, 0, 327683, 262166, 0, 327683, 262167, 0, 327683, 262168, 0, 327683, 262169, 0, 327683, 262170, 0, 327683, 262171, 0, 327683, 262172, 0, 327683, 262173, 0, 327683, 262174, 0, 327683, 262175, 0, 327683, 262176, 0, 327683, 262177, 0, 327683, 262178, 0, 327683, 262179, 0, 327683, 262180, 0, 327683, 262181, 0, 327683, 262182, 0, 327683, 262183, 0, 327683, 262184, 0, 327683, 262185, 0, 327683, 262186, 0, 327683, 262187, 0, 327683, 262188, 0, 327683, 262189, 0, 327683, 262190, 0, 327683, 262191, 0, 327683, 262192, 0, 327683, 262193, 0, 327683, 262194, 0, 327683, 262195, 0, 327683, 262196, 0, 327683, 262197, 0, 327683, 262198, 0, 327683, 262199, 0, 327683, 262200, 0, 327683, 262201, 0, 262151, 262202, 0, 327683, 262203, 0, 6, 262204, 0, 6, 262205, 0, 7, 262206, 0, 7, 262207, 0, 327683, 262208, 0, 262151, 262209, 0, 327683, 262210, 0, 6, 262211, 0, 6, 262212, 0, 7, 262213, 0, 7, 262214, 0, 327683, 262215, 0, 262151, 262216, 0, 327683, 262217, 0, 6, 262218, 0, 6, 262219, 0, 7, 262220, 0, 7, 262221, 0, 327683, 262222, 0, 262151, 262223, 0, 327683, 262224, 0, 327683, 262225, 0, 327683, 262226, 0, 327683, 262227, 0, 327683, 262228, 0, 327683, 262229, 0, 327683, 262230, 0, 327683, 262231, 0, 327683, 262232, 0, 327683, 262233, 0, 327683, 262234, 0, 327683, 262235, 0, 327683, 262236, 0, 327683, 262237, 0, 327683, 262238, 0, 327683, 262239, 0, 327683, 262240, 0, 327683, 262241, 0, 327683, 262242, 0, 327683, 262243, 0, 327683, 262244, 0, 327683, 262245, 0, 327683, 262246, 0, 327683, 262247, 0, 7, 327681, 0, 131072, 327688, 0, 131072, 327691, 0, 196609, 327692, 0, 196610, 327693, 0, 196610, 327694, 0, 196612, 327695, 0, 327681, 327696, 0, 327681, 327697, 0, 327681, 327698, 0, 327681, 327699, 0, 327681, 327700, 0, 327681, 327701, 0, 327681, 327702, 0, 327681, 327703, 0, 327681, 327704, 0, 327681, 327705, 0, 327681, 327706, 0, 327681, 327707, 0, 327681, 327708, 0, 327681, 327709, 0, 327681, 327710, 0, 327681, 327711, 0, 327681, 327712, 0, 327681, 327713, 0, 327681, 327714, 0, 327681, 327715, 0, 327681, 327716, 0, 327681, 327717, 0, 327681, 327718, 0, 327681, 327719, 0, 327681, 327720, 0, 327681, 327721, 0, 327681, 327722, 0, 327681, 327723, 0, 327681, 327724, 0, 327681, 327725, 0, 327681, 327726, 0, 327681, 327727, 0, 327681, 327728, 0, 327681, 327729, 0, 327681, 327730, 0, 327681, 327731, 0, 327681, 327732, 0, 327681, 327733, 0, 327681, 327734, 0, 327681, 327735, 0, 327681, 327736, 0, 327681, 327737, 0, 262149, 327738, 0, 4, 327743, 0, 5, 327744, 0, 262149, 327745, 0, 4, 327750, 0, 5, 327751, 0, 262149, 327752, 0, 4, 327757, 0, 5, 327758, 0, 262149, 327759, 0, 327681, 327760, 0, 327681, 327761, 0, 327681, 327762, 0, 327681, 327763, 0, 327681, 327764, 0, 327681, 327765, 0, 327681, 327766, 0, 327681, 327767, 0, 327681, 327768, 0, 327681, 327769, 0, 327681, 327770, 0, 327681, 327771, 0, 327681, 327772, 0, 327681, 327773, 0, 327681, 327774, 0, 327681, 327775, 0, 327681, 327776, 0, 327681, 327777, 0, 327681, 327778, 0, 327681, 327779, 0, 327681, 327780, 0, 327681, 327781, 0, 327681, 327782, 0, 327681, 327783, 0, 4, 393217, 0, 65537, 393218, 0, 196610, 393219, 0, 196610, 393220, 0, 196610, 393221, 0, 196610, 393222, 0, 196611, 393224, 0, 65539, 458753, 0, 131072, 458760, 0, 131072, 458763, 0, 196609, 458764, 0, 196610, 458765, 0, 196610, 458766, 0, 131079, 458767, 0, 262151, 458768, 0, 327683, 458769, 0, 327683, 458770, 0, 327683, 458771, 0, 327683, 458772, 0, 327683, 458773, 0, 327683, 458774, 0, 327683, 458775, 0, 327683, 458776, 0, 327683, 458777, 0, 327683, 458778, 0, 327683, 458779, 0, 327683, 458780, 0, 327683, 458781, 0, 327683, 458782, 0, 327683, 458783, 0, 327683, 458784, 0, 327683, 458785, 0, 327683, 458786, 0, 327683, 458787, 0, 327683, 458788, 0, 327683, 458789, 0, 327683, 458790, 0, 327683, 458791, 0, 327683, 458792, 0, 327683, 458793, 0, 327683, 458794, 0, 327683, 458795, 0, 327683, 458796, 0, 327683, 458797, 0, 327683, 458798, 0, 327683, 458799, 0, 327683, 458800, 0, 327683, 458801, 0, 327683, 458802, 0, 327683, 458803, 0, 327683, 458804, 0, 327683, 458805, 0, 327683, 458806, 0, 327683, 458807, 0, 327683, 458808, 0, 327683, 458809, 0, 262151, 458810, 0, 7, 458815, 0, 6, 458816, 0, 262151, 458817, 0, 7, 458822, 0, 6, 458823, 0, 262151, 458824, 0, 7, 458829, 0, 6, 458830, 0, 262151, 458831, 0, 327683, 458832, 0, 327683, 458833, 0, 327683, 458834, 0, 327683, 458835, 0, 327683, 458836, 0, 327683, 458837, 0, 327683, 458838, 0, 327683, 458839, 0, 327683, 458840, 0, 327683, 458841, 0, 327683, 458842, 0, 327683, 458843, 0, 327683, 458844, 0, 327683, 458845, 0, 327683, 458846, 0, 327683, 458847, 0, 327683, 458848, 0, 327683, 458849, 0, 327683, 458850, 0, 327683, 458851, 0, 327683, 458852, 0, 327683, 458853, 0, 327683, 458854, 0, 327683, 458855, 0, 7, 524289, 0, 131072, 524296, 0, 196608, 524302, 0, 196613, 524303, 0, 327681, 524304, 0, 327681, 524305, 0, 327681, 524306, 0, 327681, 524307, 0, 327681, 524308, 0, 327681, 524309, 0, 327681, 524310, 0, 327681, 524311, 0, 327681, 524312, 0, 327681, 524313, 0, 327681, 524314, 0, 327681, 524315, 0, 327681, 524316, 0, 327681, 524317, 0, 327681, 524318, 0, 327681, 524319, 0, 327681, 524320, 0, 327681, 524321, 0, 327681, 524322, 0, 327681, 524323, 0, 327681, 524324, 0, 327681, 524325, 0, 327681, 524326, 0, 327681, 524327, 0, 327681, 524328, 0, 327681, 524329, 0, 327681, 524330, 0, 327681, 524331, 0, 327681, 524332, 0, 327681, 524333, 0, 327681, 524334, 0, 327681, 524335, 0, 327681, 524336, 0, 327681, 524337, 0, 327681, 524338, 0, 327681, 524339, 0, 327681, 524340, 0, 327681, 524341, 0, 327681, 524342, 0, 327681, 524343, 0, 327681, 524344, 0, 327681, 524345, 0, 262149, 524346, 0, 327681, 524347, 0, 5, 524348, 0, 5, 524349, 0, 4, 524350, 0, 4, 524351, 0, 327681, 524352, 0, 262149, 524353, 0, 327681, 524354, 0, 5, 524355, 0, 5, 524356, 0, 4, 524357, 0, 4, 524358, 0, 327681, 524359, 0, 262149, 524360, 0, 327681, 524361, 0, 5, 524362, 0, 5, 524363, 0, 4, 524364, 0, 4, 524365, 0, 327681, 524366, 0, 262149, 524367, 0, 327681, 524368, 0, 327681, 524369, 0, 327681, 524370, 0, 327681, 524371, 0, 327681, 524372, 0, 327681, 524373, 0, 327681, 524374, 0, 327681, 524375, 0, 327681, 524376, 0, 327681, 524377, 0, 327681, 524378, 0, 327681, 524379, 0, 327681, 524380, 0, 327681, 524381, 0, 327681, 524382, 0, 327681, 524383, 0, 327681, 524384, 0, 327681, 524385, 0, 327681, 524386, 0, 327681, 524387, 0, 327681, 524388, 0, 327681, 524389, 0, 327681, 524390, 0, 327681, 524391, 0, 4, 589825, 0, 131072, 589838, 0, 131072, 589881, 0, 131072, 589888, 0, 131072, 589895, 0, 131072, 589902, 0, 131072, 655361, 0, 131072, 655368, 0, 65536, 655374, 0, 131072, 655417, 0, 131072, 655424, 0, 131072, 655431, 0, 131072, 655438, 0, 131072, 720897, 0, 131073, 720898, 0, 196610, 720899, 0, 196610, 720900, 0, 196610, 720901, 0, 196610, 720902, 0, 196610, 720903, 0, 196610, 720904, 0, 131074, 720905, 0, 196610, 720906, 0, 196610, 720907, 0, 196610, 720908, 0, 196610, 720909, 0, 196610, 720910, 0, 131075, 720953, 0, 131072, 720960, 0, 131072, 720967, 0, 131072, 720974, 0, 131072, 786489, 0, 131073, 786490, 0, 196610, 786491, 0, 196610, 786492, 0, 196610, 786493, 0, 196610, 786494, 0, 196610, 786495, 0, 196610, 786496, 0, 131074, 786497, 0, 196610, 786498, 0, 196610, 786499, 0, 196610, 786500, 0, 196610, 786501, 0, 196610, 786502, 0, 196610, 786503, 0, 131074, 786504, 0, 196610, 786505, 0, 196610, 786506, 0, 196610, 786507, 0, 196610, 786508, 0, 196610, 786509, 0, 196610, 786510, 0, 131075 )
 
 [node name="StrongLight" parent="VisibleLayer/OutsideProps/Props" index="0" instance=ExtResource( 8 )]
-editor/display_folded = true
-position = Vector2( 3904.94, 170.223 )
-scale = Vector2( 0.580482, 0.399853 )
-script = ExtResource( 9 )
+material = SubResource( 2 )
+position = Vector2( 3898.2, 157.568 )
 
-[node name="StrongLight4" parent="VisibleLayer/OutsideProps/Props" index="1" instance=ExtResource( 8 )]
-editor/display_folded = true
-position = Vector2( 3903.67, 660.174 )
-scale = Vector2( 0.580482, 0.399853 )
-script = ExtResource( 9 )
+[node name="StrongLight2" parent="VisibleLayer/OutsideProps/Props" index="1" instance=ExtResource( 8 )]
+material = SubResource( 2 )
+position = Vector2( 3902.52, 679.918 )
 
-[node name="StrongLight5" parent="VisibleLayer/OutsideProps/Props" index="2" instance=ExtResource( 8 )]
-editor/display_folded = true
-position = Vector2( 4798.86, 660.174 )
-scale = Vector2( 0.580482, 0.399853 )
-script = ExtResource( 9 )
+[node name="StrongLight3" parent="VisibleLayer/OutsideProps/Props" index="2" instance=ExtResource( 8 )]
+material = SubResource( 2 )
+position = Vector2( 4355.8, 679.918 )
 
-[node name="StrongLight3" parent="VisibleLayer/OutsideProps/Props" index="3" instance=ExtResource( 8 )]
-editor/display_folded = true
-position = Vector2( 4797.8, 173.465 )
-scale = Vector2( 0.580482, 0.399853 )
-script = ExtResource( 9 )
+[node name="StrongLight4" parent="VisibleLayer/OutsideProps/Props" index="3" instance=ExtResource( 8 )]
+material = SubResource( 2 )
+position = Vector2( 4349.32, 159.727 )
 
-[node name="StrongLight2" parent="VisibleLayer/OutsideProps/Props" index="4" instance=ExtResource( 8 )]
-editor/display_folded = true
-position = Vector2( 4366.94, 181.73 )
-scale = Vector2( 0.580482, 0.399853 )
-script = ExtResource( 9 )
-
-[node name="InteractionArea" parent="VisibleLayer/OutsideProps/Props/StrongLight2/Light" index="3"]
-collision_layer = 1
-collision_mask = 1
+[node name="StrongLight5" parent="VisibleLayer/OutsideProps/Props" index="4" instance=ExtResource( 8 )]
+material = SubResource( 2 )
+position = Vector2( 4793.96, 155.41 )
 
 [node name="StrongLight6" parent="VisibleLayer/OutsideProps/Props" index="5" instance=ExtResource( 8 )]
-editor/display_folded = true
-position = Vector2( 4366.72, 654.321 )
-scale = Vector2( 0.580482, 0.399853 )
-script = ExtResource( 9 )
-
-[node name="InteractionArea" parent="VisibleLayer/OutsideProps/Props/StrongLight6/Light" index="3"]
-collision_layer = 1
-collision_mask = 1
-
-[node name="LampLight01" parent="VisibleLayer/OutsideProps/Props" index="6" instance=ExtResource( 3 )]
-editor/display_folded = true
-position = Vector2( 1109.44, 414.176 )
-script = ExtResource( 9 )
-
-[node name="InteractionArea" parent="VisibleLayer/OutsideProps/Props/LampLight01/Light" index="3"]
-collision_layer = 1
-collision_mask = 1
-
-[node name="torch" parent="VisibleLayer/OutsideProps/Props" index="7" instance=ExtResource( 10 )]
-
-[node name="StrongLight7" parent="VisibleLayer/OutsideProps/Props" index="8" instance=ExtResource( 8 )]
-position = Vector2( 320.362, 252.2 )
-scale = Vector2( 0.548043, 0.437243 )
-script = ExtResource( 9 )
-
-[node name="StrongLight8" parent="VisibleLayer/OutsideProps/Props" index="9" instance=ExtResource( 8 )]
-position = Vector2( 733.879, 611.187 )
-scale = Vector2( 0.470726, 0.339105 )
-script = ExtResource( 9 )
+material = SubResource( 2 )
+position = Vector2( 4798.28, 690.711 )
+light_colour = Color( 1, 0, 0, 1 )
 
 [editable path="VisibleLayer/Ground/Props/WoodenTable01"]
 
 [editable path="VisibleLayer/Ground/Props/TriggerArea"]
-
-[editable path="VisibleLayer/OutsideProps/Props/StrongLight2"]
-
-[editable path="VisibleLayer/OutsideProps/Props/StrongLight6"]
-
-[editable path="VisibleLayer/OutsideProps/Props/LampLight01"]
