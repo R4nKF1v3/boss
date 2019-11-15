@@ -73,6 +73,7 @@ flickering_event_nodes = [ NodePath(".") ]
 flickering_event_timings = [ 1.0, 2.0 ]
 flickering_event_duration = 10.0
 dialogue_event_text = [ "Yo soy la Lámpara", "Te hablo a vos" ]
+starts_flickering = true
 light_size = 100.0
 
 [node name="LampLight02" parent="VisibleLayer/Ground/Props" index="4" instance=ExtResource( 3 )]

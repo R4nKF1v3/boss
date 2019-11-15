@@ -117,7 +117,8 @@ func flicker(event):
 	add_child(duration_timer)
 	add_child(timer)
 	
-	duration_timer.start(event.duration)
+	if event.duration:
+		duration_timer.start(event.duration)
 	if timer_list.size() > 0:
 		timer.start(timer_list[timer_index])
 		update_timer_index()

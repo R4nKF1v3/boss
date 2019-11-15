@@ -5,7 +5,7 @@
 [sub_resource type="CircleShape2D" id=1]
 radius = 15.5064
 
-[node name="LampLight01" index="0" instance=ExtResource( 1 )]
+[node name="LampLight01" instance=ExtResource( 1 )]
 light_colour = Color( 1, 1, 1, 0.282353 )
 
 [node name="Visible" parent="Light" index="0"]

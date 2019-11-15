@@ -1,5 +1,12 @@
 extends InteractuableElement
 
+const SHADOW_RESOLUTION = 720
+
+export (bool) var starts_toggled = false
+export (bool) var starts_flickering = false
+export (Array, float) var flickering_timings = []
+export (Color) var light_colour# setget update_colour
+export (float) var light_size# setget update_size
 export (Texture) var on_toggle_effect_texture
 export (Texture) var on_toggle_emmiter_texture
 
@@ -9,11 +16,18 @@ onready var emmiter = $Light/Emmiter
 onready var effect_base_tx = effect.texture
 onready var emmiter_base_tx = emmiter.texture
 
+onready var raycast = $Light/RayCast2D
+
+onready var vis = $Light/Visible
+
+var ray_lengths
+
+
 func get_interaction_area():
 	return $Light/InteractionArea
 
 func toggle():
-	pass
+	vis.visible = !vis.visible
 	
 	if effect.texture != on_toggle_effect_texture:
 		effect.texture = on_toggle_effect_texture
@@ -24,18 +38,6 @@ func toggle():
 		emmiter.texture = on_toggle_emmiter_texture
 	elif emmiter.texture != emmiter_base_tx:
 		emmiter.texture = emmiter_base_tx
-
-
-const SHADOW_RESOLUTION = 720
-
-export (Color) var light_colour# setget update_colour
-export (float) var light_size# setget update_size
-
-onready var raycast = $Light/RayCast2D
-
-onready var vis = $Light/Visible
-
-var ray_lengths
 
 func update_colour(value):
 	light_colour = value
@@ -65,29 +67,17 @@ func make_point(direction, amount):
 	result.y -= sin(direction) * amount
 	return result
 
-func _draw():
-	#if Options.get_complex_lights() == false: return
-	#draw_circle(Vector2(0.0, 0.0), 5.0, Color.green)
-	var points = PoolVector2Array()
-	var colors = PoolColorArray()
-	for i in range(0, SHADOW_RESOLUTION):
-		var index_plus = i + 1
-		if index_plus == SHADOW_RESOLUTION: index_plus = 0
-		var angle_a = (float(i)/SHADOW_RESOLUTION)*PI*2.0
-		var angle_b = (float(i+1)/SHADOW_RESOLUTION)*PI*2.0
-		var power_a = ray_lengths[i]/light_size
-		var power_b = ray_lengths[index_plus]/light_size
-		points.append(Vector2(0.0, 0.0))
-		points.append(make_point(angle_a, ray_lengths[i]))
-		points.append(make_point(angle_b, ray_lengths[index_plus]))
-		colors.append(light_colour)
-		colors.append(light_colour.linear_interpolate(Color(light_colour.r, light_colour.g, light_colour.b, 0.0), power_a))
-		colors.append(light_colour.linear_interpolate(Color(light_colour.r, light_colour.g, light_colour.b, 0.0), power_b))
-	draw_polygon(points, colors)
-
 func _ready():
 	update_ray_lengths()
 	vis.update()
+	if starts_flickering:
+		var event = WorldEvents.event_types.Flickering.new()
+		event.timings = flickering_timings if flickering_timings.size() != 0 else [0.1]
+		event.duration = null
+		event.toggle_after_finish = false
+		flicker(event)
+	elif starts_toggled:
+		toggle()
 
 func _enter_tree():
 	ray_lengths = []

@@ -18,5 +18,4 @@ func _draw():
 		colors.append(owner.light_colour)
 		colors.append(owner.light_colour.linear_interpolate(Color(owner.light_colour.r, owner.light_colour.g, owner.light_colour.b, 0.0), power_a))
 		colors.append(owner.light_colour.linear_interpolate(Color(owner.light_colour.r, owner.light_colour.g, owner.light_colour.b, 0.0), power_b))
-	#draw_polygon(points, colors)
-	draw_polygon(points, colors, PoolVector2Array(), load("res://resources/props/lights/testlight/light.png"))
+	draw_polygon(points, colors)
