@@ -12,6 +12,8 @@ func exit():
 	.exit()
 
 func update(delta):
+	if .update(delta):
+		return
 	var can_see_player = owner.can_see_player()
 	if not objective_path.size() == 0:
 		travel_to_objective(delta)

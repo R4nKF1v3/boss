@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://entities/npcs/NPC.tscn" type="PackedScene" id=1]
 [ext_resource path="res://entities/npcs/enemies/shadow/EnemyShadow.gd" type="Script" id=2]
@@ -7,31 +7,37 @@
 [ext_resource path="res://entities/npcs/enemies/shadow/states/Wander.gd" type="Script" id=5]
 [ext_resource path="res://entities/npcs/enemies/shadow/states/Chase.gd" type="Script" id=6]
 [ext_resource path="res://entities/npcs/enemies/shadow/states/Searching.gd" type="Script" id=7]
-[ext_resource path="res://entities/npcs/enemies/shadow/shadow.png" type="Texture" id=8]
-[ext_resource path="res://entities/npcs/enemies/shadow/fxs/SmokeAnim.tres" type="Texture" id=9]
+[ext_resource path="res://entities/npcs/enemies/shadow/states/Attack.gd" type="Script" id=8]
+[ext_resource path="res://entities/npcs/enemies/shadow/shadow.png" type="Texture" id=9]
+[ext_resource path="res://entities/npcs/enemies/shadow/fxs/SmokeAnim.tres" type="Texture" id=10]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 13.2639, 22.5506 )
 
 [sub_resource type="Animation" id=2]
+resource_name = "attack"
+
+[sub_resource type="Animation" id=3]
 length = 0.5
 loop = true
 
-[sub_resource type="Animation" id=3]
-loop = true
-
 [sub_resource type="Animation" id=4]
+loop = true
 
 [sub_resource type="Animation" id=5]
+
+[sub_resource type="Animation" id=6]
 loop = true
 
-[sub_resource type="CircleShape2D" id=6]
+[sub_resource type="CircleShape2D" id=7]
 radius = 53.4721
 
-[sub_resource type="AudioStreamSample" id=7]
+[sub_resource type="AudioStreamSample" id=8]
 
-[node name="EnemyShadow" index="0" instance=ExtResource( 1 )]
+[node name="EnemyShadow" instance=ExtResource( 1 )]
 collision_mask = 3
+contacts_reported = 2
+contact_monitor = true
 script = ExtResource( 2 )
 
 [node name="StateMachine" parent="." index="0"]
@@ -62,6 +68,9 @@ SPEED = 60.0
 [node name="SearchTime" type="Timer" parent="StateMachine/Searching" index="0"]
 wait_time = 10.0
 
+[node name="Attack" type="Node" parent="StateMachine" index="4"]
+script = ExtResource( 8 )
+
 [node name="CollisionShape2D" parent="." index="1"]
 shape = SubResource( 1 )
 
@@ -70,19 +79,20 @@ use_parent_material = true
 position = Vector2( 0.0960748, 0.200747 )
 rotation = 1.5708
 scale = Vector2( 0.0470483, 0.0470483 )
-texture = ExtResource( 8 )
+texture = ExtResource( 9 )
 
 [node name="Smoke" type="Sprite" parent="." index="3"]
-texture = ExtResource( 9 )
+texture = ExtResource( 10 )
 
 [node name="Smoke2" type="Sprite" parent="." index="4"]
-texture = ExtResource( 9 )
+texture = ExtResource( 10 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="5"]
-anims/chase = SubResource( 2 )
-anims/idle = SubResource( 3 )
-anims/searching = SubResource( 4 )
-anims/wander = SubResource( 5 )
+anims/attack = SubResource( 2 )
+anims/chase = SubResource( 3 )
+anims/idle = SubResource( 4 )
+anims/searching = SubResource( 5 )
+anims/wander = SubResource( 6 )
 
 [node name="DetectionArea" type="Area2D" parent="." index="6"]
 collision_layer = 2
@@ -93,13 +103,14 @@ collision_mask = 2
 [node name="DamageArea" type="Area2D" parent="." index="7"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea" index="0"]
-shape = SubResource( 6 )
+shape = SubResource( 7 )
 
 [node name="DetectionRay" type="RayCast2D" parent="." index="8"]
 collision_mask = 3
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." index="9"]
-stream = SubResource( 7 )
+stream = SubResource( 8 )
 [connection signal="timeout" from="StateMachine/Idle/BoredomTimer" to="StateMachine/Idle" method="_on_Timer_timeout"]
 [connection signal="timeout" from="StateMachine/Chase/UpdatePath" to="StateMachine/Chase" method="_on_UpdatePath_timeout"]
 [connection signal="timeout" from="StateMachine/Searching/SearchTime" to="StateMachine/Searching" method="_on_SearchTime_timeout"]
+[connection signal="animation_finished" from="AnimationPlayer" to="StateMachine" method="_on_animation_finished"]

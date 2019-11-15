@@ -10,6 +10,8 @@ func enter():
 	owner.get_node("AnimationPlayer").play("wander")
 
 func update(delta):
+	if .update(delta):
+		return
 	if owner.can_see_player():
 		emit_signal("finished", "chase")
 	if not objective_path.size() == 0:

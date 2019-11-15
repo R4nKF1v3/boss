@@ -23,13 +23,13 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0.2, 0.6 ),
+"times": PoolRealArray( 0, 0.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "values": [ {
-"args": [ 600 ],
+"args": [ 800 ],
 "method": "_execute_step"
 }, {
-"args": [ 600 ],
+"args": [ 800 ],
 "method": "_execute_step"
 } ]
 }

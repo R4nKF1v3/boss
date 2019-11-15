@@ -15,6 +15,8 @@ func exit():
 	.exit()
 
 func update(delta):
+	if .update(delta):
+		return
 	if owner.can_see_player():
 		owner.look_at = owner.target.global_position
 		if owner.can_reach_player():

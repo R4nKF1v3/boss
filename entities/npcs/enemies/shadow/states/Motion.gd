@@ -7,6 +7,15 @@ var objective_path = [] setget set_objective_path
 func exit():
 	objective_path = []
 
+func update(delta):
+	var coll = owner.get_colliding_bodies()
+	if coll:
+		for el in coll:
+			if el is Door && el.locked:
+				emit_signal("finished", "attack")
+				return true
+	return false
+
 func travel_to_objective(delta):	
 	var distance = SPEED * delta
 	var start_point = parent.global_position

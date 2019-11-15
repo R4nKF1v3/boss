@@ -1,6 +1,7 @@
 extends InteractuableElement
 
-export (bool) var door_is_locked = false
+export (bool) var door_is_locked = true
+export (int) var hits_until_open = -1
 
 func _ready():
 	if door_is_locked:
@@ -21,7 +22,7 @@ func toggle():
 		lock_door()
 
 func lock_door():
-	$Door/Doorway.reset = true
+	$Door/Doorway.locked = true
 
 func unlock_door():
-	$Door/Doorway.reset = false
+	$Door/Doorway.locked = false
