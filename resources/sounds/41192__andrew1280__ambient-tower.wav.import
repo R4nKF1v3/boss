@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/41192__andrew1280__ambient-tower.wav-ba92d205b27196ce4d33f450e2e92e19.sample"
+
+[deps]
+
+source_file="res://resources/sounds/41192__andrew1280__ambient-tower.wav"
+dest_files=[ "res://.import/41192__andrew1280__ambient-tower.wav-ba92d205b27196ce4d33f450e2e92e19.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=true
+compress/mode=0

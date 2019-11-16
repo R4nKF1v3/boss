@@ -12,6 +12,8 @@ var current_velocity : = Vector2()
 var camera_follow = true
 var enemies_in_proximity := []
 
+func _ready():
+	PlayerStatus.player = self
 
 func _integrate_forces(state):
 	state.linear_velocity = current_velocity

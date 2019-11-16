@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/160742__cosmicembers__body-fall-5.wav-706eafbb9641d0a1fb0a844bbda74105.sample"
+
+[deps]
+
+source_file="res://resources/sounds/160742__cosmicembers__body-fall-5.wav"
+dest_files=[ "res://.import/160742__cosmicembers__body-fall-5.wav-706eafbb9641d0a1fb0a844bbda74105.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0
