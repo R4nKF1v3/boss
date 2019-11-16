@@ -12,12 +12,12 @@ _global_script_classes=[ {
 "base": "Event",
 "class": "CanvasEvent",
 "language": "GDScript",
-"path": "res://resources/props/interactuable properties/events/Canvas.gd"
+"path": "res://resources/props/interactuable properties/events/CanvasEvent/Canvas.gd"
 }, {
 "base": "Event",
 "class": "DialogueEvent",
 "language": "GDScript",
-"path": "res://resources/props/interactuable properties/events/Dialogue.gd"
+"path": "res://resources/props/interactuable properties/events/DialogueEvent/Dialogue.gd"
 }, {
 "base": "RigidBody2D",
 "class": "Door",
@@ -32,7 +32,7 @@ _global_script_classes=[ {
 "base": "Event",
 "class": "FlickeringEvent",
 "language": "GDScript",
-"path": "res://resources/props/interactuable properties/events/Flickering.gd"
+"path": "res://resources/props/interactuable properties/events/FlickeringEvent/Flickering.gd"
 }, {
 "base": "Node2D",
 "class": "InteractuableElement",
@@ -52,17 +52,22 @@ _global_script_classes=[ {
 "base": "Event",
 "class": "TogInteractuable",
 "language": "GDScript",
-"path": "res://resources/props/interactuable properties/events/TogInteractuable.gd"
+"path": "res://resources/props/interactuable properties/events/TogInteractuableEvent/TogInteractuable.gd"
 }, {
 "base": "Event",
 "class": "ToggleEvent",
 "language": "GDScript",
-"path": "res://resources/props/interactuable properties/events/Toggle.gd"
+"path": "res://resources/props/interactuable properties/events/ToggleEvent/Toggle.gd"
 }, {
 "base": "Node2D",
 "class": "TriggerArea",
 "language": "GDScript",
 "path": "res://resources/props/triggers/TriggerArea.gd"
+}, {
+"base": "Event",
+"class": "TriggerEvent",
+"language": "GDScript",
+"path": "res://resources/props/interactuable properties/events/TriggerEvent/Trigger.gd"
 }, {
 "base": "NPC",
 "class": "VisibleEnemy",
@@ -81,6 +86,7 @@ _global_script_class_icons={
 "TogInteractuable": "",
 "ToggleEvent": "",
 "TriggerArea": "",
+"TriggerEvent": "",
 "VisibleEnemy": ""
 }
 

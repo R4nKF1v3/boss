@@ -22,6 +22,8 @@ onready var vis = $Light/Visible
 
 var ray_lengths
 
+func get_global_position() -> Vector2:
+	return $Light.global_position
 
 func get_interaction_area():
 	return $Light/InteractionArea

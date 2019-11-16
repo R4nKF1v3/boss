@@ -15,6 +15,9 @@ onready var prop_coll = [prop.collision_layer, prop.collision_mask]
 func get_interaction_area():
 	return $StaticProp/InteractionArea
 
+func get_global_position() -> Vector2:
+	return prop.global_position
+
 func toggle():
 	if hidden.texture != on_toggle_hidden_texture:
 		hidden.texture = on_toggle_hidden_texture

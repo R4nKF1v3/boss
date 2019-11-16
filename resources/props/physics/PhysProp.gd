@@ -18,6 +18,9 @@ func _ready():
 	vis_base_tx = vis.texture
 	prop_coll = [prop.collision_layer, prop.collision_mask]
 
+func get_global_position() -> Vector2:
+	return $PhysProp.global_position
+
 func get_interaction_area():
 	return $PhysProp/InteractionArea
 

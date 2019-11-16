@@ -1,5 +1,9 @@
 extends Node
 class_name Event
 
-static func handle(emmiter):
+export (bool) var one_shot = false
+
+var was_emmited = false
+
+func handle():
 	pass

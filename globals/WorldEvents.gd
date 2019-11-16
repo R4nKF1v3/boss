@@ -6,6 +6,7 @@ var event_types = {
 	"Canvas": CanvasEvent,
 	"Dialogue": DialogueEvent,
 	"TogInteractuable": TogInteractuable,
+	"Trigger": TriggerEvent,
 }
 
 signal change_canvas_color(color)

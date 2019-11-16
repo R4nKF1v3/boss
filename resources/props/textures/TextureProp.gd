@@ -12,6 +12,9 @@ onready var vis_base_tx = vis.texture
 func get_interaction_area():
 	return $TextureProp/InteractionArea
 
+func get_global_position() -> Vector2:
+	return $TextureProp.global_position
+
 func toggle():
 	if hidden.texture != on_toggle_hidden_texture:
 		hidden.texture = on_toggle_hidden_texture
