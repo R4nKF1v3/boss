@@ -47,7 +47,7 @@ tile_data = PoolIntArray( 65651, 2, 0, 65652, 2, 0, 65653, 2, 0, 65654, 2, 0, 65
 
 [node name="WoodenTable01" parent="VisibleLayer/Ground/Props" index="0" instance=ExtResource( 2 )]
 editor/display_folded = true
-position = Vector2( 394.508, 562.099 )
+position = Vector2( 251.707, 655.713 )
 is_interactuable = true
 
 [node name="LampLight01" parent="VisibleLayer/Ground/Props/WoodenTable01/PhysProp" index="4" instance=ExtResource( 3 )]
@@ -78,7 +78,7 @@ one_shot = true
 nodes = [ NodePath("../../LampLight02") ]
 
 [node name="TogInteractuableEvent" parent="VisibleLayer/Ground/Props/WoodenTable01" index="5" instance=ExtResource( 9 )]
-nodes = [ NodePath("../../WoodenDoor2"), NodePath("../../WoodenDoor") ]
+nodes = [ NodePath(""), NodePath("../../WoodenDoor") ]
 
 [node name="TriggerEvent" parent="VisibleLayer/Ground/Props/WoodenTable01" index="6" instance=ExtResource( 10 )]
 one_shot = true
@@ -137,10 +137,7 @@ position = Vector2( 152.096, 371.087 )
 light_colour = Color( 1, 1, 1, 0.541176 )
 light_size = 150.0
 
-[node name="WoodenDoor2" parent="VisibleLayer/Ground/Props" index="8" instance=ExtResource( 11 )]
-position = Vector2( 456.8, 416.705 )
-
-[node name="TriggerArea2" parent="VisibleLayer/Ground/Props" index="9" instance=ExtResource( 12 )]
+[node name="TriggerArea2" parent="VisibleLayer/Ground/Props" index="8" instance=ExtResource( 12 )]
 position = Vector2( 899.402, 416.39 )
 
 [node name="Area" parent="VisibleLayer/Ground/Props/TriggerArea2" index="0"]
@@ -157,23 +154,20 @@ type = "Remove Audio"
 sound = ExtResource( 14 )
 type = "Remove Audio"
 
-[node name="SoundEmmiter" parent="VisibleLayer/Ground/Props" index="10" instance=ExtResource( 16 )]
+[node name="SoundEmmiter" parent="VisibleLayer/Ground/Props" index="9" instance=ExtResource( 16 )]
 position = Vector2( 754.33, 247.656 )
 stream = ExtResource( 17 )
 volume_db = -6.0
 attenuation = 0.999999
 sound_range = 800.0
 
+[node name="WoodenDoor2" parent="VisibleLayer/Ground/Props" index="10" instance=ExtResource( 11 )]
+position = Vector2( 456.193, 415.977 )
+
 [node name="EnemyShadow2" parent="VisibleLayer/Ground/Spawns" index="0" instance=ExtResource( 18 )]
 editor/display_folded = true
-position = Vector2( 460.708, 256.788 )
+position = Vector2( 329.88, 306.594 )
 INSANITY_DAMAGE = 1.0
-
-[node name="Attack" parent="VisibleLayer/Ground/Spawns/EnemyShadow2/StateMachine" index="4"]
-attack_times = 2
-
-[node name="Body" parent="VisibleLayer/Ground/Spawns/EnemyShadow2" index="2"]
-light_mask = 2
 
 [node name="EnemySpawner" parent="VisibleLayer/Ground/Spawns" index="1" instance=ExtResource( 19 )]
 position = Vector2( 633.645, 252.989 )
@@ -218,5 +212,3 @@ light_colour = Color( 1, 0, 0, 1 )
 [editable path="VisibleLayer/Ground/Props/TriggerArea"]
 
 [editable path="VisibleLayer/Ground/Props/TriggerArea2"]
-
-[editable path="VisibleLayer/Ground/Spawns/EnemyShadow2"]

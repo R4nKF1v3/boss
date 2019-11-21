@@ -31,8 +31,8 @@ func _on_animation_finished(anim_name):
 			emit_signal("finished", "previous")
 		elif times_attacked == attack_times:
 			times_attacked = 0
-			print("Going to idle")
-			emit_signal("finished", "prev_idle")
+			print("Going to retire")
+			emit_signal("finished", "retire")
 		else:
 			owner.get_node("AnimationPlayer").play("attack")
 	
