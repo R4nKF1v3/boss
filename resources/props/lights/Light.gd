@@ -21,6 +21,7 @@ onready var raycast = $Light/RayCast2D
 onready var vis = $Light/Visible
 
 var ray_lengths
+var toggled = false
 
 func get_global_position() -> Vector2:
 	return $Light.global_position
@@ -29,17 +30,16 @@ func get_interaction_area():
 	return $Light/InteractionArea
 
 func toggle():
-	vis.visible = !vis.visible
-	
-	if effect.texture != on_toggle_effect_texture:
+	if toggled:
+		vis.modulate = Color("00ffffff")
 		effect.texture = on_toggle_effect_texture
-	elif effect.texture != effect_base_tx:
-		effect.texture = effect_base_tx
-	
-	if emmiter.texture != on_toggle_emmiter_texture:
 		emmiter.texture = on_toggle_emmiter_texture
-	elif emmiter.texture != emmiter_base_tx:
+	else:
+		vis.modulate = Color("ffffff")
+		effect.texture = effect_base_tx
 		emmiter.texture = emmiter_base_tx
+	toggled = !toggled
+
 
 func update_colour(value):
 	light_colour = value
