@@ -5,7 +5,7 @@ export (int) var hits_until_open = -1
 
 func _ready():
 	if door_is_closed:
-		lock_door()
+		$Door/Doorway.locked = true
 
 func get_interaction_area():
 	return $Door/Doorway/InteractionArea
@@ -32,6 +32,8 @@ func toggle():
 
 func lock_door():
 	$Door/Doorway.locked = true
+	$Door/Doorway/LockSound.play()
 
 func unlock_door():
 	$Door/Doorway.locked = false
+	$Door/Doorway/LockSound.play()

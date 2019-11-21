@@ -86,7 +86,7 @@ wait_time = 2.0
 nodes = [ NodePath("../../LampLight01") ]
 
 [node name="WoodenDoor" parent="VisibleLayer/Ground/Props" index="1" instance=ExtResource( 11 )]
-position = Vector2( 991.876, 414.964 )
+position = Vector2( 991.876, 415.991 )
 rotation = -1.5708
 
 [node name="TriggerArea" parent="VisibleLayer/Ground/Props" index="2" instance=ExtResource( 12 )]
