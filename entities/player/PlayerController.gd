@@ -53,7 +53,7 @@ func set_dead(value):
 	$CollisionPolygon2D.disabled = value
 
 func _execute_step(volume_range):
-	signals.emit_signal("noise_emitted", global_position, volume_range)
+	signals.emit_signal("noise_emitted", global_position, volume_range, 1)
 	#signals.emit_signal("camera_shake", 0.2, 2, 8, 1)
 
 

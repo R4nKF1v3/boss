@@ -21,7 +21,9 @@ func _change_state(state_name):
 		states_stack.push_front(states_map[state_name])
 	._change_state(state_name)
 
-func _on_noise_emmited(location, volume_range):
+func _on_noise_emmited(location, volume_range, priority):
+	if current_state == $Attack:
+		return
 	if owner.global_position.distance_to(location) <= volume_range:
 		var path = owner.navigation.get_simple_path(owner.global_position, location)
 		if path.size() == 0:
@@ -31,7 +33,8 @@ func _on_noise_emmited(location, volume_range):
 		owner.player_last_pos = location
 		
 		if current_state == $Chase:
-			$Chase.objective_path = path
+			if priority == 1 && !owner.can_see_player():
+				$Chase.objective_path = path
 			return
 		
 		if not current_state in [$Searching, $Chase]:

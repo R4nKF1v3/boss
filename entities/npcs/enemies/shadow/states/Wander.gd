@@ -3,10 +3,7 @@ extends "res://entities/npcs/enemies/shadow/states/Motion.gd"
 # Initialize the state. E.g. change the animation
 func enter():
 	owner.player_last_pos = null
-	print("Now wandering")
 	find_valid_path()
-	print("My valid path is:")
-	print(objective_path)
 	owner.get_node("AnimationPlayer").play("wander")
 
 func update(delta):

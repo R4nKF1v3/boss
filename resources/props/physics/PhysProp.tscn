@@ -23,4 +23,5 @@ collision_layer = 8
 collision_mask = 8
 
 [node name="MovementSound" type="AudioStreamPlayer2D" parent="PhysProp"]
+max_distance = 400.0
 script = ExtResource( 2 )

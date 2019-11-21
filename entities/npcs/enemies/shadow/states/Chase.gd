@@ -2,7 +2,6 @@ extends "res://entities/npcs/enemies/shadow/states/Motion.gd"
 
 # Initialize the state. E.g. change the animation
 func enter():
-	print("Now chasing")
 	owner.get_node("AnimationPlayer").play("chase")
 	$UpdatePath.start()
 	.enter()

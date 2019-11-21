@@ -3,7 +3,6 @@ extends "res://entities/state.gd"
 var target
 # Initialize the state. E.g. change the animation
 func enter():
-	print("Now Attacking")
 	var coll = owner.get_colliding_bodies()
 	if coll:
 		for el in coll:

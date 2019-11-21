@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://resources/props/doors/Door.gd" type="Script" id=1]
 [ext_resource path="res://resources/props/doors/Doorway.gd" type="Script" id=2]
+[ext_resource path="res://resources/props/doors/MovementSound.gd" type="Script" id=3]
 
 [node name="Door" type="Node2D"]
 script = ExtResource( 1 )
@@ -31,6 +32,11 @@ light_mask = 2
 [node name="InteractionArea" type="Area2D" parent="Door/Doorway"]
 collision_layer = 8
 collision_mask = 8
+
+[node name="MovementSound" type="AudioStreamPlayer2D" parent="Door/Doorway"]
+max_distance = 400.0
+bus = "Environment"
+script = ExtResource( 3 )
 
 [node name="PinJoint2D" type="PinJoint2D" parent="Door"]
 node_a = NodePath("../Hinge")

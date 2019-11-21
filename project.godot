@@ -10,6 +10,11 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "Event",
+"class": "AmbienceAudioEvent",
+"language": "GDScript",
+"path": "res://resources/props/interactuable properties/events/AmbienceAudioEvent/AmbienceAudioEvent.gd"
+}, {
+"base": "Event",
 "class": "CanvasEvent",
 "language": "GDScript",
 "path": "res://resources/props/interactuable properties/events/CanvasEvent/Canvas.gd"
@@ -75,6 +80,7 @@ _global_script_classes=[ {
 "path": "res://entities/npcs/enemies/VisibleEnemy.gd"
 } ]
 _global_script_class_icons={
+"AmbienceAudioEvent": "",
 "CanvasEvent": "",
 "DialogueEvent": "",
 "Door": "",
@@ -102,6 +108,7 @@ signals="*res://globals/signals.gd"
 PlayerStatus="*res://globals/player_status.gd"
 World_Properties="*res://globals/world_properties.gd"
 WorldEvents="*res://globals/WorldEvents.gd"
+AudioManager="*res://globals/AudioManager.tscn"
 
 [display]
 
@@ -148,8 +155,8 @@ interact={
 [layer_names]
 
 2d_physics/layer_1="world"
-2d_physics/layer_2="transparent"
-2d_physics/layer_3="entities"
+2d_physics/layer_2="entities"
+2d_physics/layer_3="transparent"
 
 [physics]
 

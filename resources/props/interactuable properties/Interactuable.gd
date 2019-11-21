@@ -54,6 +54,7 @@ func handle_world_event(eventType, event):
 				add_child(timer)
 				timer.start(event.wait_time)
 				yield(timer, "timeout")
+				remove_child(timer)
 				timer.queue_free()
 			trigger_events()
 

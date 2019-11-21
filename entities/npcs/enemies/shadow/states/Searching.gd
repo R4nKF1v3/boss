@@ -4,7 +4,6 @@ onready var timer = $SearchTime
 
 # Initialize the state. E.g. change the animation
 func enter():
-	print("Now Searching")
 	timer.start()
 	owner.get_node("AnimationPlayer").play("searching")
 

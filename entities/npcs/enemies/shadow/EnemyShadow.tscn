@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://entities/npcs/NPC.tscn" type="PackedScene" id=1]
 [ext_resource path="res://entities/npcs/enemies/shadow/EnemyShadow.gd" type="Script" id=2]
@@ -10,32 +10,102 @@
 [ext_resource path="res://entities/npcs/enemies/shadow/states/Attack.gd" type="Script" id=8]
 [ext_resource path="res://entities/npcs/enemies/shadow/shadow.png" type="Texture" id=9]
 [ext_resource path="res://entities/npcs/enemies/shadow/fxs/SmokeAnim.tres" type="Texture" id=10]
+[ext_resource path="res://entities/npcs/enemies/shadow/sfxs/485076__inspectorj__heartbeat-regular-single-01-01-loop.wav" type="AudioStream" id=11]
+[ext_resource path="res://resources/sounds/160742__cosmicembers__body-fall-5.wav" type="AudioStream" id=12]
+[ext_resource path="res://entities/npcs/enemies/shadow/Footsteps.gd" type="Script" id=13]
+[ext_resource path="res://resources/sounds/164472__adam-n__crack-of-branch-3.wav" type="AudioStream" id=14]
+[ext_resource path="res://entities/npcs/enemies/shadow/Attack.gd" type="Script" id=15]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 13.2639, 22.5506 )
 
 [sub_resource type="Animation" id=2]
 resource_name = "attack"
+length = 3.0
+tracks/0/type = "method"
+tracks/0/path = NodePath("Attack")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 2.5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ 0.0 ],
+"method": "play"
+} ]
+}
 
 [sub_resource type="Animation" id=3]
-length = 0.5
 loop = true
+tracks/0/type = "method"
+tracks/0/path = NodePath("Footsteps")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [ 0.0 ],
+"method": "play"
+}, {
+"args": [ 0.0 ],
+"method": "play"
+} ]
+}
 
 [sub_resource type="Animation" id=4]
 loop = true
 
 [sub_resource type="Animation" id=5]
+length = 1.3
+tracks/0/type = "method"
+tracks/0/path = NodePath("Footsteps")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [ 0.0 ],
+"method": "play"
+}, {
+"args": [ 0.0 ],
+"method": "play"
+} ]
+}
 
 [sub_resource type="Animation" id=6]
+length = 2.0
 loop = true
+tracks/0/type = "method"
+tracks/0/path = NodePath("Footsteps")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [ 0.0 ],
+"method": "play"
+}, {
+"args": [ 0.0 ],
+"method": "play"
+} ]
+}
 
 [sub_resource type="CircleShape2D" id=7]
 radius = 53.4721
 
-[sub_resource type="AudioStreamSample" id=8]
-
 [node name="EnemyShadow" index="0" instance=ExtResource( 1 )]
-collision_mask = 3
+collision_mask = 7
 contacts_reported = 2
 contact_monitor = true
 script = ExtResource( 2 )
@@ -56,7 +126,7 @@ SPEED = 50.0
 
 [node name="Chase" type="Node" parent="StateMachine" index="2"]
 script = ExtResource( 6 )
-SPEED = 150.0
+SPEED = 100.0
 
 [node name="UpdatePath" type="Timer" parent="StateMachine/Chase" index="0"]
 wait_time = 0.05
@@ -109,11 +179,23 @@ shape = SubResource( 7 )
 collision_mask = 3
 
 [node name="Heartbeat" type="AudioStreamPlayer2D" parent="." index="9"]
-stream = SubResource( 8 )
+stream = ExtResource( 11 )
+volume_db = 12.0
+autoplay = true
+max_distance = 300.0
+attenuation = 6.06285
 
 [node name="Footsteps" type="AudioStreamPlayer2D" parent="." index="10"]
+stream = ExtResource( 12 )
+volume_db = -6.0
+max_distance = 600.0
+script = ExtResource( 13 )
 
 [node name="Attack" type="AudioStreamPlayer2D" parent="." index="11"]
+stream = ExtResource( 14 )
+max_distance = 1000.0
+attenuation = 4.0
+script = ExtResource( 15 )
 [connection signal="timeout" from="StateMachine/Idle/BoredomTimer" to="StateMachine/Idle" method="_on_Timer_timeout"]
 [connection signal="timeout" from="StateMachine/Chase/UpdatePath" to="StateMachine/Chase" method="_on_UpdatePath_timeout"]
 [connection signal="timeout" from="StateMachine/Searching/SearchTime" to="StateMachine/Searching" method="_on_SearchTime_timeout"]
