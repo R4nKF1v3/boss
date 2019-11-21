@@ -17,6 +17,7 @@ func _integrate_forces(state):
 
 func receive_damage():
 	total_hits += 1
+	$DamageSound.play()
 	if total_hits == owner.hits_until_open:
 		owner.toggle()
 		total_hits = 0

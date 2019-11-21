@@ -29,7 +29,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 2.5 ),
+"times": PoolRealArray( 2.9 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [ 0.0 ],
@@ -117,7 +117,7 @@ script = ExtResource( 3 )
 script = ExtResource( 4 )
 
 [node name="BoredomTimer" type="Timer" parent="StateMachine/Idle" index="0"]
-wait_time = 5.0
+wait_time = 2.0
 one_shot = true
 
 [node name="Wander" type="Node" parent="StateMachine" index="1"]

@@ -4,6 +4,7 @@ onready var timer = $BoredomTimer
 
 # Initialize the state. E.g. change the animation
 func enter():
+	print("Entered Idle")
 	owner.player_last_pos = null
 	owner.curr_vel = Vector2()
 	timer.start(randi() % 10 + 8)

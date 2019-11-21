@@ -5,7 +5,7 @@ export (float) var FOV = 90
 export (float) var MELEE_DAMAGE = 3
 export (float) var INSANITY_DAMAGE = 3
 
-onready var navigation : TileMap = owner.get_node("VisibleLayer/Pathtiles")
+onready var navigation : TileMap
 onready var raycast : RayCast2D = $DetectionRay
 
 var target
