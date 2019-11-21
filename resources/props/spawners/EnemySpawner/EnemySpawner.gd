@@ -2,6 +2,10 @@ extends Node2D
 
 export (bool) var with_timer = false
 export (float) var duration = 0
+export (float) var melee_damage = 3
+export (float) var insanity_damage = 3
+export (float) var detection_range = 800
+export (float) var FOV = 90
 
 onready var enemy_template = preload("res://entities/npcs/enemies/shadow/EnemyShadow.tscn")
 
@@ -33,6 +37,10 @@ func trigger_spawn():
 		var enemy = enemy_template.instance()
 		enemy.global_position = global_position
 		enemy.navigation = owner.get_node("VisibleLayer/Pathtiles")
+		enemy.INSANITY_DAMAGE = insanity_damage
+		enemy.MELEE_DAMAGE = melee_damage
+		enemy.DETECTION_RANGE = detection_range
+		enemy.FOV = FOV
 		get_parent().add_child(enemy)
 		spawned = enemy
 		if with_timer:
