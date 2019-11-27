@@ -9,7 +9,7 @@
 [ext_resource path="res://resources/props/statics/reja/Reja.tscn" type="PackedScene" id=7]
 [ext_resource path="res://resources/props/lights/StrongLight/StrongLight.tscn" type="PackedScene" id=8]
 
-[node name="Level01" index="0" instance=ExtResource( 1 )]
+[node name="Level01" instance=ExtResource( 1 )]
 position = Vector2( 243.907, 524.508 )
 
 [node name="Groundtiles" parent="HiddenLayer" index="0"]
@@ -105,5 +105,6 @@ rotation = -1.23071
 
 [node name="StrongLight" parent="VisibleLayer/OutsideProps/Props" index="0" instance=ExtResource( 8 )]
 position = Vector2( 353.698, 84.0082 )
+light_colour = Color( 1, 1, 1, 1 )
 
 [editable path="VisibleLayer/Ground/Props/WoodenTable01"]
