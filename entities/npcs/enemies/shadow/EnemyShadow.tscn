@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://entities/npcs/NPC.tscn" type="PackedScene" id=1]
 [ext_resource path="res://entities/npcs/enemies/shadow/EnemyShadow.gd" type="Script" id=2]
@@ -8,12 +8,11 @@
 [ext_resource path="res://entities/npcs/enemies/shadow/states/Chase.gd" type="Script" id=6]
 [ext_resource path="res://entities/npcs/enemies/shadow/states/Searching.gd" type="Script" id=7]
 [ext_resource path="res://entities/npcs/enemies/shadow/states/Attack.gd" type="Script" id=8]
-[ext_resource path="res://entities/npcs/enemies/shadow/states/Retire.gd" type="Script" id=9]
-[ext_resource path="res://entities/npcs/enemies/shadow/shadow.png" type="Texture" id=10]
-[ext_resource path="res://entities/npcs/enemies/shadow/fxs/SmokeAnim.tres" type="Texture" id=11]
-[ext_resource path="res://entities/npcs/enemies/shadow/sfxs/485076__inspectorj__heartbeat-regular-single-01-01-loop.wav" type="AudioStream" id=12]
-[ext_resource path="res://entities/npcs/enemies/shadow/Footsteps.gd" type="Script" id=13]
-[ext_resource path="res://entities/npcs/enemies/shadow/Attack.gd" type="Script" id=14]
+[ext_resource path="res://entities/npcs/enemies/shadow/shadow.png" type="Texture" id=9]
+[ext_resource path="res://entities/npcs/enemies/shadow/fxs/SmokeAnim.tres" type="Texture" id=10]
+[ext_resource path="res://entities/npcs/enemies/shadow/sfxs/485076__inspectorj__heartbeat-regular-single-01-01-loop.wav" type="AudioStream" id=11]
+[ext_resource path="res://entities/npcs/enemies/shadow/Footsteps.gd" type="Script" id=12]
+[ext_resource path="res://entities/npcs/enemies/shadow/Attack.gd" type="Script" id=13]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 13.2639, 22.5506 )
@@ -151,9 +150,6 @@ wait_time = 10.0
 [node name="Attack" type="Node" parent="StateMachine" index="4"]
 script = ExtResource( 8 )
 
-[node name="Retire" type="Node" parent="StateMachine" index="5"]
-script = ExtResource( 9 )
-
 [node name="CollisionShape2D" parent="." index="1"]
 shape = SubResource( 1 )
 
@@ -163,13 +159,13 @@ use_parent_material = true
 position = Vector2( 0.0960748, 0.200747 )
 rotation = 1.5708
 scale = Vector2( 0.0470483, 0.0470483 )
-texture = ExtResource( 10 )
+texture = ExtResource( 9 )
 
 [node name="Smoke" type="Sprite" parent="." index="3"]
-texture = ExtResource( 11 )
+texture = ExtResource( 10 )
 
 [node name="Smoke2" type="Sprite" parent="." index="4"]
-texture = ExtResource( 11 )
+texture = ExtResource( 10 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="5"]
 anims/attack = SubResource( 2 )
@@ -193,7 +189,7 @@ shape = SubResource( 7 )
 collision_mask = 3
 
 [node name="Heartbeat" type="AudioStreamPlayer2D" parent="." index="9"]
-stream = ExtResource( 12 )
+stream = ExtResource( 11 )
 volume_db = 12.0
 autoplay = true
 max_distance = 300.0
@@ -203,13 +199,13 @@ attenuation = 6.06285
 stream = SubResource( 8 )
 volume_db = -6.0
 max_distance = 600.0
-script = ExtResource( 13 )
+script = ExtResource( 12 )
 
 [node name="Attack" type="AudioStreamPlayer2D" parent="." index="11"]
 stream = SubResource( 9 )
 max_distance = 1000.0
 attenuation = 4.0
-script = ExtResource( 14 )
+script = ExtResource( 13 )
 [connection signal="timeout" from="StateMachine/Idle/BoredomTimer" to="StateMachine/Idle" method="_on_Timer_timeout"]
 [connection signal="timeout" from="StateMachine/Chase/UpdatePath" to="StateMachine/Chase" method="_on_UpdatePath_timeout"]
 [connection signal="timeout" from="StateMachine/Searching/SearchTime" to="StateMachine/Searching" method="_on_SearchTime_timeout"]

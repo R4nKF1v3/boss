@@ -32,7 +32,11 @@ func _on_animation_finished(anim_name):
 		elif times_attacked == attack_times:
 			times_attacked = 0
 			print("Going to retire")
-			emit_signal("finished", "retire")
+			retire()
+			emit_signal("finished", "attack_to_idle")
 		else:
 			owner.get_node("AnimationPlayer").play("attack")
 	
+
+func retire():
+	owner.curr_vel = (owner.global_position - target.global_position).normalized() * 700
