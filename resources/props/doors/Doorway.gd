@@ -18,6 +18,9 @@ func _integrate_forces(state):
 		state.angular_velocity = 0
 
 func receive_damage():
+	if !locked:
+		total_hits = 0
+		return true
 	total_hits += 1
 	$DamageSound.play()
 	if total_hits == owner.hits_until_open:

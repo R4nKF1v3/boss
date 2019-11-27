@@ -12,7 +12,7 @@
 [ext_resource path="res://resources/props/statics/reja/Reja.tscn" type="PackedScene" id=10]
 [ext_resource path="res://resources/props/lights/LampLight01/LampLight01.tscn" type="PackedScene" id=11]
 
-[node name="Level01" index="0" instance=ExtResource( 1 )]
+[node name="Level01" instance=ExtResource( 1 )]
 
 [node name="HiddenLayer" parent="." index="0"]
 editor/display_folded = true
@@ -65,8 +65,7 @@ melee_damage = 5.0
 insanity_damage = 1.0
 
 [node name="EnemySpawner2" parent="VisibleLayer/Ground/Spawns" index="1" instance=ExtResource( 9 )]
-position = Vector2( 755.231, 788.26 )
-with_timer = true
+position = Vector2( 772.391, 816.86 )
 duration = 2.0
 melee_damage = 5.0
 insanity_damage = 1.0
@@ -79,7 +78,7 @@ melee_damage = 5.0
 insanity_damage = 1.0
 
 [node name="EnemySpawner4" parent="VisibleLayer/Ground/Spawns" index="3" instance=ExtResource( 9 )]
-position = Vector2( 1650.14, 1285.12 )
+position = Vector2( 1215.41, 1330.88 )
 with_timer = true
 duration = 2.0
 melee_damage = 5.0
