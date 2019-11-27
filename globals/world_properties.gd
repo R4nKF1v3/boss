@@ -1,3 +1,3 @@
 extends Node
 
-const canvas_default : Color = Color("b3ffffff")
+const canvas_default : Color = Color("8cffffff")

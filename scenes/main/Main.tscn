@@ -54,7 +54,7 @@ motion_scale = Vector2( 0, 0 )
 motion_mirroring = Vector2( 3800, 3800 )
 
 [node name="ScreenModulate" type="Sprite" parent="Foreground/ParallaxLayer"]
-modulate = Color( 1, 1, 1, 0 )
+modulate = Color( 1, 1, 1, 0.54902 )
 light_mask = 2
 material = SubResource( 2 )
 texture = ExtResource( 3 )

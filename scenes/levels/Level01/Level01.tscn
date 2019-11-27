@@ -35,7 +35,8 @@ position = Vector2( 473.084, 90.0721 )
 position = Vector2( 1798.49, 4641.11 )
 
 [node name="Puerta de reja" parent="VisibleLayer/Ground/Props" index="3" instance=ExtResource( 6 )]
-position = Vector2( 676.034, 750.186 )
+position = Vector2( 676.034, 747.336 )
+is_interactuable = true
 
 [node name="Spawns" parent="VisibleLayer/Ground" index="2"]
 editor/display_folded = true
