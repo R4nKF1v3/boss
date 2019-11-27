@@ -8,9 +8,14 @@ onready var hidden = $StaticProp/Hidden
 onready var vis = $StaticProp/Visible
 onready var prop = $StaticProp
 
-onready var hidden_base_tx = hidden.texture
-onready var vis_base_tx = vis.texture
-onready var prop_coll = [prop.collision_layer, prop.collision_mask]
+var hidden_base_tx
+var vis_base_tx
+var prop_coll
+
+func _ready():
+	hidden_base_tx = hidden.texture
+	vis_base_tx = vis.texture
+	prop_coll = [prop.collision_layer, prop.collision_mask]
 
 func get_interaction_area():
 	return $StaticProp/InteractionArea
