@@ -8,7 +8,7 @@
 [ext_resource path="res://resources/props/spawners/EnemySpawner/EnemySpawner.tscn" type="PackedScene" id=6]
 [ext_resource path="res://resources/props/lights/StrongLight/StrongLight.tscn" type="PackedScene" id=7]
 
-[node name="Level01" index="0" instance=ExtResource( 1 )]
+[node name="Level01" instance=ExtResource( 1 )]
 position = Vector2( 243.907, 524.508 )
 
 [node name="Groundtiles" parent="HiddenLayer" index="0"]
@@ -23,7 +23,7 @@ position = Vector2( 132.392, 107.14 )
 [node name="WoodenTable01" parent="VisibleLayer/Ground/Props" index="1" instance=ExtResource( 3 )]
 position = Vector2( 169.764, 219.979 )
 
-[node name="nota" parent="VisibleLayer/Ground/Props/WoodenTable01" index="1" instance=ExtResource( 4 )]
+[node name="nota" parent="VisibleLayer/Ground/Props/WoodenTable01/PhysProp" index="5" instance=ExtResource( 4 )]
 
 [node name="WoodenDoor" parent="VisibleLayer/Ground/Props" index="2" instance=ExtResource( 5 )]
 position = Vector2( 1798.49, 4641.11 )
@@ -92,3 +92,5 @@ tile_data = PoolIntArray( 0, 0, 1, 1, 0, 196610, 2, 0, 196610, 3, 0, 196610, 4, 
 
 [node name="StrongLight" parent="VisibleLayer/OutsideProps/Props" index="0" instance=ExtResource( 7 )]
 position = Vector2( 265.05, 124.45 )
+
+[editable path="VisibleLayer/Ground/Props/WoodenTable01"]
