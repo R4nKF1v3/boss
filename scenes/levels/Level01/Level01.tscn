@@ -40,8 +40,7 @@ position = Vector2( 1134.03, 886.734 )
 mouse_texture = ExtResource( 5 )
 
 [node name="TriggerEvent" parent="VisibleLayer/Ground/Props/Mesa con nota y bichos/PhysProp/nota" index="1" instance=ExtResource( 6 )]
-one_shot = true
-nodes = [ NodePath("../../../../../Spawns/EnemySpawner"), NodePath("../../../../../Spawns/EnemySpawner2"), NodePath("../../../../../Spawns/EnemySpawner3"), NodePath("../../../../../Spawns/EnemySpawner4"), NodePath("../../../../../Spawns/EnemySpawner5"), NodePath("../../../../../Spawns/EnemySpawner6"), NodePath("../../../../../Spawns/EnemySpawner7"), NodePath("../../../../../Spawns/EnemySpawner8") ]
+nodes = [ NodePath("../../../../../Spawns/EnemySpawner") ]
 
 [node name="WoodenDoor" parent="VisibleLayer/Ground/Props" index="3" instance=ExtResource( 7 )]
 position = Vector2( 1798.49, 4641.11 )
@@ -57,7 +56,6 @@ is_interactuable = true
 
 [node name="EnemySpawner" parent="VisibleLayer/Ground/Spawns" index="0" instance=ExtResource( 9 )]
 position = Vector2( 1174.2, 750.319 )
-duration = 2.0
 melee_damage = 5.0
 insanity_damage = 1.0
 
@@ -121,67 +119,54 @@ editor/display_folded = true
 [node name="Reja2" parent="VisibleLayer/Walltiles/rejas" index="0" instance=ExtResource( 10 )]
 position = Vector2( 675.665, 880.711 )
 rotation = 0.0030005
-scale = Vector2( 1, 1 )
 
 [node name="Reja3" parent="VisibleLayer/Walltiles/rejas" index="1" instance=ExtResource( 10 )]
 position = Vector2( 675.201, 973.769 )
 rotation = 0.0030005
-scale = Vector2( 1, 1 )
 
 [node name="Reja4" parent="VisibleLayer/Walltiles/rejas" index="2" instance=ExtResource( 10 )]
 position = Vector2( 675.069, 1094.41 )
 rotation = 0.0030005
-scale = Vector2( 1, 1 )
 
 [node name="Reja5" parent="VisibleLayer/Walltiles/rejas" index="3" instance=ExtResource( 10 )]
 position = Vector2( 675.069, 1214.41 )
 rotation = 0.0030005
-scale = Vector2( 1, 1 )
 
 [node name="Reja20" parent="VisibleLayer/Walltiles/rejas" index="4" instance=ExtResource( 10 )]
 position = Vector2( 857.69, 1193.83 )
 rotation = 0.0030005
-scale = Vector2( 1, 1 )
 
 [node name="Reja21" parent="VisibleLayer/Walltiles/rejas" index="5" instance=ExtResource( 10 )]
 position = Vector2( 858.258, 1073.82 )
 rotation = 0.0030005
-scale = Vector2( 1, 1 )
 
 [node name="Reja22" parent="VisibleLayer/Walltiles/rejas" index="6" instance=ExtResource( 10 )]
 position = Vector2( 858.259, 952.777 )
 rotation = 0.0030005
-scale = Vector2( 1, 1 )
 
 [node name="Reja23" parent="VisibleLayer/Walltiles/rejas" index="7" instance=ExtResource( 10 )]
 position = Vector2( 858.922, 832.698 )
 rotation = 0.0030005
-scale = Vector2( 1, 1 )
 
 [node name="Reja24" parent="VisibleLayer/Walltiles/rejas" index="8" instance=ExtResource( 10 )]
 position = Vector2( 859.585, 731.858 )
 rotation = 0.0030005
-scale = Vector2( 1, 1 )
 
 [node name="Reja17" parent="VisibleLayer/Walltiles/rejas" index="9" instance=ExtResource( 10 )]
 position = Vector2( 1396.68, 1332.38 )
 rotation = 0.0030005
-scale = Vector2( 1, 1 )
 
 [node name="Reja18" parent="VisibleLayer/Walltiles/rejas" index="10" instance=ExtResource( 10 )]
 position = Vector2( 1396.68, 1313.38 )
 rotation = 0.0030005
-scale = Vector2( 1, 1 )
 
 [node name="Reja6" parent="VisibleLayer/Walltiles/rejas" index="11" instance=ExtResource( 10 )]
 position = Vector2( 674.016, 1334.41 )
 rotation = 0.0030005
-scale = Vector2( 1, 1 )
 
 [node name="Reja7" parent="VisibleLayer/Walltiles/rejas" index="12" instance=ExtResource( 10 )]
 position = Vector2( 733.658, 1394.73 )
 rotation = -1.57233
-scale = Vector2( 1, 1 )
 
 [node name="Reja8" parent="VisibleLayer/Walltiles/rejas" index="13" instance=ExtResource( 10 )]
 position = Vector2( 854.294, 1394.21 )

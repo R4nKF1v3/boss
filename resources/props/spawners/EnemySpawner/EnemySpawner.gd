@@ -26,7 +26,7 @@ func handle_world_event(eventType, event):
 
 func trigger_spawn():
 	if spawned:
-		get_parent().remove_child(spawned)
+		remove_child(spawned)
 		spawned.queue_free()
 		spawned = null
 		if with_timer:
@@ -35,13 +35,12 @@ func trigger_spawn():
 			timer.queue_free()
 	else:
 		var enemy = enemy_template.instance()
-		enemy.global_position = global_position
-		enemy.navigation = owner.get_node("VisibleLayer/Pathtiles")
+		enemy.navigation = get_pathtiles()
 		enemy.INSANITY_DAMAGE = insanity_damage
 		enemy.MELEE_DAMAGE = melee_damage
 		enemy.DETECTION_RANGE = detection_range
 		enemy.FOV = FOV
-		get_parent().add_child(enemy)
+		add_child(enemy)
 		spawned = enemy
 		if with_timer:
 			var timer = Timer.new()
@@ -50,7 +49,7 @@ func trigger_spawn():
 			timer.start(duration)
 
 func on_timer_timeout():
-	get_parent().remove_child(spawned)
+	remove_child(spawned)
 	spawned.queue_free()
 	spawned = null
 	var timer = get_child(0)
@@ -58,6 +57,6 @@ func on_timer_timeout():
 	timer.queue_free()
 
 func get_pathtiles():
-	return owner.get_pathtiles()
+	return owner.get_node("VisibleLayer/Pathtiles")
 
 

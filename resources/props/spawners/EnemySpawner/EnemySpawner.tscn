@@ -3,4 +3,5 @@
 [ext_resource path="res://resources/props/spawners/EnemySpawner/EnemySpawner.gd" type="Script" id=1]
 
 [node name="EnemySpawner" type="Node2D"]
+light_mask = 2
 script = ExtResource( 1 )

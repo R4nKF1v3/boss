@@ -64,8 +64,6 @@ func can_interact_with_element() -> bool:
 
 func on_area_entered(area):
 	if area.owner.is_interactuable:
-		print("Entered element")
-		print(area.owner)
 		hovering_elements.push_front(area.owner)
 		hovering_elements.sort_custom(HoveringElementsSorter, "sort")
 

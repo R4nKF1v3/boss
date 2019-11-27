@@ -6,3 +6,7 @@ func _ready():
 	for child in children:
 		if child is NPC:
 			child.navigation = nav
+
+func add_child(node, legible_unique_name=false):
+	print(node)
+	.add_child(node, legible_unique_name)
