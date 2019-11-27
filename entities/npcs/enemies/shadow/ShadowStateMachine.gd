@@ -7,7 +7,6 @@ func _ready():
 		"chase": $Chase,
 		"searching": $Searching,
 		"attack": $Attack,
-		"retire": $Retire,
 	}
 	START_STATE = $Idle
 	signals.connect("noise_emitted", self, "_on_noise_emmited")
@@ -21,9 +20,10 @@ func _change_state(state_name):
 		return
 	if state_name == "attack":
 		states_stack.push_front(states_map[state_name])
-	if state_name == "retire":
+	if state_name == "attack_to_idle":
 		var prev_state = states_stack.pop_back()
 		prev_state.exit()
+		state_name = "idle"
 	._change_state(state_name)
 
 func _on_noise_emmited(location, volume_range, priority):

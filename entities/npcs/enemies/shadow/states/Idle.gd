@@ -6,7 +6,6 @@ onready var timer = $BoredomTimer
 func enter():
 	print("Entered Idle")
 	owner.player_last_pos = null
-	owner.curr_vel = Vector2()
 	timer.start(randi() % 10 + 8)
 	owner.get_node("AnimationPlayer").play("idle")
 
@@ -23,6 +22,7 @@ func update(delta):
 			emit_signal("finished", "chase")
 		else:
 			emit_signal("finished", "searching")
+	owner.curr_vel = Vector2()
 
 func _on_Timer_timeout():
 	if owner.navigation.is_valid_node(owner.global_position):
