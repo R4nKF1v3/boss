@@ -1,11 +1,20 @@
 extends InteractuableElement
 
 export (bool) var door_is_closed = true
+export (bool) var door_is_locked = false
 export (int) var hits_until_open = -1
+export (Array, String) var message_when_locked = ["Está cerrada",]
+
+var dialogue
 
 func _ready():
 	if door_is_closed:
 		$Door/Doorway.locked = true
+	if message_when_locked.size()>0:
+		dialogue = DialogueEvent.new()
+		dialogue.is_sucessive = true
+		dialogue.dialogue_text = message_when_locked
+		
 
 func get_interaction_area():
 	return $Door/Doorway/InteractionArea
@@ -20,7 +29,16 @@ func handle_event(event: InputEvent):
 		get_tree().set_input_as_handled()
 		
 		trigger_events()
-		toggle()
+		if !door_is_locked:
+			toggle()
+		else:
+			send_locked_message()
+
+func togInteract():
+	door_is_locked = !door_is_locked
+	if !door_is_closed:
+		door_is_closed = true
+		lock_door()
 
 func toggle():
 	if door_is_closed:
@@ -37,3 +55,8 @@ func lock_door():
 func unlock_door():
 	$Door/Doorway.locked = false
 	$Door/Doorway/LockSound.play()
+
+func send_locked_message():
+	if dialogue:
+		dialogue.handle()
+		
