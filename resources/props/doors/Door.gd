@@ -24,13 +24,10 @@ func get_global_position() -> Vector2:
 
 func handle_event(event: InputEvent):
 	if can_handle_event(event):
-		print("Handling event")
-		print(name)
 		get_tree().set_input_as_handled()
-		
-		trigger_events()
 		if !door_is_locked:
 			toggle()
+			trigger_events()
 		else:
 			send_locked_message()
 

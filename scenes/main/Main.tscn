@@ -44,7 +44,7 @@ position = Vector2( 6605.56, 253.742 )
 [node name="PlayerContainer" type="Node" parent="."]
 
 [node name="PlayerContainer" parent="PlayerContainer" instance=ExtResource( 6 )]
-position = Vector2( 252.74, 287.594 )
+position = Vector2( 274.48, 673.653 )
 
 [node name="Foreground" type="ParallaxBackground" parent="."]
 layer = 1
@@ -54,7 +54,7 @@ motion_scale = Vector2( 0, 0 )
 motion_mirroring = Vector2( 3800, 3800 )
 
 [node name="ScreenModulate" type="Sprite" parent="Foreground/ParallaxLayer"]
-modulate = Color( 1, 1, 1, 0.54902 )
+modulate = Color( 1, 1, 1, 0.482353 )
 light_mask = 2
 material = SubResource( 2 )
 texture = ExtResource( 3 )

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/81F_wizards_desk_dm142.png-7ed9f645ecd5281f334c2e8e6cb5f4b6.stex"
+path="res://.import/A4A_Bedroom13_bg_desat.png-1dcf503a25c72a9bfcda307e2977ed34.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/props/statics/WoodDeskFull/81F_wizards_desk_dm142.png"
-dest_files=[ "res://.import/81F_wizards_desk_dm142.png-7ed9f645ecd5281f334c2e8e6cb5f4b6.stex" ]
+source_file="res://resources/props/statics/Bedroom/A4A_Bedroom13_bg_desat.png"
+dest_files=[ "res://.import/A4A_Bedroom13_bg_desat.png-1dcf503a25c72a9bfcda307e2977ed34.stex" ]
 
 [params]
 

@@ -1,6 +1,6 @@
 extends InteractuableElement
 
-const SHADOW_RESOLUTION = 720
+const SHADOW_RESOLUTION = 1080
 
 export (bool) var starts_toggled = false
 export (bool) var starts_flickering = false
@@ -21,13 +21,18 @@ onready var raycast = $Light/RayCast2D
 onready var vis = $Light/Visible
 
 var ray_lengths
-var toggled = false
+var toggled = true
 
 func get_global_position() -> Vector2:
 	return $Light.global_position
 
 func get_interaction_area():
 	return $Light/InteractionArea
+
+func handle_event(event: InputEvent):
+	.handle_event(event)
+	if can_handle_event(event):
+		toggle()
 
 func toggle():
 	if toggled:
@@ -39,6 +44,8 @@ func toggle():
 		effect.texture = effect_base_tx
 		emmiter.texture = emmiter_base_tx
 	toggled = !toggled
+	print("I just toggled!")
+	print(toggled)
 
 
 func update_colour(value):
