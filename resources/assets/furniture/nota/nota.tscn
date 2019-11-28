@@ -1,16 +1,14 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://resources/props/textures/TextureProp.tscn" type="PackedScene" id=1]
-[ext_resource path="res://resources/cursors/eye/eye.png" type="Texture" id=2]
-[ext_resource path="res://resources/assets/furniture/nota/notes-apple-os-x-mountain-lion-banknote.png" type="Texture" id=3]
+[ext_resource path="res://resources/assets/furniture/nota/notes-apple-os-x-mountain-lion-banknote.png" type="Texture" id=2]
 
-[node name="nota" instance=ExtResource( 1 )]
+[node name="nota" index="0" instance=ExtResource( 1 )]
 scale = Vector2( 0.0586666, 0.0587374 )
 is_interactuable = true
-mouse_texture = ExtResource( 2 )
 
 [node name="Visible" parent="TextureProp" index="1"]
-texture = ExtResource( 3 )
+texture = ExtResource( 2 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TextureProp/InteractionArea" index="0"]
 position = Vector2( 3.09094, 0 )

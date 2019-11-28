@@ -7,6 +7,8 @@ export (String, "Replace Main", "Add to Background", "Remove Audio") var type = 
 export (String) var bus = "Ambience"
 
 func handle():
+	if time_until_activation > 0:
+		yield(get_tree().create_timer(time_until_activation), "timeout")
 	if !(one_shot && was_emmited) && sound:
 		was_emmited = true
 		var event = WorldEvents.event_types.AmbienceAudio.new()

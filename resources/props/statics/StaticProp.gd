@@ -1,5 +1,6 @@
 extends InteractuableElement
 
+export (bool) var starts_toggled = false
 export (Texture) var on_toggle_hidden_texture
 export (Texture) var on_toggle_visible_texture
 export (bool) var on_toggle_collision_switch = false
@@ -16,6 +17,8 @@ func _ready():
 	hidden_base_tx = hidden.texture
 	vis_base_tx = vis.texture
 	prop_coll = [prop.collision_layer, prop.collision_mask]
+	if starts_toggled:
+		toggle()
 
 func get_interaction_area():
 	return $StaticProp/InteractionArea

@@ -1,5 +1,6 @@
 extends InteractuableElement
 
+export (bool) var starts_toggled = false
 export (Texture) var on_toggle_hidden_texture
 export (Texture) var on_toggle_visible_texture
 export (bool) var on_toggle_mode_switch_static = false
@@ -17,6 +18,8 @@ func _ready():
 	hidden_base_tx = hidden.texture
 	vis_base_tx = vis.texture
 	prop_coll = [prop.collision_layer, prop.collision_mask]
+	if starts_toggled:
+		toggle()
 
 func get_global_position() -> Vector2:
 	return $PhysProp.global_position

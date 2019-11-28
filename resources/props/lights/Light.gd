@@ -44,8 +44,6 @@ func toggle():
 		effect.texture = effect_base_tx
 		emmiter.texture = emmiter_base_tx
 	toggled = !toggled
-	print("I just toggled!")
-	print(toggled)
 
 
 func update_colour(value):

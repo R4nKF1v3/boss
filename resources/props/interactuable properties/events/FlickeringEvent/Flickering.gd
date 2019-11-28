@@ -7,6 +7,8 @@ export (Array, float) var timings = []
 export (float) var duration = 1
 
 func handle():
+	if time_until_activation > 0:
+		yield(get_tree().create_timer(time_until_activation), "timeout")
 	if !(one_shot && was_emmited) && nodes.size() > 0:
 		was_emmited = true
 		var event = WorldEvents.event_types.Flickering.new()

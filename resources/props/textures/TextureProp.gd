@@ -1,5 +1,6 @@
 extends InteractuableElement
 
+export (bool) var starts_toggled = false
 export (Texture) var on_toggle_hidden_texture
 export (Texture) var on_toggle_visible_texture
 
@@ -8,6 +9,10 @@ onready var vis = $TextureProp/Visible
 
 onready var hidden_base_tx = hidden.texture
 onready var vis_base_tx = vis.texture
+
+func _ready():
+	if starts_toggled:
+		toggle()
 
 func get_interaction_area():
 	return $TextureProp/InteractionArea

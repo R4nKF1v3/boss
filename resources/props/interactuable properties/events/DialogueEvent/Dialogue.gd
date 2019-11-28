@@ -5,6 +5,8 @@ export (bool) var is_sucessive = false
 export (Array, String) var dialogue_text = []
 
 func handle():
+	if time_until_activation > 0:
+		yield(get_tree().create_timer(time_until_activation), "timeout")
 	var dialogue = dialogue_text
 	if !((one_shot && !(is_sucessive && dialogue.size() > 0)) && was_emmited):
 		was_emmited = true
