@@ -1,0 +1,14 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=2]
+
+[ext_resource path="res://UI/GUI/shader/insanity.shader" type="Shader" id=1]
+
+[resource]
+shader = ExtResource( 1 )
+shader_param/dispAmt = 0.0
+shader_param/dispScale = 0.1
+shader_param/abberationAmt = 0.0
+shader_param/timeLine = 0.0
+shader_param/scanSpeed = 0.0
+shader_param/scanOffset = 0.0
+shader_param/screenCurvature = 1.0
+shader_param/curvatureDistance = 2.0
