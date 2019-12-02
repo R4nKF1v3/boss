@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/paso4.wav-0dab3ac7173d86e7a22bcc001c09bd73.sample"
+
+[deps]
+
+source_file="res://resources/assets/sonidos/pasos descalzos/paso4.wav"
+dest_files=[ "res://.import/paso4.wav-0dab3ac7173d86e7a22bcc001c09bd73.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

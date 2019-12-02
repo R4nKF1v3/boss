@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/arrastrar.wav-f3715a5fd958ac5e57076921637a0bd4.sample"
+
+[deps]
+
+source_file="res://resources/assets/sonidos/puerta metal/arrastrar.wav"
+dest_files=[ "res://.import/arrastrar.wav-f3715a5fd958ac5e57076921637a0bd4.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

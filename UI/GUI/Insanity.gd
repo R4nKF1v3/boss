@@ -3,7 +3,7 @@ extends ColorRect
 onready var tween = $Tween
 
 var base = Color("00ffffff")
-var target = Color("604a1c9b")
+var target = Color("3affffff")
 
 func _ready():
 	PlayerStatus.connect("took_insanity_damage", self, "on_damage")

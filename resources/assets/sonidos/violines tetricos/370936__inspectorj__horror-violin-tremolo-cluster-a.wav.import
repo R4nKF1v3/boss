@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/370936__inspectorj__horror-violin-tremolo-cluster-a.wav-b4522e0ff347db6133b5d8d192677414.sample"
+
+[deps]
+
+source_file="res://resources/assets/sonidos/violines tetricos/370936__inspectorj__horror-violin-tremolo-cluster-a.wav"
+dest_files=[ "res://.import/370936__inspectorj__horror-violin-tremolo-cluster-a.wav-b4522e0ff347db6133b5d8d192677414.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

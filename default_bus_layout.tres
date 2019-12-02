@@ -1,4 +1,4 @@
-[gd_resource type="AudioBusLayout" load_steps=5 format=2]
+[gd_resource type="AudioBusLayout" load_steps=6 format=2]
 
 [sub_resource type="AudioEffectReverb" id=1]
 resource_name = "Reverb"
@@ -9,6 +9,13 @@ spread = 0.1
 [sub_resource type="AudioEffectLowPassFilter" id=2]
 resource_name = "LowPassFilter"
 cutoff_hz = 300.0
+
+[sub_resource type="AudioEffectReverb" id=5]
+resource_name = "Reverb"
+room_size = 0.0
+damping = 0.0
+spread = 0.0
+wet = 0.1
 
 [sub_resource type="AudioEffectLowShelfFilter" id=3]
 resource_name = "LowShelfFilter"
@@ -31,22 +38,24 @@ bus/2/mute = false
 bus/2/bypass_fx = false
 bus/2/volume_db = 0.0
 bus/2/send = "Master"
-bus/2/effect/0/effect = SubResource( 1 )
-bus/2/effect/0/enabled = true
 bus/3/name = "Muffled Environment"
 bus/3/solo = false
 bus/3/mute = false
 bus/3/bypass_fx = false
 bus/3/volume_db = 0.0
 bus/3/send = "Environment"
-bus/3/effect/0/effect = SubResource( 2 )
+bus/3/effect/0/effect = SubResource( 1 )
 bus/3/effect/0/enabled = true
+bus/3/effect/1/effect = SubResource( 2 )
+bus/3/effect/1/enabled = true
 bus/4/name = "Footsteps"
 bus/4/solo = false
 bus/4/mute = false
 bus/4/bypass_fx = false
 bus/4/volume_db = 0.0
 bus/4/send = "Environment"
+bus/4/effect/0/effect = SubResource( 5 )
+bus/4/effect/0/enabled = true
 bus/5/name = "Muffled Footsteps"
 bus/5/solo = false
 bus/5/mute = false

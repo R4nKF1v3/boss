@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/electricidad estatica cambiadno.wav-e1da320ba75696b926d8ae19e0d77c0c.sample"
+
+[deps]
+
+source_file="res://resources/assets/sonidos/ambiente/electricidad estatica cambiadno.wav"
+dest_files=[ "res://.import/electricidad estatica cambiadno.wav-e1da320ba75696b926d8ae19e0d77c0c.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0
