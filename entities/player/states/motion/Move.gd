@@ -28,6 +28,3 @@ func check_state_conditions():
 func move(speed, direction):
 	velocity = direction.normalized() * speed
 	parent.current_velocity = velocity
-	#if parent.get_slide_count() == 0:
-	#	return
-	#return parent.get_slide_collision(0)

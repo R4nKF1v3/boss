@@ -1,0 +1,8 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=2]
+
+[ext_resource path="res://entities/player/sprites/piernas.png" type="Texture" id=1]
+
+[resource]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 22.015, 21.568, 206.673, 376.337 )

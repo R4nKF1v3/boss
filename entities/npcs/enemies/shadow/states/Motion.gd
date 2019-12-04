@@ -1,7 +1,7 @@
 extends "res://entities/state.gd"
 
 export (float) var SPEED
-
+onready var anim_player : AnimationPlayer = owner.get_node("AnimationPlayer")
 var objective_path = [] setget set_objective_path
 
 func exit():

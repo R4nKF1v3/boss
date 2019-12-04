@@ -5,7 +5,7 @@ extends "res://entities/player/states/motion/Move.gd"
 
 func enter():
 	.enter()
-	owner.get_node("AnimationPlayer").play("walk")
+	parent.get_node("AnimationPlayer").play("walk")
 
 func check_state_conditions():
 	var input_direction = get_input_direction()

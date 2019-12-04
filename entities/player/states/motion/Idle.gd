@@ -1,7 +1,7 @@
 extends "res://entities/player/states/motion/Motion.gd"
 
 func enter():
-	owner.get_node("AnimationPlayer").play("idle")
+	parent.get_node("AnimationPlayer").play("idle")
 
 func handle_input(event):
 	return .handle_input(event)

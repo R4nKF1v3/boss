@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/bkspr01.png-df4895e4476d0a00e7f5a9d31dfcd02c.stex"
+path="res://.import/piernas.png-dcf43813cea275086d958f4eafdbe090.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/props/pj/bkspr01.png"
-dest_files=[ "res://.import/bkspr01.png-df4895e4476d0a00e7f5a9d31dfcd02c.stex" ]
+source_file="res://resources/assets/pj/piernas.png"
+dest_files=[ "res://.import/piernas.png-dcf43813cea275086d958f4eafdbe090.stex" ]
 
 [params]
 
