@@ -1,0 +1,77 @@
+// Dundjinni Map Item Folder properties file
+
+Type		Floor
+Copyright	(C) 2004 Fluid Entertainment, Inc.
+AltColor	204,204,204
+
+[Cave, Dark]
+AltColor	58,53,46
+
+[Cave, Hard]
+AltColor	68,66,64
+
+[Cave, Light]
+AltColor	98,94,88
+
+[Cave, Medium]
+AltColor	75,69,62
+
+[Cave, Rocky]
+AltColor	34,33,31
+
+[Cave, Sharp]
+AltColor	80,76,74
+
+[Stone, Gray Block 1]
+AltColor	82,85,88
+
+[Stone, Gray Block 2]
+AltColor	61,63,66
+
+[Stone, Gray Block 3]
+AltColor	40,42,43
+
+[Stone, Gray Block 4]
+AltColor	35,32,32
+
+[Stone, Round]
+AltColor	96,89,74
+
+[Stone, Shale]
+AltColor	53,61,73
+
+[Stone, Tan Block 1]
+AltColor	101,85,61
+
+[Stone, Tan Block 2]
+AltColor	83,67,45
+
+[Wood, Blond Horiz]
+AltColor	192,156,98
+
+[Wood, Blond Vert]
+AltColor	192,156,98
+
+[Wood, Brown Horiz]
+AltColor	93,58,34
+
+[Wood, Brown Vert]
+AltColor	93,58,34
+
+[Wood, Dark Horiz]
+AltColor	62,57,48
+
+[Wood, Dark Vert]
+AltColor	62,57,48
+
+[Wood, Gray Horiz]
+AltColor	89,91,84
+
+[Wood, Gray Vert]
+AltColor	89,91,84
+
+[Wood, Tan Horiz]
+AltColor	150,105,57
+
+[Wood, Tan Vert]
+AltColor	150,105,57

@@ -55,6 +55,11 @@ _global_script_classes=[ {
 "path": "res://entities/player/PlayerController.gd"
 }, {
 "base": "Event",
+"class": "ShowShiftEvent",
+"language": "GDScript",
+"path": "res://resources/props/interactuable properties/events/ShowShiftEvent/ShowShiftEvent.gd"
+}, {
+"base": "Event",
 "class": "TogInteractuable",
 "language": "GDScript",
 "path": "res://resources/props/interactuable properties/events/TogInteractuableEvent/TogInteractuable.gd"
@@ -89,6 +94,7 @@ _global_script_class_icons={
 "InteractuableElement": "",
 "NPC": "",
 "Player": "",
+"ShowShiftEvent": "",
 "TogInteractuable": "",
 "ToggleEvent": "",
 "TriggerArea": "",
@@ -113,6 +119,7 @@ AudioManager="*res://globals/AudioManager.tscn"
 [display]
 
 window/size/resizable=false
+window/size/fullscreen=true
 mouse_cursor/custom_image_hotspot=Vector2( 12, 12 )
 
 [input]
