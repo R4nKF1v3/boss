@@ -5,7 +5,7 @@ onready var timer = $SearchTime
 # Initialize the state. E.g. change the animation
 func enter():
 	timer.start()
-	owner.get_node("AnimationPlayer").play("searching")
+	anim_player.play("searching")
 
 # Clean up the state. Reinitialize values like a timer
 func exit():
@@ -21,8 +21,12 @@ func update(delta):
 		if owner.can_reach_player():
 			emit_signal("finished", "chase")
 		else:
+			if anim_player.current_animation != "idle":
+				anim_player.play("idle")
 			owner.curr_vel = Vector2()
 	else:
+		if anim_player.current_animation != "searching":
+				anim_player.play("searching")
 		search_cycle(delta)
 
 func search_cycle(delta):
@@ -38,7 +42,7 @@ func find_valid_path():
 		else:
 			randomize()
 			var objective = Vector2(owner.global_position.x + (rand_range(-300, 300)), owner.global_position.y + (rand_range(-300, 300)))
-			set_objective_path(owner.navigation.get_simple_path(owner.global_position, objective))
+			self.objective_path = owner.navigation.get_simple_path(owner.global_position, objective)
 
 func _on_SearchTime_timeout():
 	emit_signal("finished", "idle")

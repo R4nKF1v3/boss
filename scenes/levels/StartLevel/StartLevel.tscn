@@ -130,8 +130,8 @@ nodes = [ NodePath("../../../../../../OutsideProps/Props/fsroom/modulates/AreaMo
 [node name="EnemySpawner" parent="VisibleLayer/Ground/Spawns" index="0" instance=ExtResource( 12 )]
 position = Vector2( 402.8, 203.3 )
 with_timer = true
-duration = 2.0
-melee_damage = 0.0
+duration = 7.0
+melee_damage = 5.0
 insanity_damage = 0.5
 detection_range = 900.0
 FOV = 180.0
@@ -144,16 +144,15 @@ tile_data = PoolIntArray( 65537, 0, 1, 65538, 0, 196610, 65539, 0, 196610, 65540
 [node name="lights" type="Node2D" parent="VisibleLayer/OutsideProps/Props/fsroom" index="0"]
 
 [node name="NightLamp" parent="VisibleLayer/OutsideProps/Props/fsroom/lights" index="0" instance=ExtResource( 13 )]
-position = Vector2( 116.825, 685.518 )
+position = Vector2( 147.522, 684.719 )
 rotation = -1.56154
-scale = Vector2( 0.648222, 0.648222 )
 z_index = 0
 is_interactuable = true
 light_colour = Color( 1, 0.819608, 0.501961, 1 )
-light_size = 240.0
+light_size = 180.0
 
 [node name="NightLamp2" parent="VisibleLayer/OutsideProps/Props/fsroom/lights" index="1" instance=ExtResource( 13 )]
-position = Vector2( 579.951, 754.652 )
+position = Vector2( 548.935, 754.652 )
 rotation = 1.5708
 z_index = 0
 is_interactuable = true
@@ -162,7 +161,7 @@ light_colour = Color( 1, 0.768627, 0.411765, 1 )
 light_size = 180.0
 
 [node name="NightLamp3" parent="VisibleLayer/OutsideProps/Props/fsroom/lights" index="2" instance=ExtResource( 13 )]
-position = Vector2( 550.519, 142.295 )
+position = Vector2( 550.519, 151.769 )
 z_index = 0
 light_colour = Color( 1, 0.788235, 0.462745, 0.827451 )
 light_size = 120.0

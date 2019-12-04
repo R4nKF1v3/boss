@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/paso3.wav-0f730f29d1e0cc25600de87761fd7dde.sample"
+
+[deps]
+
+source_file="res://entities/npcs/enemies/shadow/sfxs/footsteps/paso3.wav"
+dest_files=[ "res://.import/paso3.wav-0f730f29d1e0cc25600de87761fd7dde.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

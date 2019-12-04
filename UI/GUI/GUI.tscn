@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://UI/GUI/GUI.gd" type="Script" id=1]
 [ext_resource path="res://UI/GUI/Bars.gd" type="Script" id=2]
@@ -7,20 +7,36 @@
 [ext_resource path="res://UI/GUI/sprites/insan/brain.png" type="Texture" id=5]
 [ext_resource path="res://UI/GUI/sprites/insan/brain_insane.png" type="Texture" id=6]
 [ext_resource path="res://UI/GUI/FPS.gd" type="Script" id=7]
+[ext_resource path="res://UI/GUI/sprites/hp_dmg/image_69282.png" type="Texture" id=8]
+[ext_resource path="res://UI/GUI/Blood.gd" type="Script" id=9]
+[ext_resource path="res://resources/backgrounds/white.png" type="Texture" id=10]
+[ext_resource path="res://UI/GUI/Flash.gd" type="Script" id=11]
+[ext_resource path="res://UI/GUI/shader/insanity.tres" type="Material" id=12]
+[ext_resource path="res://UI/GUI/InsanityShader.gd" type="Script" id=13]
+[ext_resource path="res://UI/GUI/Insanity.gd" type="Script" id=14]
+
+[sub_resource type="CanvasItemMaterial" id=1]
+blend_mode = 2
 
 [node name="GUI" type="Control"]
 light_mask = 2
-margin_right = 40.0
-margin_bottom = 40.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -10.0
 script = ExtResource( 1 )
 
 [node name="Ded" type="Label" parent="."]
 visible = false
 light_mask = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
 margin_left = 422.776
 margin_top = 248.835
-margin_right = 462.776
-margin_bottom = 262.835
+margin_right = -541.224
+margin_bottom = -317.165
 rect_scale = Vector2( 5, 5 )
 
 [node name="Bars" type="HBoxContainer" parent="."]
@@ -54,4 +70,52 @@ light_mask = 2
 margin_right = 40.0
 margin_bottom = 14.0
 custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "FPS: 43"
 script = ExtResource( 7 )
+
+[node name="Damage" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -10.0
+margin_top = -10.0
+margin_right = 10.0
+margin_bottom = 10.0
+
+[node name="Blood" type="TextureRect" parent="Damage"]
+modulate = Color( 1, 1, 1, 0 )
+light_mask = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 8 )
+expand = true
+script = ExtResource( 9 )
+
+[node name="Tween" type="Tween" parent="Damage/Blood"]
+
+[node name="Flash" type="TextureRect" parent="Damage"]
+modulate = Color( 0.635294, 0.0470588, 0.0470588, 0 )
+light_mask = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 10 )
+expand = true
+script = ExtResource( 11 )
+
+[node name="Tween" type="Tween" parent="Damage/Flash"]
+
+[node name="InsanityShader" type="ColorRect" parent="Damage"]
+light_mask = 2
+material = ExtResource( 12 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 13 )
+
+[node name="Insanity" type="ColorRect" parent="Damage"]
+light_mask = 2
+material = SubResource( 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 1, 1, 1, 0 )
+script = ExtResource( 14 )
+
+[node name="Tween" type="Tween" parent="Damage/Insanity"]

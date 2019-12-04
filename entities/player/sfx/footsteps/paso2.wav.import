@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/paso2.wav-486ac20264ba4421089c6d0ea9dbba0f.sample"
+
+[deps]
+
+source_file="res://entities/player/sfx/footsteps/paso2.wav"
+dest_files=[ "res://.import/paso2.wav-486ac20264ba4421089c6d0ea9dbba0f.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

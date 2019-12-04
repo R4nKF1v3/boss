@@ -1,12 +1,12 @@
 extends "res://entities/player/states/motion/Move.gd"
 
 func enter():
-	owner.camera_follow = false
-	owner.get_node("AnimationPlayer").play("run")
+	parent.camera_follow = false
+	parent.get_node("AnimationPlayer").play("run")
 	.enter()
 
 func exit():
-	owner.camera_follow = true
+	parent.camera_follow = true
 	.exit()
 
 func check_state_conditions():

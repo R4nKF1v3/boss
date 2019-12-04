@@ -6,6 +6,7 @@ const FOV = 40
 
 onready var camera_pointer = get_parent().get_node("CameraPointer")
 onready var raycast : RayCast2D = $DetectionRay
+onready var legs : Sprite = owner.get_node("Legs")
 
 var look_direction : = Vector2(1, 0)
 var current_velocity : = Vector2()
@@ -28,6 +29,16 @@ func _integrate_forces(state):
 		weight = 4
 	
 	state.angular_velocity = lerp_angle(rotation, target.angle(), weight) - rotation
+	
+	var legs_target
+	
+	if abs(Vector2(1,0).rotated(rotation).angle_to(look_direction)) < deg2rad(90):
+		legs_target = look_direction
+	else:
+		legs_target = -look_direction
+	
+	legs.rotation = legs_target.angle() + deg2rad(90)
+	legs.position = position
 	
 	enemy_visible_check()
 

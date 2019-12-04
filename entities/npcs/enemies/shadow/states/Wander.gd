@@ -4,7 +4,7 @@ extends "res://entities/npcs/enemies/shadow/states/Motion.gd"
 func enter():
 	owner.player_last_pos = null
 	find_valid_path()
-	owner.get_node("AnimationPlayer").play("wander")
+	anim_player.play("wander")
 
 func update(delta):
 	if .update(delta):

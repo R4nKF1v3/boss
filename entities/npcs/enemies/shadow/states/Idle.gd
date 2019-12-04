@@ -7,7 +7,7 @@ func enter():
 	print("Entered Idle")
 	owner.player_last_pos = null
 	timer.start(randi() % 10 + 8)
-	owner.get_node("AnimationPlayer").play("idle")
+	anim_player.play("idle")
 
 # Clean up the state. Reinitialize values like a timer
 func exit():
