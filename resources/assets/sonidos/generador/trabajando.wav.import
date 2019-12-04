@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/trabajando.wav-2e4f42c397bb421d76f01f8b1772ea07.sample"
+
+[deps]
+
+source_file="res://resources/assets/sonidos/generador/trabajando.wav"
+dest_files=[ "res://.import/trabajando.wav-2e4f42c397bb421d76f01f8b1772ea07.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0
