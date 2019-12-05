@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/torso.png-df143fdb9e11c52873b7317ceed186b1.stex"
+path="res://.import/81ca016d819d2388f383c03a28e4d993.jpg-dd8ba2f1d4e55f0c24d7a88e9af4c9ef.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://entities/player/sprites/torso.png"
-dest_files=[ "res://.import/torso.png-df143fdb9e11c52873b7317ceed186b1.stex" ]
+source_file="res://resources/props/statics/desk/81ca016d819d2388f383c03a28e4d993.jpg"
+dest_files=[ "res://.import/81ca016d819d2388f383c03a28e4d993.jpg-dd8ba2f1d4e55f0c24d7a88e9af4c9ef.stex" ]
 
 [params]
 

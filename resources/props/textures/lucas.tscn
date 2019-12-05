@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://resources/props/textures/TextureProp.tscn" type="PackedScene" id=1]
+[ext_resource path="res://resources/assets/mas assets/SeekPng.com_dead-body-png_745017.png" type="Texture" id=2]
+
+[node name="lucas" index="0" instance=ExtResource( 1 )]
+
+[node name="Visible" parent="TextureProp" index="1"]
+texture = ExtResource( 2 )

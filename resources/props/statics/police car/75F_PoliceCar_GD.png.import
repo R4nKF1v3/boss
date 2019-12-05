@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/torso.png-df143fdb9e11c52873b7317ceed186b1.stex"
+path="res://.import/75F_PoliceCar_GD.png-f9b18bba1261d20273a816ad71c78a47.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://entities/player/sprites/torso.png"
-dest_files=[ "res://.import/torso.png-df143fdb9e11c52873b7317ceed186b1.stex" ]
+source_file="res://resources/props/statics/police car/75F_PoliceCar_GD.png"
+dest_files=[ "res://.import/75F_PoliceCar_GD.png-f9b18bba1261d20273a816ad71c78a47.stex" ]
 
 [params]
 

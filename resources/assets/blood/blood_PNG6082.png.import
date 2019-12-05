@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/torso.png-df143fdb9e11c52873b7317ceed186b1.stex"
+path="res://.import/blood_PNG6082.png-d1f89fcb87405a865696e9b4d0d1ed36.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://entities/player/sprites/torso.png"
-dest_files=[ "res://.import/torso.png-df143fdb9e11c52873b7317ceed186b1.stex" ]
+source_file="res://resources/assets/blood/blood_PNG6082.png"
+dest_files=[ "res://.import/blood_PNG6082.png-d1f89fcb87405a865696e9b4d0d1ed36.stex" ]
 
 [params]
 

@@ -6,11 +6,17 @@
 [node name="woodenChair01" index="0" instance=ExtResource( 1 )]
 position = Vector2( 0.235336, -0.303474 )
 
+[node name="PhysProp" parent="." index="0"]
+mass = 40.0
+linear_damp = 5.0
+
 [node name="Hidden" parent="PhysProp" index="0"]
+modulate = Color( 0, 0, 0, 1 )
 scale = Vector2( 0.414386, 0.414386 )
 texture = ExtResource( 2 )
 
 [node name="Visible" parent="PhysProp" index="1"]
+modulate = Color( 1, 0.952941, 0.952941, 1 )
 scale = Vector2( 0.416836, 0.416836 )
 texture = ExtResource( 2 )
 

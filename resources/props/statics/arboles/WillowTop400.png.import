@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/torso.png-df143fdb9e11c52873b7317ceed186b1.stex"
+path="res://.import/WillowTop400.png-34d38148dd5111c9b0600c9fbd864334.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://entities/player/sprites/torso.png"
-dest_files=[ "res://.import/torso.png-df143fdb9e11c52873b7317ceed186b1.stex" ]
+source_file="res://resources/props/statics/arboles/WillowTop400.png"
+dest_files=[ "res://.import/WillowTop400.png-34d38148dd5111c9b0600c9fbd864334.stex" ]
 
 [params]
 

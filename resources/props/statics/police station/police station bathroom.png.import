@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/torso.png-df143fdb9e11c52873b7317ceed186b1.stex"
+path="res://.import/police station bathroom.png-d2123034c6ec8b1ffe6f8bcf3b4b26bd.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://entities/player/sprites/torso.png"
-dest_files=[ "res://.import/torso.png-df143fdb9e11c52873b7317ceed186b1.stex" ]
+source_file="res://resources/props/statics/police station/police station bathroom.png"
+dest_files=[ "res://.import/police station bathroom.png-d2123034c6ec8b1ffe6f8bcf3b4b26bd.stex" ]
 
 [params]
 

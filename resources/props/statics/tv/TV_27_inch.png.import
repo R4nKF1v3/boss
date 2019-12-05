@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/torso.png-df143fdb9e11c52873b7317ceed186b1.stex"
+path="res://.import/TV_27_inch.png-2e5172afc78e840c1ed882fb7ca805ec.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://entities/player/sprites/torso.png"
-dest_files=[ "res://.import/torso.png-df143fdb9e11c52873b7317ceed186b1.stex" ]
+source_file="res://resources/props/statics/tv/TV_27_inch.png"
+dest_files=[ "res://.import/TV_27_inch.png-2e5172afc78e840c1ed882fb7ca805ec.stex" ]
 
 [params]
 

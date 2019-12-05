@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/se va lucas.wav-818696f49c3b5d6a6d87cd65fd01813f.sample"
+
+[deps]
+
+source_file="res://resources/assets/sonidos/se va lucas/se va lucas.wav"
+dest_files=[ "res://.import/se va lucas.wav-818696f49c3b5d6a6d87cd65fd01813f.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

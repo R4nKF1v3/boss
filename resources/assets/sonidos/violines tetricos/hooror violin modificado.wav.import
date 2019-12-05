@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/hooror violin modificado.wav-710d9c320f33e4b2bdbb20f80fe356c0.sample"
+
+[deps]
+
+source_file="res://resources/assets/sonidos/violines tetricos/hooror violin modificado.wav"
+dest_files=[ "res://.import/hooror violin modificado.wav-710d9c320f33e4b2bdbb20f80fe356c0.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

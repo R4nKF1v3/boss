@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/piernas.png-8e14e0408a2a866669bdefba34426067.stex"
+path="res://.import/piernas.png-1678556f65435ab07ecc8acf2bf42c83.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/props/pj/piernas.png"
-dest_files=[ "res://.import/piernas.png-8e14e0408a2a866669bdefba34426067.stex" ]
+source_file="res://entities/player/sprites/piernas.png"
+dest_files=[ "res://.import/piernas.png-1678556f65435ab07ecc8acf2bf42c83.stex" ]
 
 [params]
 
