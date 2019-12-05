@@ -8,6 +8,7 @@ script = ExtResource( 1 )
 [node name="TextureProp" type="Node2D" parent="."]
 
 [node name="Hidden" type="Sprite" parent="TextureProp"]
+light_mask = 2
 
 [node name="Visible" type="Sprite" parent="TextureProp"]
 
