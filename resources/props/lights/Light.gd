@@ -1,3 +1,4 @@
+tool
 extends InteractuableElement
 
 const SHADOW_RESOLUTION = 1080
@@ -12,6 +13,7 @@ export (Texture) var on_toggle_emmiter_texture
 
 onready var effect = $Light/Effect
 onready var emmiter = $Light/Emmiter
+onready var player : AudioStreamPlayer2D = $Light/AudioStreamPlayer2D
 
 onready var effect_base_tx = effect.texture
 onready var emmiter_base_tx = emmiter.texture
@@ -39,10 +41,13 @@ func toggle():
 		vis.modulate = Color("00ffffff")
 		effect.texture = on_toggle_effect_texture
 		emmiter.texture = on_toggle_emmiter_texture
+		player.stop()
+		
 	else:
 		vis.modulate = Color("ffffff")
 		effect.texture = effect_base_tx
 		emmiter.texture = emmiter_base_tx
+		player.play()
 	toggled = !toggled
 
 

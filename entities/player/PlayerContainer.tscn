@@ -13,7 +13,7 @@
 [ext_resource path="res://entities/player/mouse/MousePointer.tscn" type="PackedScene" id=11]
 [ext_resource path="res://entities/player/sprites/legs.tres" type="Texture" id=12]
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=1]
 length = 0.5
 loop = true
 tracks/0/type = "value"
@@ -41,7 +41,7 @@ tracks/1/keys = {
 "values": [ 0 ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=2]
 resource_name = "run"
 length = 0.9
 loop = true
@@ -89,7 +89,7 @@ tracks/2/keys = {
 "times": PoolRealArray( 0.2, 0.6 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ -10.0, -10.0 ]
+"values": [ -14.0, -14.0 ]
 }
 tracks/3/type = "value"
 tracks/3/path = NodePath("Trunk:frame")
@@ -116,7 +116,7 @@ tracks/4/keys = {
 "values": [ 0, 1, 2, 1, 0, 3, 4, 5, 4, 3 ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=3]
 length = 1.5
 loop = true
 tracks/0/type = "method"
@@ -173,7 +173,7 @@ tracks/3/keys = {
 "values": [ 0, 1, 2, 1, 0, 3, 4, 5, 4, 3 ]
 }
 
-[sub_resource type="CapsuleShape2D" id=5]
+[sub_resource type="CapsuleShape2D" id=4]
 radius = 9.8288
 height = 29.0345
 
@@ -202,12 +202,12 @@ script = ExtResource( 5 )
 SPEED = 225.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Player"]
-anims/idle = SubResource( 2 )
-anims/run = SubResource( 3 )
-anims/walk = SubResource( 4 )
+anims/idle = SubResource( 1 )
+anims/run = SubResource( 2 )
+anims/walk = SubResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-shape = SubResource( 5 )
+shape = SubResource( 4 )
 
 [node name="FOV" type="Light2D" parent="Player"]
 texture = ExtResource( 6 )

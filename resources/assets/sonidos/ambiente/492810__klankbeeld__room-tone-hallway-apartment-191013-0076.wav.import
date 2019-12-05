@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/492810__klankbeeld__room-tone-hallway-apartment-191013-0076.wav-a320c3d601b20a583c0c839042907ff7.sample"
+
+[deps]
+
+source_file="res://resources/assets/sonidos/ambiente/492810__klankbeeld__room-tone-hallway-apartment-191013-0076.wav"
+dest_files=[ "res://.import/492810__klankbeeld__room-tone-hallway-apartment-191013-0076.wav-a320c3d601b20a583c0c839042907ff7.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=true
+compress/mode=0
