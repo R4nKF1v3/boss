@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://resources/props/statics/StaticProp.tscn" type="PackedScene" id=1]
+[ext_resource path="res://resources/props/statics/KitchenSink/kitchensink-desat.png" type="Texture" id=2]
+[ext_resource path="res://resources/props/statics/KitchenSink/kitchensink.png" type="Texture" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 34.0314, 19.5226 )
+
+[node name="KitchenSink" index="0" instance=ExtResource( 1 )]
+
+[node name="StaticProp" parent="." index="0"]
+collision_layer = 4
+collision_mask = 4
+
+[node name="Hidden" parent="StaticProp" index="0"]
+scale = Vector2( 0.077, 0.077 )
+texture = ExtResource( 2 )
+
+[node name="Visible" parent="StaticProp" index="1"]
+scale = Vector2( 0.0766058, 0.0766058 )
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticProp" index="3"]
+position = Vector2( 0.203911, -1.22344 )
+shape = SubResource( 1 )

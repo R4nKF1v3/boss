@@ -6,7 +6,7 @@ export (String) var base_bus = "Environment"
 onready var prop = get_parent()
 
 func _process(delta):
-	var mov = (prop.linear_velocity.length() + abs(prop.angular_velocity)) > 0.01
+	var mov = (prop.linear_velocity.length() + abs(prop.angular_velocity)) > 0.1
 	if mov:
 		if !playing:
 			if WorldEvents.check_behind_wall(self, PlayerStatus.get_global_position(), get_world_2d().direct_space_state):

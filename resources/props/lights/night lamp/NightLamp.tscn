@@ -14,12 +14,13 @@ on_toggle_emmiter_texture = ExtResource( 3 )
 
 [node name="Effect" parent="Light" index="1"]
 position = Vector2( -1.37737, 31.4145 )
+scale = Vector2( 0.771, 0.771 )
 texture = ExtResource( 2 )
 
 [node name="Emmiter" parent="Light" index="2"]
 light_mask = 1
 position = Vector2( -1.37737, 31.4145 )
-scale = Vector2( 1, 1 )
+scale = Vector2( 0.771453, 0.771453 )
 texture = ExtResource( 3 )
 
 [node name="InteractionArea" parent="Light" index="3"]
@@ -28,3 +29,6 @@ position = Vector2( 0, -33 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Light/InteractionArea" index="0"]
 position = Vector2( -0.0953979, 10.5055 )
 shape = SubResource( 1 )
+
+[node name="RayCast2D" parent="Light" index="4"]
+cast_to = Vector2( 255.996, 1.48934 )

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/401972__mwcomposer__low-ambient-hum.wav-eafcb1c38e8d5026e38ef1a0631e6c4a.sample"
+
+[deps]
+
+source_file="res://resources/assets/sonidos/ambiente/401972__mwcomposer__low-ambient-hum.wav"
+dest_files=[ "res://.import/401972__mwcomposer__low-ambient-hum.wav-eafcb1c38e8d5026e38ef1a0631e6c4a.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=true
+compress/mode=0

@@ -2,6 +2,7 @@ extends InteractuableElement
 
 export (bool) var door_is_closed = true
 export (bool) var door_is_locked = false
+export (Vector2) var force_when_opened = Vector2()
 export (int) var hits_until_open = -1
 export (Array, String) var message_when_locked = ["Está cerrada",]
 
@@ -51,6 +52,7 @@ func lock_door():
 
 func unlock_door():
 	$Door/Doorway.locked = false
+	$Door/Doorway.linear_velocity = force_when_opened
 	$Door/Doorway/LockSound.play()
 
 func send_locked_message():
