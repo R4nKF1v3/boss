@@ -83,7 +83,7 @@ func _ready():
 	update_ray_lengths()
 	vis.update()
 	if starts_flickering:
-		var event = WorldEvents.event_types.Flickering.new()
+		var event = FlickeringEvent.new()
 		event.timings = flickering_timings if flickering_timings.size() != 0 else [0.1]
 		event.duration = null
 		event.toggle_after_finish = false
