@@ -17,6 +17,7 @@ func _ready():
 func get_interaction_area():
 	return $TextureProp/InteractionArea
 
+
 func get_global_position() -> Vector2:
 	return $TextureProp.global_position
 

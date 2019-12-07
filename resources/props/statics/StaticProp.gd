@@ -23,6 +23,9 @@ func _ready():
 func get_interaction_area():
 	return $StaticProp/InteractionArea
 
+func get_collision_body():
+	return $StaticProp
+
 func get_global_position() -> Vector2:
 	return prop.global_position
 

@@ -36,6 +36,9 @@ func get_global_position() -> Vector2:
 func get_interaction_area():
 	return null
 
+func get_collision_body():
+	return null
+
 func handle_world_event(eventType, event):
 	match eventType:
 		WorldEvents.event_types.Toggle:

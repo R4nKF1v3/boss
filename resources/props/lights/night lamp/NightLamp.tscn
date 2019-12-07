@@ -24,7 +24,7 @@ scale = Vector2( 0.771453, 0.771453 )
 texture = ExtResource( 3 )
 
 [node name="InteractionArea" parent="Light" index="3"]
-position = Vector2( 0, -33 )
+position = Vector2( -0.71698, -20.453 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Light/InteractionArea" index="0"]
 position = Vector2( -0.0953979, 10.5055 )

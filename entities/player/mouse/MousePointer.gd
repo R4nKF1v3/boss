@@ -16,7 +16,7 @@ func _ready():
 	area.connect("area_exited", self, "on_area_exited")
 
 func _input(event):
-	if can_interact_with_element():
+	if event.is_action_type() && can_interact_with_element():
 		hovering_elements[0].handle_event(event)
 
 func _process(delta):
@@ -43,22 +43,34 @@ func can_interact_with_element() -> bool:
 			if hovering_elements.size() == 0:
 				return false
 		
+		var target_element = hovering_elements[0]
+		
 		var elements_copy = hovering_elements.duplicate()
 		elements_copy.remove(0)
 		raycast.clear_exceptions()
+		var tar_body = target_element.get_collision_body()
+		if tar_body:
+			raycast.add_exception(tar_body)
 		for element in elements_copy:
-			raycast.add_exception(element.get_interaction_area())
+			var inarea = element.get_interaction_area()
+			if inarea:
+				raycast.add_exception(inarea)
+			var coll = element.get_collision_body()
+			if coll:
+				raycast.add_exception(coll)
 		
-		var center = (hovering_elements[0].get_global_position() - player.global_position).normalized()
+		var center = (target_element.get_global_position() - player.global_position).normalized()
 		var left = Vector2(center.x, center.y).rotated(0.5)
 		var right = Vector2(center.x, center.y).rotated(-0.5)
 		raycast.global_position = player.global_position
+		
+		var target_area = target_element.get_interaction_area()
 		
 		for target in [center, left, right]:
 			raycast.cast_to = target * INTERACTION_RANGE
 			raycast.force_raycast_update()
 			var collider = raycast.get_collider()
-			if collider:
+			if collider == target_area:
 				return true
 	return false
 

@@ -27,6 +27,9 @@ func get_global_position() -> Vector2:
 func get_interaction_area():
 	return $PhysProp/InteractionArea
 
+func get_collision_body():
+	return $PhysProp
+
 func toggle():
 	if hidden.texture != on_toggle_hidden_texture:
 		hidden.texture = on_toggle_hidden_texture

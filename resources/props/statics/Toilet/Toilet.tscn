@@ -1,12 +1,13 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://resources/props/statics/StaticProp.tscn" type="PackedScene" id=1]
-[ext_resource path="res://resources/props/statics/Toilet/461_Toilet.png" type="Texture" id=2]
+[ext_resource path="res://resources/props/statics/Toilet/461_Toilet-desat.png" type="Texture" id=2]
+[ext_resource path="res://resources/props/statics/Toilet/461_Toilet.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 45.1433, 32.6786 )
 
-[node name="Toilet" instance=ExtResource( 1 )]
+[node name="Toilet" index="0" instance=ExtResource( 1 )]
 
 [node name="StaticProp" parent="." index="0"]
 collision_layer = 4
@@ -18,7 +19,7 @@ texture = ExtResource( 2 )
 
 [node name="Visible" parent="StaticProp" index="1"]
 scale = Vector2( 0.236918, 0.236918 )
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticProp" index="3"]
 shape = SubResource( 1 )

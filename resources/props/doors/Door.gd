@@ -7,8 +7,11 @@ export (int) var hits_until_open = -1
 export (Array, String) var message_when_locked = ["Está cerrada",]
 
 var dialogue
+var nearby_entities : Array = []
 
 func _ready():
+	$Door/DetectionArea.connect("body_entered", self, "on_body_entered")
+	$Door/DetectionArea.connect("body_exited", self, "on_body_exited")
 	if door_is_closed:
 		$Door/Doorway.locked = true
 	if message_when_locked.size()>0:
@@ -19,6 +22,9 @@ func _ready():
 
 func get_interaction_area():
 	return $Door/Doorway/InteractionArea
+
+func get_collision_body():
+	return $Door/Doorway
 
 func get_global_position() -> Vector2:
 	return $Door/Doorway.global_position
@@ -52,10 +58,32 @@ func lock_door():
 
 func unlock_door():
 	$Door/Doorway.locked = false
-	$Door/Doorway.linear_velocity = force_when_opened
+	var force = determineForce()
+	$Door/Doorway.linear_velocity = force
 	$Door/Doorway/LockSound.play()
 
 func send_locked_message():
 	if dialogue:
 		dialogue.handle()
-		
+
+func determineForce():
+	if nearby_entities.size() > 0:
+		var ret_entity = null
+		var distance = 80
+		var door_pos = $Door/Doorway.global_position
+		for entity in nearby_entities:
+			var this_distance = door_pos.distance_to(entity.global_position)
+			if this_distance < distance:
+				ret_entity = entity
+				distance = this_distance
+		return (door_pos - ret_entity.global_position).normalized() * 60
+	else:
+		return force_when_opened
+
+func on_body_entered(body):
+	if body is Player || body is NPC:
+		nearby_entities.push_front(body)
+
+func on_body_exited(body):
+	if body in nearby_entities:
+		nearby_entities.remove(nearby_entities.find(body))
