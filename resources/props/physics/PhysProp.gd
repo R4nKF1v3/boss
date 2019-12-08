@@ -15,6 +15,7 @@ var vis_base_tx
 var prop_coll
 
 func _ready():
+	inter_area = $PhysProp/InteractionArea
 	hidden_base_tx = hidden.texture
 	vis_base_tx = vis.texture
 	prop_coll = [prop.collision_layer, prop.collision_mask]

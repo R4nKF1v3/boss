@@ -78,6 +78,7 @@ func make_point(direction, amount):
 	return result
 
 func _ready():
+	inter_area = $Light/InteractionArea
 	call_deferred("initialize")
 
 func initialize():

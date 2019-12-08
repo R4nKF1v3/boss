@@ -11,6 +11,8 @@ var timer_index = 0
 var toggle_after_finish = false
 var toggled = true
 
+var inter_area
+
 func _ready():
 	if !is_interactuable:
 		call_deferred("toggleInteractArea")
@@ -90,7 +92,12 @@ func togInteract():
 	toggleInteractArea()
 
 func toggleInteractArea():
-	pass
+	if inter_area.get_collision_layer_bit(3) && inter_area.get_collision_mask_bit(3):
+		inter_area.set_collision_layer_bit(3, false)
+		inter_area.set_collision_mask_bit(3, false)
+	else:
+		inter_area.set_collision_layer_bit(3, true)
+		inter_area.set_collision_mask_bit(3, true)
 
 func flicker(event):
 	reset_timers()

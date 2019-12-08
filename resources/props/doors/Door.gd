@@ -10,6 +10,7 @@ var dialogue
 var nearby_entities : Array = []
 
 func _ready():
+	inter_area = $Door/Doorway/InteractionArea
 	var shape = CircleShape2D.new()
 	shape.radius = 135
 	$Door/DetectionArea/CollisionShape2D.shape = shape
