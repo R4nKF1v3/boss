@@ -52,24 +52,13 @@ func can_interact_with_element() -> bool:
 		var target_element = hovering_elements[0]
 		var target_area = target_element.get_interaction_area()
 		
-		print("Target")
-		print(target_element.name)
-		print(target_area)
-		
 		var center = (global_position - player.global_position).normalized()
 		raycast.global_position = player.global_position
-		
 		
 		raycast.cast_to = center * INTERACTION_RANGE
 		raycast.force_raycast_update()
 		var collider = raycast.get_collider()
-		if collider:
-			print("Collider")
-			print(collider)
-			print(collider.owner.name)
-			print(collider.collision_layer)
-			return collider == target_area
-		
+		return collider == target_area
 	
 	return false
 
