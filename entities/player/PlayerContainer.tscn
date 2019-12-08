@@ -195,7 +195,7 @@ script = ExtResource( 3 )
 
 [node name="Walk" type="Node" parent="Player/StateMachine"]
 script = ExtResource( 4 )
-SPEED = 60.0
+SPEED = 80.0
 
 [node name="Run" type="Node" parent="Player/StateMachine"]
 script = ExtResource( 5 )
