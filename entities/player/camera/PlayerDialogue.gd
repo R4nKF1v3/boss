@@ -1,5 +1,7 @@
 extends Label
 
+onready var audio_player = $AudioStreamPlayer
+
 var current_dialogue_list = []
 var curr_dialogue
 var index = 0
@@ -17,6 +19,7 @@ func _on_timer_timeout():
 		curr_dialogue = current_dialogue_list.pop_front()
 	index += 1
 	text = curr_dialogue.left(index)
+	audio_player.play()
 	if text == curr_dialogue:
 		curr_dialogue = null
 		index = 0

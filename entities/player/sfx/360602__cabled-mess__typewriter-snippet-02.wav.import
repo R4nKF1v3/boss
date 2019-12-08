@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/360602__cabled-mess__typewriter-snippet-02.wav-987fa138557d5960e1e56515d751a1b6.sample"
+
+[deps]
+
+source_file="res://entities/player/sfx/360602__cabled-mess__typewriter-snippet-02.wav"
+dest_files=[ "res://.import/360602__cabled-mess__typewriter-snippet-02.wav-987fa138557d5960e1e56515d751a1b6.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

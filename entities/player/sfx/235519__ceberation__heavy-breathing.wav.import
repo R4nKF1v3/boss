@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/235519__ceberation__heavy-breathing.wav-be5424e56a9de72c33f4f8665a743639.sample"
+
+[deps]
+
+source_file="res://entities/player/sfx/235519__ceberation__heavy-breathing.wav"
+dest_files=[ "res://.import/235519__ceberation__heavy-breathing.wav-be5424e56a9de72c33f4f8665a743639.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=true
+compress/mode=0
