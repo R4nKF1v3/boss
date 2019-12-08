@@ -17,7 +17,7 @@ func _ready():
 	$CameraOffset/Camera2D/EnemyVisibleArea.connect("body_exited", self, "on_body_exited_visible_area")
 	
 
-func _physics_process(delta):
+func _process(delta):
 	position = player.position
 	camera_offset.position = lerp(camera_offset.position, target, weight)
 

@@ -46,3 +46,4 @@ func toggle():
 	elif prop.collision_layer != prop_coll[0] && prop.collision_mask != prop_coll[1]:
 		prop.collision_layer = prop_coll[0]
 		prop.collision_mask = prop_coll[1]
+	toggled = !toggled

@@ -10,6 +10,9 @@ var dialogue
 var nearby_entities : Array = []
 
 func _ready():
+	var shape = CircleShape2D.new()
+	shape.radius = 135
+	$Door/DetectionArea/CollisionShape2D.shape = shape
 	$Door/DetectionArea.connect("body_entered", self, "on_body_entered")
 	$Door/DetectionArea.connect("body_exited", self, "on_body_exited")
 	if door_is_closed:
@@ -51,6 +54,7 @@ func toggle():
 	else:
 		door_is_closed = true
 		lock_door()
+	toggled = !toggled
 
 func lock_door():
 	$Door/Doorway.locked = true
@@ -68,7 +72,7 @@ func send_locked_message():
 
 func determineForce():
 	if nearby_entities.size() > 0:
-		var ret_entity = null
+		var ret_entity = nearby_entities[0]
 		var distance = 80
 		var door_pos = $Door/Doorway.global_position
 		for entity in nearby_entities:

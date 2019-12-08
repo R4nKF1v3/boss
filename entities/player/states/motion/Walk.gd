@@ -1,8 +1,5 @@
 extends "res://entities/player/states/motion/Move.gd"
 
-#func _ready():
-#	SPEED = 200
-
 func enter():
 	.enter()
 	parent.get_node("AnimationPlayer").play("walk")

@@ -10,6 +10,8 @@ onready var vis = $TextureProp/Visible
 onready var hidden_base_tx = hidden.texture
 onready var vis_base_tx = vis.texture
 
+onready var inter_area = $TextureProp/InteractionArea
+
 func _ready():
 	if starts_toggled:
 		toggle()
@@ -17,9 +19,16 @@ func _ready():
 func get_interaction_area():
 	return $TextureProp/InteractionArea
 
-
 func get_global_position() -> Vector2:
 	return $TextureProp.global_position
+
+func toggleInteractArea():
+	if inter_area.get_collision_layer_bit(3) && inter_area.get_collision_mask_bit(3):
+		inter_area.set_collision_layer_bit(3, false)
+		inter_area.set_collision_mask_bit(3, false)
+	else:
+		inter_area.set_collision_layer_bit(3, true)
+		inter_area.set_collision_mask_bit(3, true)
 
 func toggle():
 	if hidden.texture != on_toggle_hidden_texture:
@@ -32,3 +41,4 @@ func toggle():
 	elif vis.texture != vis_base_tx:
 		vis.texture = vis_base_tx
 	
+	toggled = !toggled

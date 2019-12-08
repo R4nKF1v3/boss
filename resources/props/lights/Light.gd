@@ -1,4 +1,3 @@
-tool
 extends InteractuableElement
 
 const SHADOW_RESOLUTION = 1080
@@ -23,7 +22,6 @@ onready var raycast = $Light/RayCast2D
 onready var vis = $Light/Visible
 
 var ray_lengths
-var toggled = true
 
 func get_global_position() -> Vector2:
 	return $Light.global_position
@@ -80,7 +78,10 @@ func make_point(direction, amount):
 	return result
 
 func _ready():
-	update_ray_lengths()
+	call_deferred("initialize")
+
+func initialize():
+	update_ray_lengths()	
 	vis.update()
 	if starts_flickering:
 		var event = FlickeringEvent.new()

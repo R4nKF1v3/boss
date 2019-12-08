@@ -5,7 +5,7 @@ const hotspot = Vector2(12, 12)
 
 onready var player : Player = owner.get_node("Player")
 onready var area : Area2D = $MouseArea
-onready var raycast : RayCast2D = $MouseArea/RayCast2D
+onready var raycast : RayCast2D = $RayCast2D
 var default_texture = load("res://resources/cursors/cursor-idle.png")
 
 var hovering_elements = []
@@ -16,6 +16,9 @@ func _ready():
 	area.connect("area_exited", self, "on_area_exited")
 
 func _input(event):
+	call_deferred("determine_event", event)
+
+func determine_event(event):
 	if event.is_action_type() && can_interact_with_element():
 		hovering_elements[0].handle_event(event)
 
@@ -23,6 +26,9 @@ func _process(delta):
 	# Update position
 	global_position = get_global_mouse_position()
 	
+	call_deferred("cursor_render")
+
+func cursor_render():
 	# Cursor rendering
 	var texture
 	
@@ -37,17 +43,56 @@ func _process(delta):
 
 func can_interact_with_element() -> bool:
 	if hovering_elements.size() > 0:
-		
 		while !is_instance_valid(hovering_elements[0]):
 			hovering_elements.pop_front()
+			set_raycast_exceptions()
 			if hovering_elements.size() == 0:
 				return false
 		
 		var target_element = hovering_elements[0]
+		var target_area = target_element.get_interaction_area()
 		
+		print("Target")
+		print(target_element.name)
+		print(target_area)
+		
+		var center = (global_position - player.global_position).normalized()
+		raycast.global_position = player.global_position
+		
+		
+		raycast.cast_to = center * INTERACTION_RANGE
+		raycast.force_raycast_update()
+		var collider = raycast.get_collider()
+		if collider:
+			print("Collider")
+			print(collider)
+			print(collider.owner.name)
+			print(collider.collision_layer)
+			return collider == target_area
+		
+	
+	return false
+
+func on_area_entered(area):
+	if area.owner.is_interactuable:
+		hovering_elements.push_front(area.owner)
+		hovering_elements.sort_custom(HoveringElementsSorter, "sort")
+		set_raycast_exceptions()
+
+func on_area_exited(area):
+	if hovering_elements.has(area.owner):
+		hovering_elements.remove(hovering_elements.find(area.owner))
+		if hovering_elements.size() > 0:
+			hovering_elements.sort_custom(HoveringElementsSorter, "sort")
+		set_raycast_exceptions()
+		
+
+func set_raycast_exceptions():
+	raycast.clear_exceptions()
+	raycast.add_exception(area)
+	if hovering_elements.size() > 0:
 		var elements_copy = hovering_elements.duplicate()
-		elements_copy.remove(0)
-		raycast.clear_exceptions()
+		var target_element = elements_copy.pop_front()
 		var tar_body = target_element.get_collision_body()
 		if tar_body:
 			raycast.add_exception(tar_body)
@@ -58,34 +103,6 @@ func can_interact_with_element() -> bool:
 			var coll = element.get_collision_body()
 			if coll:
 				raycast.add_exception(coll)
-		
-		var center = (target_element.get_global_position() - player.global_position).normalized()
-		var left = Vector2(center.x, center.y).rotated(0.5)
-		var right = Vector2(center.x, center.y).rotated(-0.5)
-		raycast.global_position = player.global_position
-		
-		var target_area = target_element.get_interaction_area()
-		
-		for target in [center, left, right]:
-			raycast.cast_to = target * INTERACTION_RANGE
-			raycast.force_raycast_update()
-			var collider = raycast.get_collider()
-			if collider == target_area:
-				return true
-	return false
-
-func on_area_entered(area):
-	if area.owner.is_interactuable:
-		hovering_elements.push_front(area.owner)
-		hovering_elements.sort_custom(HoveringElementsSorter, "sort")
-
-func on_area_exited(area):
-	if hovering_elements.has(area.owner):
-		hovering_elements.remove(hovering_elements.find(area.owner))
-		if hovering_elements.size() > 0:
-			hovering_elements.sort_custom(HoveringElementsSorter, "sort")
-		
-
 
 
 class HoveringElementsSorter:

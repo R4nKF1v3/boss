@@ -3,7 +3,7 @@
 [ext_resource path="res://entities/player/mouse/MousePointer.gd" type="Script" id=1]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 15.0
+radius = 2.0
 
 [node name="MousePointer" type="Position2D"]
 script = ExtResource( 1 )
@@ -12,9 +12,9 @@ script = ExtResource( 1 )
 collision_layer = 8
 collision_mask = 8
 
-[node name="RayCast2D" type="RayCast2D" parent="MouseArea"]
-collision_mask = 9
-collide_with_areas = true
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MouseArea"]
 shape = SubResource( 1 )
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+collision_mask = 9
+collide_with_areas = true

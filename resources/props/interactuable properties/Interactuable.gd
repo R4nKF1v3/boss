@@ -9,6 +9,11 @@ export (Texture) var mouse_texture : Texture = preload("res://resources/cursors/
 var timer_list = []
 var timer_index = 0
 var toggle_after_finish = false
+var toggled = true
+
+func _ready():
+	if !is_interactuable:
+		call_deferred("toggleInteractArea")
 
 func handle_event(event: InputEvent):
 	if can_handle_event(event):
@@ -42,6 +47,8 @@ func get_collision_body():
 func handle_world_event(eventType, event):
 	match eventType:
 		WorldEvents.event_types.Toggle:
+			if reset_timers() && toggled:
+				return
 			toggle()
 		
 		WorldEvents.event_types.TogInteractuable:
@@ -65,6 +72,7 @@ func update_timer_index():
 	timer_index = timer_index + 1 if timer_index + 1 <= timer_list.size() - 1 else 0
 
 func reset_timers():
+	var response = has_node("DurationTimer") || has_node("Timer")
 	if has_node("DurationTimer"):
 		var n = get_node("DurationTimer")
 		remove_child(n)
@@ -75,9 +83,14 @@ func reset_timers():
 		n.queue_free()
 	
 	timer_index = 0
+	return response
 
 func togInteract():
 	is_interactuable = !is_interactuable
+	toggleInteractArea()
+
+func toggleInteractArea():
+	pass
 
 func flicker(event):
 	reset_timers()
@@ -111,11 +124,9 @@ func _on_event_timer_timeout():
 	update_timer_index()
 
 func _on_event_duration_timer_timeout():
-	if timer_index % 2 == 0 && timer_list.size() > 0:
+	if toggle_after_finish && timer_index % 2 == 0 && timer_list.size() > 0:
 		toggle()
 	reset_timers()
-	if toggle_after_finish:
-		toggle()
 
 func toggle():
 	pass

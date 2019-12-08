@@ -26,6 +26,8 @@ func handle_world_event(eventType, event):
 			trigger_events()
 
 func on_body_entered(body):
+	if !is_interactuable:
+		return
 	if body is Player:
 		print("Player triggered")
 		
