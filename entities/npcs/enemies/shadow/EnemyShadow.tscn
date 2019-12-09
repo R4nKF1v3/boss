@@ -179,7 +179,7 @@ data = PoolByteArray( 207, 255, 225, 255, 217, 255, 177, 255, 167, 255, 210, 255
 format = 1
 mix_rate = 48000
 
-[node name="EnemyShadow" index="0" instance=ExtResource( 1 )]
+[node name="EnemyShadow" instance=ExtResource( 1 )]
 collision_mask = 7
 contacts_reported = 2
 contact_monitor = true

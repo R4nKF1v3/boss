@@ -25,9 +25,12 @@ func update(delta):
 				anim_player.play("idle")
 			owner.curr_vel = Vector2()
 	else:
-		if anim_player.current_animation != "searching":
-				anim_player.play("searching")
 		search_cycle(delta)
+		if objective_path.size() > 1:
+			if anim_player.current_animation != "searching":
+				anim_player.play("searching")
+		else:
+			emit_signal("finished", "idle")
 
 func search_cycle(delta):
 	find_valid_path()

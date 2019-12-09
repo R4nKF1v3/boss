@@ -11,6 +11,7 @@ func update(delta):
 		return
 	if owner.can_see_player():
 		emit_signal("finished", "chase")
+		return
 	if not objective_path.size() == 0:
 		travel_to_objective(delta)
 	else:

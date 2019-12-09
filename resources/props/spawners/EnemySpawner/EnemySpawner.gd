@@ -26,37 +26,34 @@ func handle_world_event(eventType, event):
 
 func trigger_spawn():
 	if spawned:
-		remove_child(spawned)
-		spawned.queue_free()
-		spawned = null
+		call_deferred("remove_child", spawned)
 		if with_timer:
 			var timer = get_child(0)
-			remove_child(timer)
-			timer.queue_free()
+			call_deferred("remove_child", timer)
 	else:
-		var enemy = enemy_template.instance()
-		enemy.navigation = get_pathtiles()
-		enemy.INSANITY_DAMAGE = insanity_damage
-		enemy.MELEE_DAMAGE = melee_damage
-		enemy.DETECTION_RANGE = detection_range
-		enemy.FOV = FOV
-		add_child(enemy)
-		spawned = enemy
+		var entity = enemy_template.instance()
+		entity.navigation = get_pathtiles()
+		entity.INSANITY_DAMAGE = insanity_damage
+		entity.MELEE_DAMAGE = melee_damage
+		entity.DETECTION_RANGE = detection_range
+		entity.FOV = FOV
+		call_deferred("add_child", entity)
+		spawned = entity
 		if with_timer:
 			var timer = Timer.new()
 			timer.connect("timeout", self, "on_timer_timeout")
-			add_child(timer)
-			timer.start(duration)
+			call_deferred("add_child",timer)
+			timer.call_deferred("start",duration)
 
 func on_timer_timeout():
-	remove_child(spawned)
-	spawned.queue_free()
-	spawned = null
+	call_deferred("remove_child", spawned)
 	var timer = get_child(0)
-	remove_child(timer)
-	timer.queue_free()
+	call_deferred("remove_child",timer)
 
 func get_pathtiles():
 	return owner.get_node("VisibleLayer/Pathtiles")
 
-
+func remove_child(node):
+	.remove_child(node)
+	node.call_deferred("queue_free")
+	spawned = null
