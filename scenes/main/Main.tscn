@@ -35,12 +35,12 @@ texture = ExtResource( 3 )
 [node name="StartLevel" parent="LevelContainer" instance=ExtResource( 4 )]
 
 [node name="Level01" parent="LevelContainer" instance=ExtResource( 5 )]
-position = Vector2( 6916.81, 1918.96 )
+position = Vector2( 7686.69, 2127.64 )
 
 [node name="PlayerContainer" type="Node" parent="."]
 
 [node name="PlayerContainer" parent="PlayerContainer" instance=ExtResource( 6 )]
-position = Vector2( 259.49, 729.443 )
+position = Vector2( 1781.13, 3112.66 )
 
 [node name="Foreground" type="ParallaxBackground" parent="."]
 layer = 1
