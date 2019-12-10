@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://resources/props/statics/StaticProp.tscn" type="PackedScene" id=1]
+[ext_resource path="res://resources/props/statics/ToppledChair02/BCD_rail_chair_oak_side_tpg-desat.png" type="Texture" id=2]
+[ext_resource path="res://resources/props/statics/ToppledChair02/BCD_rail_chair_oak_side_tpg.png" type="Texture" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 25.0766, 50.3641 )
+
+[node name="ToppledChair02" index="0" instance=ExtResource( 1 )]
+
+[node name="Hidden" parent="StaticProp" index="0"]
+scale = Vector2( 0.333, 0.333 )
+texture = ExtResource( 2 )
+
+[node name="Visible" parent="StaticProp" index="1"]
+scale = Vector2( 0.332707, 0.332707 )
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticProp/InteractionArea" index="0"]
+shape = SubResource( 1 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticProp" index="3"]
+polygon = PoolVector2Array( -19.1827, -50.0568, -9.96205, -3.95332, 25.6913, -1.49447, 22.9251, 49.2193, 10.9382, 45.8384, -17.9533, 49.834, -23.4857, 0.34967, -24.7152, -49.7494 )
