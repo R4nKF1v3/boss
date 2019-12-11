@@ -33,8 +33,8 @@ drag_margin_bottom = 0.0
 [node name="ScreenShake" parent="CameraOffset/Camera2D" instance=ExtResource( 2 )]
 
 [node name="EnemyVisibleArea" type="Area2D" parent="CameraOffset/Camera2D"]
-collision_layer = 2
-collision_mask = 2
+collision_layer = 16
+collision_mask = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CameraOffset/Camera2D/EnemyVisibleArea"]
 

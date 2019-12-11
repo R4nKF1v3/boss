@@ -47,9 +47,9 @@ func toggle():
 	elif prop.mode != RigidBody2D.MODE_RIGID:
 		prop.mode = RigidBody2D.MODE_RIGID
 	
-	if on_toggle_collision_switch && prop.collision_layer != 20 && prop.collision_mask != 20:
-		prop.collision_layer = 20
-		prop.collision_mask = 20
+	if on_toggle_collision_switch && prop.collision_layer == prop_coll[0] && prop.collision_mask == prop_coll[1]:
+		prop.collision_layer = 262144
+		prop.collision_mask = 262144
 	elif prop.collision_layer != prop_coll[0] && prop.collision_mask != prop_coll[1]:
 		prop.collision_layer = prop_coll[0]
 		prop.collision_mask = prop_coll[1]

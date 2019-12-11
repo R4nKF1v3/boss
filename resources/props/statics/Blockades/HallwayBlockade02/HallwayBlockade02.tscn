@@ -1,0 +1,85 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://resources/props/statics/StaticProp.tscn" type="PackedScene" id=1]
+[ext_resource path="res://resources/props/statics/Blockades/HallwayBlockade02/blockade-desat.png" type="Texture" id=2]
+[ext_resource path="res://resources/props/statics/Blockades/HallwayBlockade02/blockade.png" type="Texture" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 41.9054, 149.702 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 24.3177, 78.3542 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 109.599, 10 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 24.455, 64.8272 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 55.3531, 37.8375 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 75.7941, 44.7296 )
+
+[sub_resource type="OccluderPolygon2D" id=7]
+polygon = PoolVector2Array( -164.83, -360.75, -16.5766, -339.78, 56.5745, -255.9, 52.2346, -175.449, 21.5078, -181.036, 20.8094, -257.853, -31.5658, -312.323, -163.551, -339.558 )
+
+[sub_resource type="OccluderPolygon2D" id=8]
+polygon = PoolVector2Array( -17.0996, 53.2827, 14.6334, 53.2827, 13.001, 74.5892, 47.9426, 76.854, 48.5118, 221.116, -138.651, 278.643, -173.558, 265.809, -8.77545, 201.128 )
+
+[node name="HallwayBlockade02" instance=ExtResource( 1 )]
+
+[node name="StaticProp" parent="." index="0"]
+collision_layer = 4
+collision_mask = 4
+
+[node name="Hidden" parent="StaticProp" index="0"]
+texture = ExtResource( 2 )
+
+[node name="Visible" parent="StaticProp" index="1"]
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticProp" index="3"]
+position = Vector2( 30.1139, -39.1787 )
+rotation = 0.0759547
+shape = SubResource( 1 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="StaticProp" index="4"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticProp/StaticBody2D" index="0"]
+polygon = PoolVector2Array( 48.06, 74.6513, 48.8745, 222.077, 1.63321, 233.48, -140.905, 278.278, -162.082, 258.729, -8.14084, 200.9, -17.1004, 54.2887, 15.4798, 52.6597, 21.1813, 73.8368 )
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticProp/StaticBody2D" index="1"]
+polygon = PoolVector2Array( -154.902, -360.312, -17.5738, -339.746, 66.6804, -258.145, 54.0755, -173.891, 22.8947, -181.852, 24.2216, -250.848, -30.8422, -307.902, -91.2134, -327.804, -159.546, -339.746 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticProp" index="5"]
+position = Vector2( 50.5714, -259.853 )
+rotation = -0.209021
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticProp" index="6"]
+position = Vector2( -52.9543, -347.431 )
+rotation = 0.118982
+shape = SubResource( 3 )
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticProp" index="7"]
+position = Vector2( 43.9635, 174.587 )
+rotation = -0.103023
+shape = SubResource( 4 )
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticProp" index="8"]
+position = Vector2( 48.4002, 256.27 )
+rotation = 0.530588
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="StaticProp" index="9"]
+position = Vector2( -84.7449, 262.691 )
+rotation = 0.487318
+shape = SubResource( 6 )
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="StaticProp" index="10"]
+occluder = SubResource( 7 )
+
+[node name="LightOccluder2D2" type="LightOccluder2D" parent="StaticProp" index="11"]
+occluder = SubResource( 8 )

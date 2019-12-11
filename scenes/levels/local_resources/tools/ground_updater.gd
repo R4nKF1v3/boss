@@ -4,7 +4,7 @@ extends TileMap
 var time = 0
 
 func _ready():
-	if not Engine.editor_hint:
+	if !Engine.editor_hint:
 		set_process(false)
 
 func _process(delta):

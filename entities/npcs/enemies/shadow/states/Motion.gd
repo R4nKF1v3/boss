@@ -13,7 +13,6 @@ func update(delta):
 		for el in coll:
 			if el is Door && el.locked:
 				emit_signal("finished", "attack")
-				print("I'm colliding with a door, i should enter attack")
 				return true
 	return false
 

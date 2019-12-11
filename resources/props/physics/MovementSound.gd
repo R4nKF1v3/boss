@@ -4,8 +4,16 @@ export (String) var bus_behind_walls = "Muffled Environment"
 export (String) var base_bus = "Environment"
 
 onready var prop = get_parent()
+onready var timer = $Timer
 
-func _process(delta):
+func _ready():
+	timer.connect("timeout", self, "on_timer_timeout")
+	timer.start(1)
+
+func on_timer_timeout():
+	call_deferred("do_check")
+
+func do_check():
 	var mov = (prop.linear_velocity.length() + abs(prop.angular_velocity)) > 0.001
 	if mov:
 		if !playing:
