@@ -8,5 +8,4 @@ func _ready():
 		if child is VisibleEnemy:
 			child.navigation = nav
 		children += child.get_children()
-		print(children)
 		
