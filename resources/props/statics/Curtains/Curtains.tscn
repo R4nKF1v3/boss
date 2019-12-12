@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://resources/props/statics/StaticProp.tscn" type="PackedScene" id=1]
+[ext_resource path="res://resources/props/statics/Curtains/565_Curtain2-desat.png" type="Texture" id=2]
+[ext_resource path="res://resources/props/statics/Curtains/565_Curtain2.png" type="Texture" id=3]
+
+[node name="Curtains" index="0" instance=ExtResource( 1 )]
+
+[node name="Hidden" parent="StaticProp" index="0"]
+scale = Vector2( 0.317, 0.317 )
+texture = ExtResource( 2 )
+
+[node name="Visible" parent="StaticProp" index="1"]
+scale = Vector2( 0.317405, 0.317405 )
+texture = ExtResource( 3 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticProp" index="3"]
+polygon = PoolVector2Array( -29.1733, -2.53896, -47.6196, 3.78551, -64.2214, 2.73143, -64.2214, -7.54584, -29.4368, -7.80936 )
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticProp" index="4"]
+polygon = PoolVector2Array( 28.5375, -3.32952, 45.9298, 2.99495, 63.8492, 2.99495, 64.3762, -8.3364, 27.747, -7.80936 )
