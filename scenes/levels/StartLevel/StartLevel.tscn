@@ -277,7 +277,6 @@ bus = "Master"
 
 [node name="Checkpoint" parent="VisibleLayer/Ground/Props/fsroom/bathroom" index="9" instance=ExtResource( 20 )]
 position = Vector2( 258.921, 252.981 )
-is_last = true
 
 [node name="bedroom" type="Node2D" parent="VisibleLayer/Ground/Props/fsroom" index="1"]
 
@@ -410,7 +409,7 @@ position = Vector2( 608.152, 263.151 )
 rotation = 1.5708
 is_interactuable = true
 door_is_locked = true
-force_when_opened = Vector2( 60, 0 )
+force_when_opened = Vector2( -60, 0 )
 
 [node name="KitchenCorner" parent="VisibleLayer/Ground/Props/fsroom/mainroom" index="3" instance=ExtResource( 35 )]
 position = Vector2( 1103.82, 213.53 )
@@ -812,7 +811,7 @@ rotation = -3.28305
 
 [node name="WarehouseStack02" parent="VisibleLayer/Ground/Props/altpath01/furniture" index="17" instance=ExtResource( 62 )]
 position = Vector2( 2646.12, 4007.42 )
-rotation = -1.55962
+rotation = -1.45242
 
 [node name="ToppledChair02" parent="VisibleLayer/Ground/Props/altpath01/furniture" index="18" instance=ExtResource( 63 )]
 position = Vector2( 2513.08, 3681.47 )
