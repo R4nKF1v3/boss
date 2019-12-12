@@ -174,8 +174,8 @@ tracks/3/keys = {
 }
 
 [sub_resource type="CapsuleShape2D" id=4]
-radius = 7.61976
-height = 41.5871
+radius = 13.5519
+height = 20.7911
 
 [node name="PlayerContainer" type="Node2D"]
 
@@ -206,10 +206,6 @@ anims/run = SubResource( 2 )
 anims/walk = SubResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-position = Vector2( 0.675461, -2.71196 )
-shape = SubResource( 4 )
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Player"]
 position = Vector2( 0.675461, -2.71196 )
 shape = SubResource( 4 )
 

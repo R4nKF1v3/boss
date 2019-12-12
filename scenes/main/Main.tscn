@@ -41,7 +41,7 @@ position = Vector2( 7680, 2116.27 )
 [node name="PlayerContainer" type="Node" parent="."]
 
 [node name="PlayerContainer" parent="PlayerContainer" instance=ExtResource( 6 )]
-position = Vector2( 8910, 3425.49 )
+position = Vector2( 261.2, 731.239 )
 
 [node name="Foreground" type="ParallaxBackground" parent="."]
 layer = 1
@@ -54,6 +54,5 @@ motion_mirroring = Vector2( 3800, 3800 )
 modulate = Color( 1, 1, 1, 0.129412 )
 light_mask = 2
 material = SubResource( 1 )
-position = Vector2( 1580, 3654.9 )
 texture = ExtResource( 3 )
 script = ExtResource( 7 )
