@@ -1,0 +1,34 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/kisspng-drawing-roll20-map-pine-family-pencil-d20-5b4be6d054d0f5.5227745215317009443474.png-6da46a6985d6a0397d40e563afe3476f.stex"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://resources/props/statics/arboles/kisspng-drawing-roll20-map-pine-family-pencil-d20-5b4be6d054d0f5.5227745215317009443474.png"
+dest_files=[ "res://.import/kisspng-drawing-roll20-map-pine-family-pencil-d20-5b4be6d054d0f5.5227745215317009443474.png-6da46a6985d6a0397d40e563afe3476f.stex" ]
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/bptc_ldr=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=true
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+process/invert_color=false
+stream=false
+size_limit=0
+detect_3d=true
+svg/scale=1.0
