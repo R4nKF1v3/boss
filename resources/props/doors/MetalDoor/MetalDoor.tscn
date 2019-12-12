@@ -6,23 +6,23 @@
 [ext_resource path="res://resources/props/doors/MetalDoor/Door - Bright Iron Metal Door.png" type="Texture" id=4]
 [ext_resource path="res://resources/assets/sonidos/puerta metal/destrabar.wav" type="AudioStream" id=5]
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 10.1077, 7.39826 )
 
-[sub_resource type="OccluderPolygon2D" id=6]
+[sub_resource type="OccluderPolygon2D" id=2]
 polygon = PoolVector2Array( -0.638397, 5.7848, 15.0521, 5.97851, 15.0521, -8.93719, -0.638397, -8.93719 )
 
-[sub_resource type="CapsuleShape2D" id=4]
+[sub_resource type="CapsuleShape2D" id=3]
 radius = 6.8353
 height = 85.5963
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 75.4775, 22.9516 )
 
 [sub_resource type="OccluderPolygon2D" id=5]
 polygon = PoolVector2Array( -50.546, -1.43658, 48.6337, -1.43658, 48.6337, 1.08166, -50.7397, 0.887947 )
 
-[node name="MetalDoor" index="0" instance=ExtResource( 1 )]
+[node name="MetalDoor" instance=ExtResource( 1 )]
 
 [node name="Hinge" parent="Door" index="0"]
 position = Vector2( -65.4044, 0.527039 )
@@ -35,10 +35,10 @@ texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" parent="Door/Hinge" index="2"]
 position = Vector2( 9.46164, -1.28377 )
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Door/Hinge" index="3"]
-occluder = SubResource( 6 )
+occluder = SubResource( 2 )
 
 [node name="Doorway" parent="Door" index="1"]
 mass = 100.0
@@ -56,17 +56,17 @@ texture = ExtResource( 4 )
 [node name="CollisionShape2D" parent="Door/Doorway" index="2"]
 position = Vector2( -1.07544, 0 )
 rotation = 1.5708
-shape = SubResource( 4 )
+shape = SubResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Door/Doorway/InteractionArea" index="0"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="MovementSound" parent="Door/Doorway" index="4"]
 bus = "Master"
 
 [node name="LockSound" parent="Door/Doorway" index="6"]
 stream = ExtResource( 5 )
-volume_db = -10.0
+volume_db = 10.0
 max_distance = 400.0
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Door/Doorway" index="7"]
