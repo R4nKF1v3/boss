@@ -4,23 +4,23 @@
 [ext_resource path="res://resources/props/lights/night lamp/desk_lamp_off-desat.png" type="Texture" id=2]
 [ext_resource path="res://resources/props/lights/night lamp/desk_lamp_off.png" type="Texture" id=3]
 
-[sub_resource type="CircleShape2D" id=1]
-radius = 35.4919
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 17.1882, 18.2984 )
 
-[node name="NightLamp" instance=ExtResource( 1 )]
+[node name="NightLamp" index="0" instance=ExtResource( 1 )]
 light_colour = Color( 1, 1, 1, 1 )
 on_toggle_effect_texture = ExtResource( 2 )
 on_toggle_emmiter_texture = ExtResource( 3 )
 
 [node name="Effect" parent="Light" index="1"]
-position = Vector2( -1.37737, 31.4145 )
-scale = Vector2( 0.771, 0.771 )
+position = Vector2( -1.37737, 19.4145 )
+scale = Vector2( 0.569, 0.569 )
 texture = ExtResource( 2 )
 
 [node name="Emmiter" parent="Light" index="2"]
 light_mask = 1
-position = Vector2( -1.37737, 31.4145 )
-scale = Vector2( 0.771453, 0.771453 )
+position = Vector2( -1.37737, 19.4145 )
+scale = Vector2( 0.569292, 0.569292 )
 texture = ExtResource( 3 )
 
 [node name="InteractionArea" parent="Light" index="3"]
@@ -29,6 +29,3 @@ position = Vector2( -0.71698, -20.453 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Light/InteractionArea" index="0"]
 position = Vector2( -0.0953979, 10.5055 )
 shape = SubResource( 1 )
-
-[node name="RayCast2D" parent="Light" index="4"]
-cast_to = Vector2( 255.996, 1.48934 )

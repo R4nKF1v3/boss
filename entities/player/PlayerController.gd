@@ -13,10 +13,19 @@ var current_velocity : = Vector2()
 var camera_follow = true
 var enemies_in_proximity := []
 
+var teleport_to
+
 func _ready():
 	PlayerStatus.player = self
 
 func _integrate_forces(state):
+	if teleport_to:
+		var xform = state.transform
+		xform.origin = teleport_to
+		state.transform = xform
+		teleport_to = null
+		return
+	
 	state.linear_velocity = current_velocity
 	
 	var target : Vector2

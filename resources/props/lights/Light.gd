@@ -92,6 +92,8 @@ func initialize():
 		flicker(event)
 	elif starts_toggled:
 		toggle()
+	else:
+		player.play()
 
 func _enter_tree():
 	ray_lengths = []

@@ -5,10 +5,10 @@
 [ext_resource path="res://resources/props/statics/Blockades/InnerBlockade/blockade.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 39.626, 76.5109 )
+extents = Vector2( 39.626, 72.998 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 80.8178, 43.5754 )
+extents = Vector2( 80.8178, 41.556 )
 
 [node name="InnerBlockade" instance=ExtResource( 1 )]
 
@@ -23,11 +23,11 @@ texture = ExtResource( 2 )
 texture = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticProp" index="3"]
-position = Vector2( -43.1223, -25.8734 )
+position = Vector2( -37.1516, -25.8734 )
 rotation = -0.307621
 shape = SubResource( 1 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticProp" index="4"]
-position = Vector2( -76.9566, 132.02 )
+position = Vector2( -76.9566, 134.01 )
 rotation = 0.0216343
 shape = SubResource( 2 )
