@@ -13,7 +13,7 @@ radius = 31.1184
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 16.5272, 89.7113 )
 
-[node name="WarehouseStack01" index="0" instance=ExtResource( 1 )]
+[node name="WarehouseStack01" instance=ExtResource( 1 )]
 
 [node name="StaticProp" parent="." index="0"]
 collision_layer = 4
