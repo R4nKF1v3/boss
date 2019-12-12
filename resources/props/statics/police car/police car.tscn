@@ -4,16 +4,15 @@
 [ext_resource path="res://resources/props/statics/police car/75F_PoliceCar_GD.png" type="Texture" id=2]
 
 [node name="police car" instance=ExtResource( 1 )]
+scale = Vector2( 0.431, 0.431 )
 
 [node name="Hidden" parent="StaticProp" index="0"]
-modulate = Color( 0, 0, 0, 1 )
+modulate = Color( 0.286275, 0.286275, 0.286275, 1 )
+self_modulate = Color( 0.847059, 0.847059, 0.847059, 1 )
 texture = ExtResource( 2 )
 
 [node name="Visible" parent="StaticProp" index="1"]
 texture = ExtResource( 2 )
-
-[node name="InteractionArea" parent="StaticProp" index="2"]
-visible = false
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticProp" index="3"]
 position = Vector2( 22.8473, 5.69583 )

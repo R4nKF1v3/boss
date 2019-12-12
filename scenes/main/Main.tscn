@@ -35,7 +35,7 @@ texture = ExtResource( 3 )
 [node name="StartLevel" parent="LevelContainer" instance=ExtResource( 4 )]
 
 [node name="Level01" parent="LevelContainer" instance=ExtResource( 5 )]
-position = Vector2( 7686.69, 2127.64 )
+position = Vector2( 7680, 2116.27 )
 
 [node name="PlayerContainer" type="Node" parent="."]
 

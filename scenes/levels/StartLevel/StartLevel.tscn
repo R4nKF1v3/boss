@@ -1,5 +1,4 @@
 [gd_scene load_steps=74 format=2]
-
 [ext_resource path="res://scenes/levels/Level.tscn" type="PackedScene" id=1]
 [ext_resource path="res://resources/props/doors/wooden_door/WoodenDoor.tscn" type="PackedScene" id=2]
 [ext_resource path="res://resources/props/interactuable properties/events/TriggerEvent/TriggerEvent.tscn" type="PackedScene" id=3]
