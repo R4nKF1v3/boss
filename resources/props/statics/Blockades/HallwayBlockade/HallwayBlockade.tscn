@@ -17,7 +17,7 @@ polygon = PoolVector2Array( 82.2262, -105.498, 65.1576, -68.9228, 74.4234, -40.1
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 42.485, 104.37 )
 
-[node name="HallwayBlockade" index="0" instance=ExtResource( 1 )]
+[node name="HallwayBlockade" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 
 [node name="StaticProp" parent="." index="0"]

@@ -14,7 +14,7 @@ loop_end = 100000
 extents = Vector2( 50.6391, 28.3235 )
 
 [node name="Television" index="0" instance=ExtResource( 1 )]
-light_colour = Color( 1, 1, 1, 0.705882 )
+light_colour = Color( 1, 1, 1, 0.901961 )
 on_toggle_effect_texture = ExtResource( 2 )
 on_toggle_emmiter_texture = ExtResource( 3 )
 
@@ -34,7 +34,7 @@ max_distance = 600.0
 [node name="StaticBody2D" type="StaticBody2D" parent="Light" index="6"]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Light/StaticBody2D" index="0"]
-polygon = PoolVector2Array( -0.00286579, -0.628123, 1.04274, 1.74186, -0.0537243, -3.02962, -1.1204, 1.80084 )
+polygon = PoolVector2Array( 0.009305, -0.33958, 1.54941, 1.74918, 0.009305, -0.586717, -1.42873, 1.64398 )
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="Light" index="7"]
 collision_layer = 4
