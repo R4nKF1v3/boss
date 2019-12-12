@@ -73,7 +73,7 @@ light_mask = 2
 margin_right = 40.0
 margin_bottom = 14.0
 custom_colors/font_color = Color( 1, 1, 1, 1 )
-text = "FPS: 64"
+text = "FPS: 54"
 script = ExtResource( 6 )
 
 [node name="Damage" type="Control" parent="."]

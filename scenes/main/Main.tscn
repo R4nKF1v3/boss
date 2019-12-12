@@ -12,6 +12,7 @@
 blend_mode = 2
 
 [node name="Main" type="Node"]
+pause_mode = 1
 
 [node name="UI" type="CanvasLayer" parent="."]
 layer = 2

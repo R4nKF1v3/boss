@@ -67,4 +67,3 @@ one_shot = true
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Control/PlayerDialogue"]
 stream = ExtResource( 5 )
 volume_db = -35.0
-bus = "Ambience"
