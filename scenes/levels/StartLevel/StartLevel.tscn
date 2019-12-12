@@ -306,12 +306,13 @@ force_when_opened = Vector2( 0, -60 )
 [node name="StudioDeskRoll" parent="VisibleLayer/Ground/Props/fsroom/bedroom" index="3" instance=ExtResource( 24 )]
 position = Vector2( 517.536, 778.954 )
 rotation = 1.5708
+is_interactuable = false
 
 [node name="ToggleEvent" parent="VisibleLayer/Ground/Props/fsroom/bedroom/StudioDeskRoll" index="1" instance=ExtResource( 11 )]
 nodes = [ NodePath("..") ]
 
 [node name="nota" parent="VisibleLayer/Ground/Props/fsroom/bedroom/StudioDeskRoll" index="2" instance=ExtResource( 9 )]
-position = Vector2( 8.55307, -15.4177 )
+position = Vector2( -14.7155, -17.6336 )
 is_interactuable = false
 delete_after_trigger = true
 starts_toggled = true
@@ -586,7 +587,7 @@ position = Vector2( 171.542, 2.83813 )
 rotation = -1.58081
 
 [node name="HallwayBlockade02" parent="VisibleLayer/Ground/Props/hallway/block" index="1" instance=ExtResource( 50 )]
-position = Vector2( 3649.26, 2716.25 )
+position = Vector2( 3640.71, 2716.25 )
 
 [node name="BlockingBench" parent="VisibleLayer/Ground/Props/hallway/block" index="2" instance=ExtResource( 51 )]
 position = Vector2( 3777.34, 2942.47 )
@@ -645,7 +646,7 @@ rotation = 1.26912
 
 [node name="CarpetRolled" parent="VisibleLayer/Ground/Props/hallway" index="14" instance=ExtResource( 55 )]
 position = Vector2( 2093.76, 942.979 )
-rotation = -5.59464e-005
+rotation = -5.59464e-05
 
 [node name="CarpetRolled2" parent="VisibleLayer/Ground/Props/hallway" index="15" instance=ExtResource( 55 )]
 position = Vector2( 2165.18, 942.1 )
@@ -1474,6 +1475,7 @@ rotation = -3.14159
 [node name="WoodenDoor" parent="VisibleLayer/Ground/Props/lastroom" index="0" instance=ExtResource( 2 )]
 position = Vector2( 6880.94, 2080.2 )
 rotation = 1.56936
+is_interactuable = true
 
 [node name="TriggerEvent" parent="VisibleLayer/Ground/Props/lastroom/WoodenDoor" index="1" instance=ExtResource( 3 )]
 one_shot = true
