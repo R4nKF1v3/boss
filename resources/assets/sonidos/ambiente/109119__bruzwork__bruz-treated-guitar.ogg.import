@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/109119__bruzwork__bruz-treated-guitar.ogg-9a1e9b69ac794c0f3e32c700e84fc297.oggstr"
+
+[deps]
+
+source_file="res://resources/assets/sonidos/ambiente/109119__bruzwork__bruz-treated-guitar.ogg"
+dest_files=[ "res://.import/109119__bruzwork__bruz-treated-guitar.ogg-9a1e9b69ac794c0f3e32c700e84fc297.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -70,7 +70,7 @@ func enemy_visible_check(enemy_index, raycast_index):
 	if enemies_in_proximity.size() - 1 >= enemy_index:
 		var enemy = enemies_in_proximity[enemy_index]
 		var direction = (enemy.global_position - global_position)
-		if abs(rad2deg(Vector2(1,0).rotated(rotation).angle_to(direction))) < FOV:
+		if abs(rad2deg(Vector2(1,0).rotated(rotation).angle_to(direction))) <= FOV:
 			var mask = raycast.collision_mask
 			var space_state = get_world_2d().direct_space_state
 			var target_extents = enemy.get_node("CollisionShape2D").shape.extents

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/254684__valentinsosnitskiy__darck-water.ogg-a7ef9295906ff511c2d97a32107b2e14.oggstr"
+
+[deps]
+
+source_file="res://resources/assets/sonidos/ambiente/254684__valentinsosnitskiy__darck-water.ogg"
+dest_files=[ "res://.import/254684__valentinsosnitskiy__darck-water.ogg-a7ef9295906ff511c2d97a32107b2e14.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

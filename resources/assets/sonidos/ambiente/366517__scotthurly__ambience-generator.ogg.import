@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/366517__scotthurly__ambience-generator.ogg-8b364fe36e4314508c48a65b97253de2.oggstr"
+
+[deps]
+
+source_file="res://resources/assets/sonidos/ambiente/366517__scotthurly__ambience-generator.ogg"
+dest_files=[ "res://.import/366517__scotthurly__ambience-generator.ogg-8b364fe36e4314508c48a65b97253de2.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

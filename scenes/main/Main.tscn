@@ -40,7 +40,7 @@ position = Vector2( 7686.69, 2127.64 )
 [node name="PlayerContainer" type="Node" parent="."]
 
 [node name="PlayerContainer" parent="PlayerContainer" instance=ExtResource( 6 )]
-position = Vector2( 3662.77, 1941.85 )
+position = Vector2( 264.994, 727.198 )
 
 [node name="Foreground" type="ParallaxBackground" parent="."]
 layer = 1
