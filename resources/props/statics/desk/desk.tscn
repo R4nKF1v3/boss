@@ -10,6 +10,8 @@ extents = Vector2( 71.5302, 119.137 )
 
 [node name="StaticProp" parent="." index="0"]
 scale = Vector2( 0.714, 0.714 )
+collision_layer = 4
+collision_mask = 4
 
 [node name="Hidden" parent="StaticProp" index="0"]
 modulate = Color( 0, 0, 0, 1 )

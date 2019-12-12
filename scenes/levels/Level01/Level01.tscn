@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=2]
+[gd_scene load_steps=44 format=2]
 
 [ext_resource path="res://scenes/levels/Level.tscn" type="PackedScene" id=1]
 [ext_resource path="res://resources/props/textures/SangreModelo1.tscn" type="PackedScene" id=2]
@@ -36,7 +36,8 @@
 [ext_resource path="res://resources/props/statics/police car/police car.tscn" type="PackedScene" id=34]
 [ext_resource path="res://resources/props/statics/reja/Reja.tscn" type="PackedScene" id=35]
 [ext_resource path="res://resources/props/lights/LampLight01/LampLight01.tscn" type="PackedScene" id=36]
-[ext_resource path="res://resources/props/statics/arboles/arbol01.tscn" type="PackedScene" id=37]
+[ext_resource path="res://resources/props/lights/CeilingLamp/CeilingLamp.tscn" type="PackedScene" id=37]
+[ext_resource path="res://resources/props/statics/arboles/arbol01.tscn" type="PackedScene" id=38]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 78.5509, 117.627 )
@@ -45,7 +46,10 @@ extents = Vector2( 78.5509, 117.627 )
 extents = Vector2( 21.2397, 121.391 )
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 24.832, 129.774 )
+extents = Vector2( 28.4616, 122.902 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 120.316, 33.238 )
 
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 126.895, 59.79 )
@@ -317,12 +321,28 @@ shape = SubResource( 2 )
 nodes = [ NodePath("../../area de lucas/CanvasEvent2") ]
 
 [node name="saliendo area lucas" parent="VisibleLayer/Ground/Props" index="17" instance=ExtResource( 24 )]
-editor/display_folded = true
 position = Vector2( 692.243, 162.074 )
 
 [node name="CollisionShape2D" parent="VisibleLayer/Ground/Props/saliendo area lucas/Area" index="0"]
-position = Vector2( -48.4977, 4.19115 )
+position = Vector2( 0.756531, 0.453293 )
 shape = SubResource( 3 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="VisibleLayer/Ground/Props/saliendo area lucas/Area" index="1"]
+position = Vector2( -533.551, 942.196 )
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="VisibleLayer/Ground/Props/saliendo area lucas/Area" index="2"]
+position = Vector2( -213.046, 166.779 )
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="VisibleLayer/Ground/Props/saliendo area lucas/Area" index="3"]
+position = Vector2( -621.432, -6.39722 )
+rotation = 1.56938
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="VisibleLayer/Ground/Props/saliendo area lucas/Area" index="4"]
+position = Vector2( -540.013, 473.069 )
+shape = SubResource( 5 )
 
 [node name="TriggerEvent" parent="VisibleLayer/Ground/Props/saliendo area lucas" index="1" instance=ExtResource( 17 )]
 nodes = [ NodePath("../CanvasEvent2") ]
@@ -435,17 +455,12 @@ melee_damage = 1.0
 insanity_damage = 0.2
 
 [node name="planta01" parent="VisibleLayer/Ground" index="3" instance=ExtResource( 33 )]
-position = Vector2( 744.012, 627.377 )
+position = Vector2( 751.728, 635.093 )
 
 [node name="planta02" parent="VisibleLayer/Ground" index="4" instance=ExtResource( 33 )]
 position = Vector2( 230.816, 635.971 )
 
-[node name="police car" parent="VisibleLayer/Ground" index="5" instance=ExtResource( 34 )]
-position = Vector2( 312.426, 1643.03 )
-rotation = -3.13819
-scale = Vector2( 1e-005, 1e-005 )
-
-[node name="police car2" parent="VisibleLayer/Ground" index="6" instance=ExtResource( 34 )]
+[node name="police car2" parent="VisibleLayer/Ground" index="5" instance=ExtResource( 34 )]
 position = Vector2( 320.242, 1640.69 )
 rotation = -3.14543
 
@@ -503,30 +518,40 @@ rotation = -1.57461
 [node name="Props" parent="VisibleLayer/OutsideProps" index="0"]
 position = Vector2( -34.0428, 1.62109 )
 
-[node name="LampLight04" parent="VisibleLayer/OutsideProps/Props" index="0" instance=ExtResource( 36 )]
+[node name="LampLight01" parent="VisibleLayer/OutsideProps/Props" index="0" instance=ExtResource( 36 )]
+position = Vector2( 541.864, 550.596 )
+light_size = 800.0
+
+[node name="LampLight05" parent="VisibleLayer/OutsideProps/Props" index="1" instance=ExtResource( 36 )]
+position = Vector2( 256.176, 67.9698 )
+light_size = 800.0
+
+[node name="LampLight04" parent="VisibleLayer/OutsideProps/Props" index="2" instance=ExtResource( 36 )]
 position = Vector2( 1074.37, 158.212 )
 light_size = 800.0
 
-[node name="LampLight03" parent="VisibleLayer/OutsideProps/Props" index="1" instance=ExtResource( 36 )]
-position = Vector2( 748.698, 327.581 )
+[node name="LampLight03" parent="VisibleLayer/OutsideProps/Props" index="3" instance=ExtResource( 36 )]
+position = Vector2( 1081.99, 441.853 )
 light_size = 800.0
 
-[node name="LampLight02" parent="VisibleLayer/OutsideProps/Props" index="2" instance=ExtResource( 36 )]
+[node name="LampLight02" parent="VisibleLayer/OutsideProps/Props" index="4" instance=ExtResource( 36 )]
 position = Vector2( 1553.33, 590.358 )
 light_size = 900.0
 
-[node name="arbol01" parent="VisibleLayer/OutsideProps" index="2" instance=ExtResource( 37 )]
+[node name="CeilingLamp" parent="VisibleLayer/OutsideProps/Props" index="5" instance=ExtResource( 37 )]
+position = Vector2( 545.859, 548.943 )
+
+[node name="CeilingLamp2" parent="VisibleLayer/OutsideProps/Props" index="6" instance=ExtResource( 37 )]
+position = Vector2( 253.378, 68.7291 )
+
+[node name="arbol01" parent="VisibleLayer/OutsideProps" index="2" instance=ExtResource( 38 )]
 position = Vector2( 177.707, 1226.5 )
 scale = Vector2( 0.626546, 0.607832 )
 
-[node name="arbol02" parent="VisibleLayer/OutsideProps" index="3" instance=ExtResource( 37 )]
+[node name="arbol02" parent="VisibleLayer/OutsideProps" index="3" instance=ExtResource( 38 )]
 position = Vector2( 166.601, 893.298 )
 rotation = 1.09054
 scale = Vector2( 0.754972, 0.61387 )
-
-[node name="LampLight01" parent="VisibleLayer/Notes" index="0" instance=ExtResource( 36 )]
-position = Vector2( 164.855, 426.604 )
-light_size = 800.0
 
 [editable path="VisibleLayer/Ground/Groundtiles/manos ensangretadas2"]
 

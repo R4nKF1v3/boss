@@ -709,7 +709,6 @@ position = Vector2( 331.19, 635.156 )
 scale = Vector2( 0.195886, 0.195886 )
 
 [node name="hallway" type="Node2D" parent="VisibleLayer/OutsideProps/Props" index="1"]
-editor/display_folded = true
 
 [node name="lights" type="Node2D" parent="VisibleLayer/OutsideProps/Props/hallway" index="0"]
 
