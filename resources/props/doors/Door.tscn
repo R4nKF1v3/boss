@@ -40,6 +40,9 @@ max_distance = 400.0
 bus = "Environment"
 script = ExtResource( 3 )
 
+[node name="Timer" type="Timer" parent="Door/Doorway/MovementSound"]
+one_shot = true
+
 [node name="DamageSound" type="AudioStreamPlayer2D" parent="Door/Doorway"]
 script = ExtResource( 4 )
 
@@ -51,7 +54,7 @@ node_a = NodePath("../Hinge")
 node_b = NodePath("../Doorway")
 
 [node name="DetectionArea" type="Area2D" parent="Door"]
-collision_layer = 2
-collision_mask = 2
+collision_layer = 18
+collision_mask = 18
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Door/DetectionArea"]

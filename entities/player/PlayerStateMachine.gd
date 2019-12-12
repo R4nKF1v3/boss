@@ -7,6 +7,11 @@ func _ready():
 		"run": $Run,
 	}
 	START_STATE = $Idle
+	set_physics_process(false)
+	set_process(true)
+
+func _process(delta):
+	current_state.call_deferred("update", delta)
 
 func _change_state(state_name):
 	"""

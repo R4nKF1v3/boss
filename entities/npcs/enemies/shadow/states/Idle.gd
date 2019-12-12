@@ -18,11 +18,10 @@ func exit():
 func update(delta):
 	owner.curr_vel = Vector2()
 	if owner.can_see_player():
-		owner.look_at = owner.target.global_position
 		if owner.can_reach_player():
 			emit_signal("finished", "chase")
 		else:
-			emit_signal("finished", "searching")
+			owner.look_at = owner.player_last_pos
 
 func _on_Timer_timeout():
 	if owner.navigation.is_valid_node(owner.global_position):

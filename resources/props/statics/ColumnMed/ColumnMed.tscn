@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://resources/props/statics/StaticProp.tscn" type="PackedScene" id=1]
+[ext_resource path="res://resources/props/statics/ColumnMed/column.png" type="Texture" id=2]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 34.2819
+
+[sub_resource type="OccluderPolygon2D" id=2]
+polygon = PoolVector2Array( -0.0797176, -34.3775, 8.5458, -33.1348, 17.1713, -29.6992, 24.3349, -24.1438, 29.8172, -17.0534, 33.245, -8.53352, 34.4761, 0.00735283, 33.168, 9.08684, 29.8058, 17.2918, 24.2504, 24.3091, 17.1539, 29.6513, 9.11321, 33.0868, 0.0491085, 34.2564, -8.96359, 33.1676, -17.165, 29.7174, -24.1786, 24.2875, -29.6086, 17.1607, -33.0677, 8.73035, -34.2373, -0.114456, -33.0677, -9.25166, -29.6426, -17.1956, -24.3781, -24.1522, -17.2962, -29.6674, -8.96082, -33.1143 )
+
+[node name="ColumnMed" index="0" instance=ExtResource( 1 )]
+
+[node name="Hidden" parent="StaticProp" index="0"]
+scale = Vector2( 0.531776, 0.531776 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticProp" index="3"]
+shape = SubResource( 1 )
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="StaticProp" index="4"]
+occluder = SubResource( 2 )

@@ -39,8 +39,6 @@ func _integrate_forces(state):
 	
 	legs.rotation = legs_target.angle() + deg2rad(90)
 	legs.position = position
-	
-	enemy_visible_check()
 
 func lerp_angle(from, to, weight):
     return from + short_angle_dist(from, to) * weight
@@ -68,27 +66,33 @@ func _execute_step(volume_range):
 	#signals.emit_signal("camera_shake", 0.2, 2, 8, 1)
 
 
-func enemy_visible_check():
-	if enemies_in_proximity:
-		for enemy in enemies_in_proximity:
-			var direction = (enemy.global_position - global_position)
-			if abs(rad2deg(Vector2(1,0).rotated(rotation).angle_to(direction))) < FOV:
-				var mask = $VisibilityRaycast.collision_mask
-				var space_state = get_world_2d().direct_space_state
-				var target_extents = enemy.get_node("CollisionShape2D").shape.extents
-				var nw = enemy.global_position - target_extents
-				var se = enemy.global_position + target_extents
-				var ne = enemy.global_position + Vector2(target_extents.x, -target_extents.y)
-				var sw = enemy.global_position + Vector2(-target_extents.x, target_extents.y)
-				for pos in [enemy.global_position, nw, se, ne, sw]:
-					raycast.global_position = global_position
-					raycast.cast_to = raycast.to_local(pos)
-					raycast.force_raycast_update()
-					var result = raycast.get_collider()
-					var response = result and result == enemy
-					if response:
-						enemy.deal_insanity_damage()
-						return
+func enemy_visible_check(enemy_index, raycast_index):
+	if enemies_in_proximity.size() - 1 >= enemy_index:
+		var enemy = enemies_in_proximity[enemy_index]
+		var direction = (enemy.global_position - global_position)
+		if abs(rad2deg(Vector2(1,0).rotated(rotation).angle_to(direction))) <= FOV:
+			var mask = raycast.collision_mask
+			var space_state = get_world_2d().direct_space_state
+			var target_extents = enemy.get_node("CollisionShape2D").shape.extents
+			var nw = enemy.global_position - target_extents
+			var se = enemy.global_position + target_extents
+			var ne = enemy.global_position + Vector2(target_extents.x, -target_extents.y)
+			var sw = enemy.global_position + Vector2(-target_extents.x, target_extents.y)
+			var rays = [enemy.global_position, nw, se, ne, sw]
+			var pos = rays[raycast_index]
+			raycast.global_position = global_position
+			raycast.cast_to = raycast.to_local(pos)
+			raycast.force_raycast_update()
+			var result = raycast.get_collider()
+			var response = result and result == enemy
+			if response:
+				enemy.deal_insanity_damage()
+			elif raycast_index + 1 > 4:
+				call_deferred("enemy_visible_check", enemy_index + 1, 0)
+			else:
+				call_deferred("enemy_visible_check", enemy_index + 1, raycast_index + 1)
+		else:
+			call_deferred("enemy_visible_check", enemy_index + 1, 0)
 
 
 func body_entered_visible_area(body):

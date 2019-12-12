@@ -4,7 +4,9 @@ export (int) var attack_times = 8
 
 var target
 var times_attacked = 0
-# Initialize the state. E.g. change the animation
+
+var path = []
+
 func enter():
 	var coll = owner.get_colliding_bodies()
 	if coll:
@@ -17,9 +19,9 @@ func enter():
 				return
 	emit_signal("finished", "previous")
 
-# Clean up the state. Reinitialize values like a timer
 func exit():
 	target = null
+	path = []
 
 func _on_animation_finished(anim_name):
 	if anim_name == "attack":

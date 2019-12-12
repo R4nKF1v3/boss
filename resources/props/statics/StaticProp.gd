@@ -19,7 +19,7 @@ func _ready():
 	vis_base_tx = vis.texture
 	prop_coll = [prop.collision_layer, prop.collision_mask]
 	if starts_toggled:
-		toggle()
+		call_deferred("toggle")
 
 func get_interaction_area():
 	return $StaticProp/InteractionArea
@@ -41,9 +41,9 @@ func toggle():
 	elif vis.texture != vis_base_tx:
 		vis.texture = vis_base_tx
 	
-	if on_toggle_collision_switch && prop.collision_layer != 20 && prop.collision_mask != 20:
-		prop.collision_layer = 20
-		prop.collision_mask = 20
+	if on_toggle_collision_switch && prop.collision_layer == prop_coll[0] && prop.collision_mask == prop_coll[1]:
+		prop.collision_layer = 262144
+		prop.collision_mask = 262144
 	elif prop.collision_layer != prop_coll[0] && prop.collision_mask != prop_coll[1]:
 		prop.collision_layer = prop_coll[0]
 		prop.collision_mask = prop_coll[1]

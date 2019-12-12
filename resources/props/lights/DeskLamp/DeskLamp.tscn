@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://resources/props/lights/Light.tscn" type="PackedScene" id=1]
+[ext_resource path="res://resources/props/lights/DeskLamp/6AZ_Desk_Lamp-desat.png" type="Texture" id=2]
+[ext_resource path="res://resources/props/lights/DeskLamp/6AZ_Desk_Lamp.png" type="Texture" id=3]
+[ext_resource path="res://resources/assets/sonidos/ambiente/electricidad continua.wav" type="AudioStream" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 30.264, 15.6995 )
+
+[node name="DeskLamp" instance=ExtResource( 1 )]
+on_toggle_effect_texture = ExtResource( 2 )
+on_toggle_emmiter_texture = ExtResource( 3 )
+
+[node name="Effect" parent="Light" index="1"]
+position = Vector2( 0, -3 )
+scale = Vector2( 0.297, 0.297 )
+texture = ExtResource( 2 )
+
+[node name="Emmiter" parent="Light" index="2"]
+light_mask = 1
+position = Vector2( 0, -3 )
+scale = Vector2( 0.296932, 0.297282 )
+texture = ExtResource( 3 )
+
+[node name="InteractionArea" parent="Light" index="3"]
+position = Vector2( 0, -3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Light/InteractionArea" index="0"]
+shape = SubResource( 1 )
+
+[node name="AudioStreamPlayer2D" parent="Light" index="5"]
+stream = ExtResource( 4 )
+volume_db = -35.0
+max_distance = 200.0

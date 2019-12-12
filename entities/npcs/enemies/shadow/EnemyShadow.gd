@@ -28,7 +28,7 @@ func _ready():
 func _integrate_forces(state):
 	state.linear_velocity = curr_vel
 	var target = (look_at - global_position).normalized()
-	state.angular_velocity = (lerp_angle(rotation, target.angle(), 0.1) - rotation) * 200
+	state.angular_velocity = (lerp_angle(rotation, target.angle(), 3) - rotation)
 	
 	if damage_receiver:
 		damage_receiver.take_damage(MELEE_DAMAGE, "hp")
@@ -65,14 +65,14 @@ func can_see_player() -> bool:
 			raycast.cast_to = raycast.to_local(target.global_position)
 			raycast.force_raycast_update()
 			var result = raycast.get_collider()
-			var response = result and result == target
+			var response = result && result == target
 			if response:
 				player_last_pos = target.global_position
 				return true
 	return false
 
 func can_reach_player():
-	return target and navigation.is_valid_node(target.global_position)
+	return target && navigation.is_valid_node(target.global_position)
 
 func deal_insanity_damage():
 	PlayerStatus.take_damage(INSANITY_DAMAGE, "insanity")

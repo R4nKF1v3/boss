@@ -5,11 +5,8 @@ var velocity = Vector2()
 func _ready():
 	parent = owner.get_node("Player")
 
-func handle_input(event):
-#	if event.is_action_pressed("simulate_damage"):
-#		emit_signal("finished", "stagger")
-	pass
-
+func update(delta):
+	parent.enemy_visible_check(0, 0)
 
 func get_input_direction():
 	var input_direction = Vector2()

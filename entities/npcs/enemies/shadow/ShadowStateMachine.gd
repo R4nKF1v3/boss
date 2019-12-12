@@ -10,6 +10,11 @@ func _ready():
 	}
 	START_STATE = $Idle
 	signals.connect("noise_emitted", self, "_on_noise_emmited")
+	set_physics_process(false)
+	set_process(true)
+
+func _process(delta):
+	current_state.call_deferred("update", delta)
 
 func _change_state(state_name):
 	"""
@@ -20,6 +25,10 @@ func _change_state(state_name):
 		return
 	if state_name == "attack":
 		states_stack.push_front(states_map[state_name])
+	if state_name == "attack" && (current_state == $Searching || current_state == $Wander):
+		$Attack.path = current_state.objective_path
+	if state_name == "previous" && (states_stack[1] == $Searching || states_stack[1] == $Wander):
+		states_stack[1].objective_path = $Attack.path
 	if state_name == "attack_to_idle":
 		var prev_state = states_stack.pop_back()
 		prev_state.exit()
@@ -32,7 +41,7 @@ func _on_noise_emmited(location, volume_range, priority):
 	if owner.global_position.distance_to(location) <= volume_range:
 		var path = owner.navigation.get_simple_path(owner.global_position, location)
 		if path.size() == 0:
-			owner.look_at(location)
+			owner.look_at = location
 			return
 		
 		owner.player_last_pos = location
