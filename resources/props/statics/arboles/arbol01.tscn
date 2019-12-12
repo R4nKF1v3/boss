@@ -9,7 +9,7 @@ radius = 36.0127
 [sub_resource type="OccluderPolygon2D" id=2]
 polygon = PoolVector2Array( -20.8692, 28.7729, -1.10519, 35.0974, 12.3343, 33.2527, 18.1318, 29.827, 26.5644, 24.8201, 35.5241, 5.3196, 33.1524, -13.3903, 24.1928, -28.6745, -0.57814, -36.5801, -25.349, -27.6204, -37.471, -1.53194, -32.2006, 15.0698 )
 
-[node name="arbol01" index="0" instance=ExtResource( 1 )]
+[node name="arbol01" instance=ExtResource( 1 )]
 light_mask = 15
 
 [node name="Hidden" parent="StaticProp" index="0"]
