@@ -139,16 +139,16 @@ extents = Vector2( 119.03, 10 )
 [sub_resource type="RectangleShape2D" id=17]
 extents = Vector2( 117.127, 10 )
 
-[sub_resource type="RectangleShape2D" id=21]
+[sub_resource type="RectangleShape2D" id=18]
 extents = Vector2( 119.104, 43.258 )
 
-[sub_resource type="RectangleShape2D" id=18]
+[sub_resource type="RectangleShape2D" id=19]
 extents = Vector2( 117.302, 15.1349 )
 
 [sub_resource type="RectangleShape2D" id=20]
 extents = Vector2( 58.2969, 10 )
 
-[sub_resource type="CanvasItemMaterial" id=19]
+[sub_resource type="CanvasItemMaterial" id=21]
 blend_mode = 2
 light_mode = 1
 
@@ -1163,7 +1163,7 @@ force_when_opened = Vector2( 0, 60 )
 position = Vector2( 670.737, 2381.66 )
 
 [node name="CollisionShape2D" parent="VisibleLayer/Ground/Props/altpath03/Checkpoint/Area2D" index="0"]
-shape = SubResource( 21 )
+shape = SubResource( 18 )
 
 [node name="WoodenDoor8" parent="VisibleLayer/Ground/Props/altpath03" index="15" instance=ExtResource( 2 )]
 position = Vector2( 728.041, 2463.46 )
@@ -1290,7 +1290,7 @@ rotation = 0.832192
 delete_on_interaction = true
 
 [node name="CollisionShape2D" parent="VisibleLayer/Ground/Props/altpath04/TriggerArea/Area" index="0"]
-shape = SubResource( 18 )
+shape = SubResource( 19 )
 
 [node name="TriggerEvent" parent="VisibleLayer/Ground/Props/altpath04/TriggerArea" index="1" instance=ExtResource( 3 )]
 one_shot = true
@@ -1636,7 +1636,7 @@ tile_data = PoolIntArray( 65537, 0, 1, 65538, 0, 196610, 65539, 0, 196610, 65540
 [node name="Sprite" type="Sprite" parent="VisibleLayer/OutsideProps/Props/fsroom/lights" index="0"]
 modulate = Color( 1, 1, 1, 0.168627 )
 light_mask = 2
-material = SubResource( 19 )
+material = SubResource( 21 )
 position = Vector2( 4.19452, 768.357 )
 scale = Vector2( 0.0442855, 0.0763328 )
 texture = ExtResource( 77 )
