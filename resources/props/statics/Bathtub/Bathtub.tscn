@@ -4,7 +4,7 @@
 [ext_resource path="res://resources/props/statics/Bathtub/modern_bathtub-desat.png" type="Texture" id=2]
 [ext_resource path="res://resources/props/statics/Bathtub/modern_bathtub.png" type="Texture" id=3]
 
-[node name="Bathtub" index="0" instance=ExtResource( 1 )]
+[node name="Bathtub" instance=ExtResource( 1 )]
 
 [node name="StaticProp" parent="." index="0"]
 collision_layer = 4
