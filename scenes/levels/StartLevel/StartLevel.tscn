@@ -1298,7 +1298,7 @@ nodes = [ NodePath("../../../../Spawns/altpath04/EnemySpawner"), NodePath("../..
 
 [node name="TogInteractuableEvent" parent="VisibleLayer/Ground/Props/altpath04/TriggerArea" index="2" instance=ExtResource( 10 )]
 one_shot = true
-nodes = [ NodePath("../../LastDoor") ]
+nodes = [ NodePath("../../LastDoor"), NodePath("../../WoodenDoor") ]
 
 [node name="ToggleEvent" parent="VisibleLayer/Ground/Props/altpath04/TriggerArea" index="3" instance=ExtResource( 11 )]
 one_shot = true
