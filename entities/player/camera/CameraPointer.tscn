@@ -1,18 +1,13 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://entities/player/camera/CameraPointer.gd" type="Script" id=1]
 [ext_resource path="res://entities/player/camera/ScreenShake.tscn" type="PackedScene" id=2]
-[ext_resource path="res://resources/fonts/Humongous of Eternity St.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://resources/fonts/dialogue.tres" type="DynamicFont" id=3]
 [ext_resource path="res://entities/player/camera/PlayerDialogue.gd" type="Script" id=4]
 [ext_resource path="res://entities/player/sfx/360602__cabled-mess__typewriter-snippet-02.wav" type="AudioStream" id=5]
 
 [sub_resource type="CanvasItemMaterial" id=1]
 light_mode = 1
-
-[sub_resource type="DynamicFont" id=2]
-size = 24
-outline_size = 3
-font_data = ExtResource( 3 )
 
 [node name="CameraPointer" type="Position2D"]
 z_index = 50
@@ -52,7 +47,7 @@ anchor_bottom = 1.0
 margin_bottom = -100.0
 grow_horizontal = 2
 grow_vertical = 2
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = ExtResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "Sample Text for the sample

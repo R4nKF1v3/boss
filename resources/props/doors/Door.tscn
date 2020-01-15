@@ -37,7 +37,6 @@ collision_mask = 8
 
 [node name="MovementSound" type="AudioStreamPlayer2D" parent="Door/Doorway"]
 max_distance = 400.0
-bus = "Environment"
 script = ExtResource( 3 )
 
 [node name="Timer" type="Timer" parent="Door/Doorway/MovementSound"]

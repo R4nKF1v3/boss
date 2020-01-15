@@ -9,6 +9,7 @@ blend_mode = 2
 [node name="AreaModulate" type="Sprite"]
 light_mask = 2
 material = SubResource( 1 )
+z_index = 50
 texture = ExtResource( 1 )
 script = ExtResource( 2 )
 

@@ -235,6 +235,7 @@ script = ExtResource( 9 )
 collision_mask = 17
 
 [node name="CameraPointer" parent="." instance=ExtResource( 10 )]
+z_index = 100
 
 [node name="MousePointer" parent="." instance=ExtResource( 11 )]
 

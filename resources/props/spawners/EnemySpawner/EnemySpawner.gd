@@ -54,6 +54,7 @@ func get_pathtiles():
 	return owner.get_node("VisibleLayer/Pathtiles")
 
 func remove_child(node):
+	if !node: return
 	.remove_child(node)
 	node.call_deferred("queue_free")
 	spawned = null
