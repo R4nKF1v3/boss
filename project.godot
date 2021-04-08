@@ -107,6 +107,7 @@ _global_script_class_icons={
 config/name="boss"
 run/main_scene="res://scenes/menu/Menu.tscn"
 config/icon="res://icon.png"
+config/auto_accept_quit=false
 
 [autoload]
 

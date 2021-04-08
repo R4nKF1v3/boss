@@ -28,4 +28,4 @@ func on_button1_pressed():
 	hide()
 
 func on_button2_pressed():
-	get_tree().change_scene("res://scenes/menu/Menu.tscn")
+	get_tree().quit()
