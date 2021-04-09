@@ -17,3 +17,7 @@ signal show_shift
 func check_behind_wall(audio : AudioStreamPlayer2D, target : Vector2, space : Physics2DDirectSpaceState) -> bool:
 	var result = space.intersect_ray(audio.global_position, target, [], 1)
 	return !result.empty()
+
+func _unhandled_input(event):
+	if event.is_action_pressed("toggle_fullscreen"):
+		OS.window_fullscreen = !OS.window_fullscreen

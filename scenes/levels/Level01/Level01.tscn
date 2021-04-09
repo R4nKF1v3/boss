@@ -121,15 +121,11 @@ delete_after_trigger = true
 starts_toggled = true
 
 [node name="manos ensangretadas2" parent="VisibleLayer/Ground/Groundtiles" index="10" instance=ExtResource( 9 )]
-editor/display_folded = true
 position = Vector2( 1123.38, 143.776 )
 rotation = 0.767849
 scale = Vector2( 0.022182, 0.022182 )
 delete_after_trigger = true
 starts_toggled = true
-
-[node name="TextureProp" parent="VisibleLayer/Ground/Groundtiles/manos ensangretadas2" index="0"]
-editor/display_folded = true
 
 [node name="Visible" parent="VisibleLayer/Ground/Groundtiles/manos ensangretadas2/TextureProp" index="1"]
 position = Vector2( 941.549, -2276.82 )
@@ -221,9 +217,6 @@ is_interactuable = true
 [node name="Mesa con nota y bichos" parent="VisibleLayer/Ground/Props" index="8" instance=ExtResource( 15 )]
 position = Vector2( 949.599, 725.522 )
 
-[node name="InteractionArea" parent="VisibleLayer/Ground/Props/Mesa con nota y bichos/PhysProp" index="3"]
-editor/display_folded = true
-
 [node name="Checkpoint" parent="VisibleLayer/Ground/Props/Mesa con nota y bichos/PhysProp" index="5" instance=ExtResource( 20 )]
 position = Vector2( 21.7906, 100.721 )
 is_last = true
@@ -242,7 +235,7 @@ dialogue_text = [ "\"Hasta aquí llegas\"" ]
 [node name="AmbienceAudioEvent" parent="VisibleLayer/Ground/Props/Mesa con nota y bichos/PhysProp/nota" index="3" instance=ExtResource( 22 )]
 one_shot = true
 sound = ExtResource( 23 )
-db_level = -15.0
+db_level = -20.0
 
 [node name="BloodTrail01" parent="VisibleLayer/Ground/Props" index="9" instance=ExtResource( 24 )]
 position = Vector2( 632.731, 776.743 )
@@ -290,7 +283,6 @@ rotation = 3.12738
 is_interactuable = true
 
 [node name="area de celda" parent="VisibleLayer/Ground/Props" index="18" instance=ExtResource( 28 )]
-editor/display_folded = true
 position = Vector2( 763.172, 776.776 )
 
 [node name="huele a putrefaccion" parent="VisibleLayer/Ground/Props/area de celda" index="1" instance=ExtResource( 18 )]
@@ -396,11 +388,7 @@ nodes = [ NodePath("../CanvasEvent2") ]
 [node name="CanvasEvent2" parent="VisibleLayer/Ground/Props/saliendo area lucas" index="2" instance=ExtResource( 32 )]
 
 [node name="TriggerArea" parent="VisibleLayer/Ground/Props" index="22" instance=ExtResource( 28 )]
-editor/display_folded = true
 position = Vector2( 140, 1336.84 )
-
-[node name="Area" parent="VisibleLayer/Ground/Props/TriggerArea" index="0"]
-editor/display_folded = true
 
 [node name="CollisionShape2D" parent="VisibleLayer/Ground/Props/TriggerArea/Area" index="0"]
 position = Vector2( 14.7368, 62.1052 )
@@ -412,7 +400,7 @@ nodes = [ NodePath("../Area/DialogueEvent") ]
 
 [node name="DialogueEvent" parent="VisibleLayer/Ground/Props/TriggerArea" index="2" instance=ExtResource( 18 )]
 one_shot = true
-dialogue_text = [ "eso es ...", "no", "que esta pasando ?", "" ]
+dialogue_text = [ "Eso es ...", "No", "¿Qué esta pasando ?" ]
 
 [node name="librero01" parent="VisibleLayer/Ground/Props" index="23" instance=ExtResource( 34 )]
 position = Vector2( 508.441, 641.445 )
